@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: MovingPlatform
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{},"position":{"x":-225.0,"y":-118.0},"guid":"8a64c9e9-d2d2-454e-88fa-4f4559803238","$version":"A","$type":"Bolt.SuperUnit"},{"nest":{"source":"Macro","macro":1,"embed":null},"defaultValues":{},"position":{"x":-19.0,"y":-118.0},"guid":"1884bd78-8145-42bb-891b-c2a99fe3c67d","$version":"A","$type":"Bolt.SuperUnit"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 57e4a4fb129934f8895dc0209afa10cf, type: 2}
+    - {fileID: 11400000, guid: de509b3fa34f34d338cb15b79c37e88c, type: 2}

@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: c8d0ad23af520fe46aabe2b1fecf6462
+PluginImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap:
+    Bolt.AnimatorMessageListener:
+      fileID: 2800000
+      guid: 21763ada12b1de54a9de03382ecdf3fe
+      type: 3
+    Bolt.GlobalMessageListener:
+      fileID: 2800000
+      guid: 0129cf6bb23df2f41824eda97d16ee6e
+      type: 3
+    Bolt.UnityMessageListener:
+      fileID: 2800000
+      guid: 310bebb331cf47f42b7f0b57b1f5bfcf
+      type: 3
+    Bolt.SceneVariables:
+      fileID: 2800000
+      guid: 85b733ff25d1eee479a6d510562bd0b2
+      type: 3
+    Bolt.Variables:
+      fileID: 2800000
+      guid: f4241d97facf9bf4881222c2789a4c14
+      type: 3
+    Bolt.VariablesAsset:
+      fileID: 2800000
+      guid: 7e1f811eb716b3844aad1127122172ed
+      type: 3
+    Bolt.VariablesSaver:
+      fileID: 2800000
+      guid: c49720c31a0991d48aa5d1fcf9d6d1a6
+      type: 3
+  executionOrder: {}
+  isPreloaded: 0
+  isOverridable: 0
+  platformData:
+  - first:
+      Android: Android
+    second:
+      enabled: 1
+      settings:
+        ScriptingBackend: Il2Cpp
+  - first:
+      Any: ''
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
+      settings:
+        DefaultValueInitialized: true
+  - first:
+      Nintendo 3DS: N3DS
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Nintendo Switch: Switch
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      PS4: PS4
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      PSM: PSM
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      PSP2: PSP2
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Linux
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Linux64
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: LinuxUniversal
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: OSXUniversal
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Win
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Win64
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Tizen: Tizen
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      WebGL: WebGL
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      WiiU: WiiU
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Windows Store Apps: WindowsStoreApps
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+        ScriptingBackend: Il2Cpp
+  - first:
+      XboxOne: XboxOne
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      iPhone: iOS
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      tvOS: tvOS
+    second:
+      enabled: 1
+      settings: {}
+  userData: ''
+  assetBundleName: ''
+  assetBundleVariant: ''
+...

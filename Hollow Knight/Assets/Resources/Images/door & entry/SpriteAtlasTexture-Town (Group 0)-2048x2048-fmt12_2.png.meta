@@ -1,0 +1,435 @@
+fileFormatVersion: 2
+guid: c7aa5d3cbe8d842c28bfadee61f6fe25
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_0
+    21300002: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_1
+    21300004: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_2
+    21300006: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_3
+    21300008: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_4
+    21300010: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_5
+    21300012: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_6
+    21300014: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_7
+    21300016: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_8
+    21300018: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_9
+    21300020: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_10
+    21300022: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_11
+    21300024: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_12
+    21300026: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_13
+    21300028: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_14
+    21300030: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_15
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1376
+        width: 517
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4707eed1e012458ca4ef63e65c46c36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_1
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1381
+        width: 357
+        height: 667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfb28ed584594436b2c95a95b90ad0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_2
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 1373
+        width: 69
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b4839c2fda34e8c97689ed4073a56a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_3
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1373
+        width: 1160
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9fa6659db9e490086d12920cbc988c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1284
+        width: 173
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03a5cf6fd5b247208a94930738677c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1275
+        width: 1290
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd1ceb7f133848cbb6027a6298b1f03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 908
+        width: 528
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9abc5858efa482280de2c2ee419379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_7
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 625
+        width: 487
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3e0bee340a34d629591dc1bf6274d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_8
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 940
+        width: 373
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8371c0cb55745f09f0f9168a21e4b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_9
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 900
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf58a2611c99481b95eca6560ecb631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 531
+        width: 528
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b31c71038dc4f0bb62109f14f1a4f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_11
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 707
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22bf6d20a5a3848a98371b4c5da58dc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_12
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 624
+        width: 58
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38179f358c3743fcb3472c2005a437f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_13
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 531
+        width: 1520
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442751e3797134bc3b839b7057c9f372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 850
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f56dd1a747854e6c9d1e51d170a255a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAtlasTexture-Town (Group 0)-2048x2048-fmt12_2_15
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0
+        width: 1198
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94df58022ebd4446d88ea0e224a5f878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4f3352a13e343439e8b3dcb5e4844d52
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

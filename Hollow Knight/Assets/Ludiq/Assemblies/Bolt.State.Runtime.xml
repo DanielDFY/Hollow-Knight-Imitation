@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.State.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:Bolt.AnyState">
+            <summary>
+            A special state that can trigger transitions to other states,
+            no matter which state is currently active. This state cannot receive
+            transitions.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnEnterState">
+            <summary>
+            Called in flow graphs nested in state graphs when the parent state node is entered.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnExitState">
+            <summary>
+            Called in flow graphs nested in state graphs before the parent state node is exited.
+            </summary>
+        </member>
+        <member name="P:Bolt.StateUnit.start">
+            <summary>
+            The entry point to start the state graph.
+            </summary>
+        </member>
+        <member name="P:Bolt.StateUnit.stop">
+            <summary>
+            The entry point to stop the state graph.
+            </summary>
+        </member>
+        <member name="P:Bolt.StateUnit.started">
+            <summary>
+            The action to execute after the state graph has been started.
+            </summary>
+        </member>
+        <member name="P:Bolt.StateUnit.stopped">
+            <summary>
+            The action to execute after the state graph has been stopped.
+            </summary>
+        </member>
+        <member name="T:Bolt.TriggerStateTransition">
+            <summary>
+            Triggers the transition in the parent state graph.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerStateTransition.trigger">
+            <summary>
+            The moment at which the parent state transition should be triggered.
+            </summary>
+        </member>
+    </members>
+</doc>

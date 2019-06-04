@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: FallingTrap
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{},"position":{"x":-201.0,"y":-117.0},"guid":"b2bab9f9-852d-4ef7-814a-8eaff4603b24","$version":"A","$type":"Bolt.SuperUnit"},{"nest":{"source":"Macro","macro":1,"embed":null},"defaultValues":{},"position":{"x":-74.0,"y":-116.0},"guid":"5b90e401-9d8c-4040-b641-0678631fc054","$version":"A","$type":"Bolt.SuperUnit"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 652e491c210dd48d79bcd0ec4e81cba3, type: 2}
+    - {fileID: 11400000, guid: 1f08f70446a364a478204ebfcc01fedc, type: 2}

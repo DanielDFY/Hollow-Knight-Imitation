@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.State.Editor</name>
+    </assembly>
+    <members>
+        <member name="P:Bolt.BoltStateConfiguration.statesReveal">
+            <summary>
+            Determines under which condition events should be shown in state nodes.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltStateConfiguration.transitionsReveal">
+            <summary>
+            Determines under which condition event names should be shown in state transition.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltStateConfiguration.transitionsEndArrow">
+            <summary>
+            Whether state transitions should show an arrow at their destination state. This can appear confusing when there are
+            multiple transitions.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltStateConfiguration.animateTransitions">
+            <summary>
+            Whether traversed transitions should show a droplet animation.
+            </summary>
+        </member>
+    </members>
+</doc>

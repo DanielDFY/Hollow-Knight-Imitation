@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.Core.Runtime</name>
+    </assembly>
+    <members>
+        <member name="F:Bolt.VariableKind.Flow">
+            <summary>
+            Temporary variables local to the execution flow.
+            </summary>
+        </member>
+        <member name="F:Bolt.VariableKind.Graph">
+            <summary>
+            Variables local to the current graph.
+            </summary>
+        </member>
+        <member name="F:Bolt.VariableKind.Object">
+            <summary>
+            Variables shared across the current game object.
+            </summary>
+        </member>
+        <member name="F:Bolt.VariableKind.Scene">
+            <summary>
+            Variables shared across the current scene.
+            </summary>
+        </member>
+        <member name="F:Bolt.VariableKind.Application">
+            <summary>
+            Variables shared across scenes. 
+            These will be reset when the application quits.
+            </summary>
+        </member>
+        <member name="F:Bolt.VariableKind.Saved">
+            <summary>
+            Variables that persist even after the application quits.
+            Unity object references are not supported.
+            </summary>
+        </member>
+        <member name="T:Bolt.VariablesSaver">
+            <summary>
+            Listens to the OnApplicationQuit on OnApplicationPause
+            hooks to trigger the serialization of saved variables into PlayerPrefs.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ludiq.Graphs.Editor</name>
+    </assembly>
+    <members>
+        <member name="F:Ludiq.AlignOperation.AlignLeftEdges">
+            <summary>
+            Align the left edges of the selected elements.
+            </summary>
+        </member>
+        <member name="F:Ludiq.AlignOperation.AlignCenters">
+            <summary>
+            Align the horizontal centers of the selected elements.
+            </summary>
+        </member>
+        <member name="F:Ludiq.AlignOperation.AlignRightEdges">
+            <summary>
+            Align the right edges of the selected elements.
+            </summary>
+        </member>
+        <member name="F:Ludiq.AlignOperation.AlignTopEdges">
+            <summary>
+            Align the top edges of the selected elements.
+            </summary>
+        </member>
+        <member name="F:Ludiq.AlignOperation.AlignMiddles">
+            <summary>
+            Align the vertical middles of the selected elements.
+            </summary>
+        </member>
+        <member name="F:Ludiq.AlignOperation.AlignBottomEdges">
+            <summary>
+            Align the bottom edges of the selected elements.
+            </summary>
+        </member>
+        <member name="T:Ludiq.WidgetList`1">
+            <summary>
+            A list of widgets that can be safely iterated over even if the collection changes during iteration.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeLeftEdges">
+            <summary>
+            Distribute the selected elements so that the left  edges
+            are at equal distance of one another.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeCenters">
+            <summary>
+            Distribute the selected elements so that the horizontal centers
+            are at equal distance of one another.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeRightEdges">
+            <summary>
+            Distribute the selected elements so that the right edges
+            are at equal distance of one another.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeHorizontalGaps">
+            <summary>
+            Distribute the selected elements so that the horizontal gaps
+            are all of equal size.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeTopEdges">
+            <summary>
+            Distribute the selected elements so that the top edges
+            are at equal distance of one another.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeMiddles">
+            <summary>
+            Distribute the selected elements so that the vertical middles
+            are at equal distance of one another.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeBottomEdges">
+            <summary>
+            Distribute the selected elements so that the bottom edges
+            are at equal distance of one another.
+            </summary>
+        </member>
+        <member name="F:Ludiq.DistributeOperation.DistributeVerticalGaps">
+            <summary>
+            Distribute the selected elements so that the vertical gaps
+            are all of equal size.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.showGrid">
+            <summary>
+            Whether the graph window should show the background grid.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.snapToGrid">
+            <summary>
+            Whether graph elements should snap to grid.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.graphSidebarThreshold">
+            <summary>
+            The window size at which the graph window should start displaying a sidebar.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.panSpeed">
+            <summary>
+            The speed at which the mouse scroll pans the graph.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.dragPanSpeed">
+            <summary>
+            The speed at which dragged elements pan the graph when at the edge.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.zoomSpeed">
+            <summary>
+            The speed at which the mouse wheel zooms the graph.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.overviewSmoothing">
+            <summary>
+            The duration for graph overview. Set to zero to disable smoothing.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.carryChildren">
+            <summary>
+            Whether children of graph elements should be dragged alongside their parent.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.disablePlaymodeTint">
+            <summary>
+            Whether the playmode tint should be removed in the graph window.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.debug">
+            <summary>
+            Whether additional helpers should be shown in graphs for debugging.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.controlScheme">
+            <summary>
+            The control scheme to use for pan and zoom.
+            Unity: pan with [MMB], zoom with [Ctrl + Scroll Wheel].
+            Unreal: pan with [MMB] or [Alt + LMB], zoom with [Scroll Wheel].
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqGraphsConfiguration.clearGraphSelection">
+            <summary>
+            Whether the graph window and inspector should be cleared when
+            the selection does not provide a graph. When disabled,
+            the last graph will stay selected.
+            </summary>
+        </member>
+    </members>
+</doc>

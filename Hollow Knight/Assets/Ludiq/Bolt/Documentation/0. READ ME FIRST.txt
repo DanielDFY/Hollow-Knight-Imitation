@@ -1,0 +1,26 @@
+Welcome to Bolt!
+
+The Unity Asset Store policy requires that all 
+packages provide basic local documentation, 
+which is what you will find in the PDF files 
+in this directory.
+
+However, we strongly suggest using the online
+manual, which is more complete and always up-to-date.
+The PDF documentation is rarely updated.
+Also, the online documentation has animated gifs,
+which are converted to static images in PDFs.
+
+If you have questions, bug reports, or feature requests,
+you can submit them in the online Bolt community forum.
+
+Manual:
+http://ludiq.io/bolt/manual
+
+Community:
+http://ludiq.io/bolt/community
+
+Now go create something awesome.
+
+Thanks for your purchase,
+- Lazlo

@@ -1,0 +1,3159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ludiq.Core.Editor</name>
+    </assembly>
+    <members>
+        <member name="T:Ludiq.Dependencies.Sqlite.SQLiteConnection">
+            <summary>
+            Represents an open connection to a SQLite database.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructs a new SQLiteConnection and opens a SQLite database specified by databasePath.
+            </summary>
+            <param name="databasePath">
+            Specifies the path to the database file.
+            </param>
+            <param name="storeDateTimeAsTicks">
+            Specifies whether to store DateTime properties as ticks (true) or strings (false). You
+            absolutely do want to store them as Ticks in all new projects. The default of false is
+            only here for backwards compatibility. There is a *significant* speed advantage, with no
+            down sides, when setting storeDateTimeAsTicks = true.
+            </param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.#ctor(System.String,Ludiq.Dependencies.Sqlite.SQLiteOpenFlags,System.Boolean)">
+            <summary>
+            Constructs a new SQLiteConnection and opens a SQLite database specified by databasePath.
+            </summary>
+            <param name="databasePath">
+            Specifies the path to the database file.
+            </param>
+            <param name="storeDateTimeAsTicks">
+            Specifies whether to store DateTime properties as ticks (true) or strings (false). You
+            absolutely do want to store them as Ticks in all new projects. The default of false is
+            only here for backwards compatibility. There is a *significant* speed advantage, with no
+            down sides, when setting storeDateTimeAsTicks = true.
+            </param>
+        </member>
+        <member name="P:Ludiq.Dependencies.Sqlite.SQLiteConnection.SyncObject">
+            <summary>
+            Gets the synchronous object, to be lock the database file for updating.
+            </summary>
+            <value>The sync object.</value>
+        </member>
+        <member name="F:Ludiq.Dependencies.Sqlite.SQLiteConnection._preserveDuringLinkMagic">
+            <summary>
+            Used to list some code that we want the MonoTouch linker
+            to see, but that we never want to actually execute.
+            </summary>
+        </member>
+        <member name="P:Ludiq.Dependencies.Sqlite.SQLiteConnection.BusyTimeout">
+            <summary>
+            Sets a busy handler to sleep the specified amount of time when a table is locked.
+            The handler will sleep multiple times until a total time of <see cref="P:Ludiq.Dependencies.Sqlite.SQLiteConnection.BusyTimeout"/> has accumulated.
+            </summary>
+        </member>
+        <member name="P:Ludiq.Dependencies.Sqlite.SQLiteConnection.TableMappings">
+            <summary>
+            Returns the mappings from types to tables that the connection
+            currently understands.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.GetMapping(System.Type,Ludiq.Dependencies.Sqlite.CreateFlags)">
+            <summary>
+            Retrieves the mapping that is automatically generated for the given type.
+            </summary>
+            <param name="type">
+            The type whose mapping to the database is returned.
+            </param>         
+            <param name="createFlags">
+            Optional flags allowing implicit PK and indexes based on naming conventions
+            </param>     
+            <returns>
+            The mapping represents the schema of the columns of the database and contains 
+            methods to set and get properties of objects.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.GetMapping``1">
+            <summary>
+            Retrieves the mapping that is automatically generated for the given type.
+            </summary>
+            <returns>
+            The mapping represents the schema of the columns of the database and contains 
+            methods to set and get properties of objects.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.DropTable``1">
+            <summary>
+            Executes a "drop table" on the database.  This is non-recoverable.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateTable``1(Ludiq.Dependencies.Sqlite.CreateFlags)">
+            <summary>
+            Executes a "create table if not exists" on the database. It also
+            creates any specified indexes on the columns of the table. It uses
+            a schema automatically generated from the specified type. You can
+            later access this schema by calling GetMapping.
+            </summary>
+            <returns>
+            The number of entries added to the database schema.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateTable(System.Type,Ludiq.Dependencies.Sqlite.CreateFlags)">
+            <summary>
+            Executes a "create table if not exists" on the database. It also
+            creates any specified indexes on the columns of the table. It uses
+            a schema automatically generated from the specified type. You can
+            later access this schema by calling GetMapping.
+            </summary>
+            <param name="ty">Type to reflect to a database table.</param>
+            <param name="createFlags">Optional flags allowing implicit PK and indexes based on naming conventions.</param>  
+            <returns>
+            The number of entries added to the database schema.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateIndex(System.String,System.String,System.String[],System.Boolean)">
+            <summary>
+            Creates an index for the specified table and columns.
+            </summary>
+            <param name="indexName">Name of the index to create</param>
+            <param name="tableName">Name of the database table</param>
+            <param name="columnNames">An array of column names to index</param>
+            <param name="unique">Whether the index should be unique</param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateIndex(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Creates an index for the specified table and column.
+            </summary>
+            <param name="indexName">Name of the index to create</param>
+            <param name="tableName">Name of the database table</param>
+            <param name="columnName">Name of the column to index</param>
+            <param name="unique">Whether the index should be unique</param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateIndex(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates an index for the specified table and column.
+            </summary>
+            <param name="tableName">Name of the database table</param>
+            <param name="columnName">Name of the column to index</param>
+            <param name="unique">Whether the index should be unique</param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateIndex(System.String,System.String[],System.Boolean)">
+            <summary>
+            Creates an index for the specified table and columns.
+            </summary>
+            <param name="tableName">Name of the database table</param>
+            <param name="columnNames">An array of column names to index</param>
+            <param name="unique">Whether the index should be unique</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateIndex``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Boolean)" -->
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.NewCommand">
+            <summary>
+            Creates a new SQLiteCommand. Can be overridden to provide a sub-class.
+            </summary>
+            <seealso cref="M:Ludiq.Dependencies.Sqlite.SQLiteCommand.OnInstanceCreated(System.Object)"/>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.CreateCommand(System.String,System.Object[])">
+            <summary>
+            Creates a new SQLiteCommand given the command text with arguments. Place a '?'
+            in the command text for each of the arguments.
+            </summary>
+            <param name="cmdText">
+            The fully escaped SQL.
+            </param>
+            <param name="args">
+            Arguments to substitute for the occurences of '?' in the command text.
+            </param>
+            <returns>
+            A <see cref="T:Ludiq.Dependencies.Sqlite.SQLiteCommand"/>
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Execute(System.String,System.Object[])">
+            <summary>
+            Creates a SQLiteCommand given the command text (SQL) with arguments. Place a '?'
+            in the command text for each of the arguments and then executes that command.
+            Use this method instead of Query when you don't expect rows back. Such cases include
+            INSERTs, UPDATEs, and DELETEs.
+            You can set the Trace or TimeExecution properties of the connection
+            to profile execution.
+            </summary>
+            <param name="query">
+            The fully escaped SQL.
+            </param>
+            <param name="args">
+            Arguments to substitute for the occurences of '?' in the query.
+            </param>
+            <returns>
+            The number of rows modified in the database as a result of this execution.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Query``1(System.String,System.Object[])">
+            <summary>
+            Creates a SQLiteCommand given the command text (SQL) with arguments. Place a '?'
+            in the command text for each of the arguments and then executes that command.
+            It returns each row of the result using the mapping automatically generated for
+            the given type.
+            </summary>
+            <param name="query">
+            The fully escaped SQL.
+            </param>
+            <param name="args">
+            Arguments to substitute for the occurences of '?' in the query.
+            </param>
+            <returns>
+            An enumerable with one result for each row returned by the query.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.DeferredQuery``1(System.String,System.Object[])">
+            <summary>
+            Creates a SQLiteCommand given the command text (SQL) with arguments. Place a '?'
+            in the command text for each of the arguments and then executes that command.
+            It returns each row of the result using the mapping automatically generated for
+            the given type.
+            </summary>
+            <param name="query">
+            The fully escaped SQL.
+            </param>
+            <param name="args">
+            Arguments to substitute for the occurences of '?' in the query.
+            </param>
+            <returns>
+            An enumerable with one result for each row returned by the query.
+            The enumerator will call sqlite3_step on each call to MoveNext, so the database
+            connection must remain open for the lifetime of the enumerator.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Query(Ludiq.Dependencies.Sqlite.TableMapping,System.String,System.Object[])">
+            <summary>
+            Creates a SQLiteCommand given the command text (SQL) with arguments. Place a '?'
+            in the command text for each of the arguments and then executes that command.
+            It returns each row of the result using the specified mapping. This function is
+            only used by libraries in order to query the database via introspection. It is
+            normally not used.
+            </summary>
+            <param name="map">
+            A <see cref="T:Ludiq.Dependencies.Sqlite.TableMapping"/> to use to convert the resulting rows
+            into objects.
+            </param>
+            <param name="query">
+            The fully escaped SQL.
+            </param>
+            <param name="args">
+            Arguments to substitute for the occurences of '?' in the query.
+            </param>
+            <returns>
+            An enumerable with one result for each row returned by the query.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.DeferredQuery(Ludiq.Dependencies.Sqlite.TableMapping,System.String,System.Object[])">
+            <summary>
+            Creates a SQLiteCommand given the command text (SQL) with arguments. Place a '?'
+            in the command text for each of the arguments and then executes that command.
+            It returns each row of the result using the specified mapping. This function is
+            only used by libraries in order to query the database via introspection. It is
+            normally not used.
+            </summary>
+            <param name="map">
+            A <see cref="T:Ludiq.Dependencies.Sqlite.TableMapping"/> to use to convert the resulting rows
+            into objects.
+            </param>
+            <param name="query">
+            The fully escaped SQL.
+            </param>
+            <param name="args">
+            Arguments to substitute for the occurences of '?' in the query.
+            </param>
+            <returns>
+            An enumerable with one result for each row returned by the query.
+            The enumerator will call sqlite3_step on each call to MoveNext, so the database
+            connection must remain open for the lifetime of the enumerator.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Table``1">
+            <summary>
+            Returns a queryable interface to the table represented by the given type.
+            </summary>
+            <returns>
+            A queryable object that is able to translate Where, OrderBy, and Take
+            queries into native SQL.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Get``1(System.Object)">
+            <summary>
+            Attempts to retrieve an object with the given primary key from the table
+            associated with the specified type. Use of this method requires that
+            the given type have a designated PrimaryKey (using the PrimaryKeyAttribute).
+            </summary>
+            <param name="pk">
+            The primary key.
+            </param>
+            <returns>
+            The object with the given primary key. Throws a not found exception
+            if the object is not found.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Get``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Attempts to retrieve the first object that matches the predicate from the table
+            associated with the specified type. 
+            </summary>
+            <param name="predicate">
+            A predicate for which object to find.
+            </param>
+            <returns>
+            The object that matches the given predicate. Throws a not found exception
+            if the object is not found.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Find``1(System.Object)">
+            <summary>
+            Attempts to retrieve an object with the given primary key from the table
+            associated with the specified type. Use of this method requires that
+            the given type have a designated PrimaryKey (using the PrimaryKeyAttribute).
+            </summary>
+            <param name="pk">
+            The primary key.
+            </param>
+            <returns>
+            The object with the given primary key or null
+            if the object is not found.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Find(System.Object,Ludiq.Dependencies.Sqlite.TableMapping)">
+            <summary>
+            Attempts to retrieve an object with the given primary key from the table
+            associated with the specified type. Use of this method requires that
+            the given type have a designated PrimaryKey (using the PrimaryKeyAttribute).
+            </summary>
+            <param name="pk">
+            The primary key.
+            </param>
+            <param name="map">
+            The TableMapping used to identify the object type.
+            </param>
+            <returns>
+            The object with the given primary key or null
+            if the object is not found.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Attempts to retrieve the first object that matches the predicate from the table
+            associated with the specified type. 
+            </summary>
+            <param name="predicate">
+            A predicate for which object to find.
+            </param>
+            <returns>
+            The object that matches the given predicate or null
+            if the object is not found.
+            </returns>
+        </member>
+        <member name="P:Ludiq.Dependencies.Sqlite.SQLiteConnection.IsInTransaction">
+            <summary>
+            Whether <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.BeginTransaction"/> has been called and the database is waiting for a <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Commit"/>.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.BeginTransaction">
+            <summary>
+            Begins a new transaction. Call <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Commit"/> to end the transaction.
+            </summary>
+            <example cref="T:System.InvalidOperationException">Throws if a transaction has already begun.</example>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.SaveTransactionPoint">
+            <summary>
+            Creates a savepoint in the database at the current point in the transaction timeline.
+            Begins a new transaction if one is not in progress.
+            
+            Call <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.RollbackTo(System.String)"/> to undo transactions since the returned savepoint.
+            Call <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Release(System.String)"/> to commit transactions after the savepoint returned here.
+            Call <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Commit"/> to end the transaction, committing all changes.
+            </summary>
+            <returns>A string naming the savepoint.</returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Rollback">
+            <summary>
+            Rolls back the transaction that was begun by <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.BeginTransaction"/> or <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.SaveTransactionPoint"/>.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.RollbackTo(System.String)">
+            <summary>
+            Rolls back the savepoint created by <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.BeginTransaction"/> or SaveTransactionPoint.
+            </summary>
+            <param name="savepoint">The name of the savepoint to roll back to, as returned by <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.SaveTransactionPoint"/>.  If savepoint is null or empty, this method is equivalent to a call to <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Rollback"/></param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.RollbackTo(System.String,System.Boolean)">
+            <summary>
+            Rolls back the transaction that was begun by <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.BeginTransaction"/>.
+            </summary>
+            <param name="noThrow">true to avoid throwing exceptions, false otherwise</param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Release(System.String)">
+            <summary>
+            Releases a savepoint returned from <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.SaveTransactionPoint"/>.  Releasing a savepoint 
+               makes changes since that savepoint permanent if the savepoint began the transaction,
+               or otherwise the changes are permanent pending a call to <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Commit"/>.
+            
+            The RELEASE command is like a COMMIT for a SAVEPOINT.
+            </summary>
+            <param name="savepoint">The name of the savepoint to release.  The string should be the result of a call to <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.SaveTransactionPoint"/></param>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Commit">
+            <summary>
+            Commits the transaction that was begun by <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.BeginTransaction"/>.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Ludiq.Dependencies.Sqlite.SQLiteConnection.RunInTransaction(System.Action)" -->
+        <!-- Badly formed XML comment ignored for member "M:Ludiq.Dependencies.Sqlite.SQLiteConnection.RunInDatabaseLock(System.Action)" -->
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.InsertAll(System.Collections.IEnumerable)">
+            <summary>
+            Inserts all specified objects.
+            </summary>
+            <param name="objects">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the objects to insert.
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.InsertAll(System.Collections.IEnumerable,System.String)">
+            <summary>
+            Inserts all specified objects.
+            </summary>
+            <param name="objects">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the objects to insert.
+            </param>
+            <param name="extra">
+            Literal SQL code that gets placed into the command. INSERT {extra} INTO ...
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.InsertAll(System.Collections.IEnumerable,System.Type)">
+            <summary>
+            Inserts all specified objects.
+            </summary>
+            <param name="objects">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the objects to insert.
+            </param>
+            <param name="objType">
+            The type of object to insert.
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Insert(System.Object)">
+            <summary>
+            Inserts the given object and retrieves its
+            auto incremented primary key if it has one.
+            </summary>
+            <param name="obj">
+            The object to insert.
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.InsertOrReplace(System.Object)">
+            <summary>
+            Inserts the given object and retrieves its
+            auto incremented primary key if it has one.
+            If a UNIQUE constraint violation occurs with
+            some pre-existing object, this function deletes
+            the old object.
+            </summary>
+            <param name="obj">
+            The object to insert.
+            </param>
+            <returns>
+            The number of rows modified.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Insert(System.Object,System.Type)">
+            <summary>
+            Inserts the given object and retrieves its
+            auto incremented primary key if it has one.
+            </summary>
+            <param name="obj">
+            The object to insert.
+            </param>
+            <param name="objType">
+            The type of object to insert.
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.InsertOrReplace(System.Object,System.Type)">
+            <summary>
+            Inserts the given object and retrieves its
+            auto incremented primary key if it has one.
+            If a UNIQUE constraint violation occurs with
+            some pre-existing object, this function deletes
+            the old object.
+            </summary>
+            <param name="obj">
+            The object to insert.
+            </param>
+            <param name="objType">
+            The type of object to insert.
+            </param>
+            <returns>
+            The number of rows modified.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Insert(System.Object,System.String)">
+            <summary>
+            Inserts the given object and retrieves its
+            auto incremented primary key if it has one.
+            </summary>
+            <param name="obj">
+            The object to insert.
+            </param>
+            <param name="extra">
+            Literal SQL code that gets placed into the command. INSERT {extra} INTO ...
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Insert(System.Object,System.String,System.Type)">
+            <summary>
+            Inserts the given object and retrieves its
+            auto incremented primary key if it has one.
+            </summary>
+            <param name="obj">
+            The object to insert.
+            </param>
+            <param name="extra">
+            Literal SQL code that gets placed into the command. INSERT {extra} INTO ...
+            </param>
+            <param name="objType">
+            The type of object to insert.
+            </param>
+            <returns>
+            The number of rows added to the table.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Update(System.Object)">
+            <summary>
+            Updates all of the columns of a table using the specified object
+            except for its primary key.
+            The object is required to have a primary key.
+            </summary>
+            <param name="obj">
+            The object to update. It must have a primary key designated using the PrimaryKeyAttribute.
+            </param>
+            <returns>
+            The number of rows updated.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Update(System.Object,System.Type)">
+            <summary>
+            Updates all of the columns of a table using the specified object
+            except for its primary key.
+            The object is required to have a primary key.
+            </summary>
+            <param name="obj">
+            The object to update. It must have a primary key designated using the PrimaryKeyAttribute.
+            </param>
+            <param name="objType">
+            The type of object to insert.
+            </param>
+            <returns>
+            The number of rows updated.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.UpdateAll(System.Collections.IEnumerable)">
+            <summary>
+            Updates all specified objects.
+            </summary>
+            <param name="objects">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the objects to insert.
+            </param>
+            <returns>
+            The number of rows modified.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Delete(System.Object)">
+            <summary>
+            Deletes the given object from the database using its primary key.
+            </summary>
+            <param name="objectToDelete">
+            The object to delete. It must have a primary key designated using the PrimaryKeyAttribute.
+            </param>
+            <returns>
+            The number of rows deleted.
+            </returns>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.Delete``1(System.Object)">
+            <summary>
+            Deletes the object with the specified primary key.
+            </summary>
+            <param name="primaryKey">
+            The primary key of the object to delete.
+            </param>
+            <returns>
+            The number of objects deleted.
+            </returns>
+            <typeparam name='T'>
+            The type of object.
+            </typeparam>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.DeleteAll``1">
+            <summary>
+            Deletes all the objects from the specified table.
+            WARNING WARNING: Let me repeat. It deletes ALL the objects from the
+            specified table. Do you really want to do that?
+            </summary>
+            <returns>
+            The number of objects deleted.
+            </returns>
+            <typeparam name='T'>
+            The type of objects to delete.
+            </typeparam>
+        </member>
+        <member name="T:Ludiq.Dependencies.Sqlite.SQLiteConnectionString">
+            <summary>
+            Represents a parsed connection string.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.SQLiteCommand.OnInstanceCreated(System.Object)">
+             <summary>
+             Invoked every time an instance is loaded from the database.
+             </summary>
+             <param name='obj'>
+             The newly created object.
+             </param>
+             <remarks>
+             This can be overridden in combination with the <see cref="M:Ludiq.Dependencies.Sqlite.SQLiteConnection.NewCommand"/>
+             method to hook into the life-cycle of objects.
+            
+             Type safety is not possible because MonoTouch does not support virtual generic methods.
+             </remarks>
+        </member>
+        <member name="T:Ludiq.Dependencies.Sqlite.PreparedSqlLiteInsertCommand">
+            <summary>
+            Since the insert never changed, we only need to prepare once.
+            </summary>
+        </member>
+        <member name="M:Ludiq.Dependencies.Sqlite.TableQuery`1.CompileNullBinaryExpression(System.Linq.Expressions.BinaryExpression,Ludiq.Dependencies.Sqlite.TableQuery{`0}.CompileResult)">
+            <summary>
+            Compiles a BinaryExpression where one of the parameters is null.
+            </summary>
+            <param name="parameter">The non-null parameter</param>
+        </member>
+        <member name="F:Ludiq.ScriptReference.fileID">
+            <summary>
+            The ID of the script in the source file.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ScriptReference.guid">
+            <summary>
+            The GUID of the source file (script or DLL).
+            </summary>
+        </member>
+        <member name="P:Ludiq.PluginConfiguration.projectSetupCompleted">
+            <summary>
+            Whether the plugin was properly setup.
+            </summary>
+        </member>
+        <member name="P:Ludiq.PluginConfiguration.editorSetupCompleted">
+            <summary>
+            Whether the plugin was properly setup.
+            </summary>
+        </member>
+        <member name="P:Ludiq.PluginConfiguration.savedVersion">
+            <summary>
+            The last version to which the plugin successfully upgraded.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuBuilder">
+            <summary>
+            Factory methods that create <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1" />
+            instances that can then be used to build element adder menus.
+            </summary>
+            <example>
+                <para>
+                The following example demonstrates how to build and display a menu which
+                allows the user to add elements to a given context object upon clicking a button:
+                </para>
+                <code language="csharp"><![CDATA[
+             public class ShoppingListElementAdder : IElementAdder<ShoppingList> {
+                 public ShoppingListElementAdder(ShoppingList shoppingList) {
+                     Object = shoppingList;
+                 }
+            
+                 public ShoppingList Object { get; private set; }
+            
+                 public bool CanAddElement(Type type) {
+                     return true;
+                 }
+                 public object AddElement(Type type) {
+                     var instance = Activator.CreateInstance(type);
+                     shoppingList.Add((ShoppingItem)instance);
+                     return instance;
+                 }
+             }
+             
+             private void DrawAddMenuButton(ShoppingList shoppingList) {
+                 var content = new GUIContent("Add Menu");
+                 Rect position = GUILayoutUtility.GetRect(content, GUI.skin.button);
+                 if (GUI.Button(position, content)) {
+                     var builder = ElementAdderMenuBuilder.For<ShoppingList>(ShoppingItem);
+                     builder.SetElementAdder(new ShoppingListElementAdder(shoppingList));
+                     var menu = builder.GetMenu();
+                     menu.DropDown(buttonPosition);
+                 }
+             }
+             ]]></code>
+                <code language="unityscript"><![CDATA[
+             public class ShoppingListElementAdder extends IElementAdder.<ShoppingList> {
+                 var _object:ShoppingList;
+            
+                 function ShoppingListElementAdder(shoppingList:ShoppingList) {
+                     Object = shoppingList;
+                 }
+            
+                 function get Object():ShoppingList { return _object; }
+            
+                 function CanAddElement(type:Type):boolean {
+                     return true;
+                 }
+                 function AddElement(type:Type):System.Object {
+                     var instance = Activator.CreateInstance(type);
+                     shoppingList.Add((ShoppingItem)instance);
+                     return instance;
+                 }
+             }
+             
+             function DrawAddMenuButton(shoppingList:ShoppingList) {
+                 var content = new GUIContent('Add Menu');
+                 var position = GUILayoutUtility.GetRect(content, GUI.skin.button);
+                 if (GUI.Button(position, content)) {
+                     var builder = ElementAdderMenuBuilder.For.<ShoppingList>(ShoppingItem);
+                     builder.SetElementAdder(new ShoppingListElementAdder(shoppingList));
+                     var menu = builder.GetMenu();
+                     menu.DropDown(buttonPosition);
+                 }
+             }
+             ]]></code>
+            </example>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuBuilder.For``1">
+            <summary>
+            Gets a <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1" /> to build an element
+            adder menu for a context object of the type <typeparamref name="TContext" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+            <returns>
+            A new <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1" /> instance.
+            </returns>
+            <seealso cref="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.SetContractType(System.Type)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuBuilder.For``1(System.Type)">
+            <summary>
+            Gets a <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1" /> to build an element
+            adder menu for a context object of the type <typeparamref name="TContext" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+            <param name="contractType">Contract type of addable elements.</param>
+            <returns>
+            A new <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1" /> instance.
+            </returns>
+            <seealso cref="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.SetContractType(System.Type)" />
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuCommandAttribute">
+            <summary>
+            Annotate <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1" /> implementations with a
+            <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuCommandAttribute" /> to associate it with the contract
+            type of addable elements.
+            </summary>
+            <example>
+                <para>
+                The following source code demonstrates how to add a helper menu command to
+                the add element menu of a shopping list:
+                </para>
+                <code language="csharp"><![CDATA[
+             [ElementAdderMenuCommand(typeof(ShoppingItem))]
+             public class AddFavoriteShoppingItemsCommand : IElementAdderMenuCommand<ShoppingList> {
+                 public AddFavoriteShoppingItemsCommand() {
+                     Content = new GUIContent("Add Favorite Items");
+                 }
+            
+                 public GUIContent Content { get; private set; }
+            
+                 public bool CanExecute(IElementAdder<ShoppingList> elementAdder) {
+                     return true;
+                 }
+                 public void Execute(IElementAdder<ShoppingList> elementAdder) {
+                     // xTODO: Add favorite items to the shopping list!
+                 }
+             }
+             ]]></code>
+                <code language="unityscript"><![CDATA[
+             @ElementAdderMenuCommand(ShoppingItem)
+             class AddFavoriteShoppingItemsCommand extends IElementAdderMenuCommand.<ShoppingList> {
+                 var _content:GUIContent = new GUIContent('Add Favorite Items');
+            
+                 function get Content():GUIContent { return _content; }
+            
+                 function CanExecute(elementAdder:IElementAdder.<ShoppingList>):boolean {
+                     return true;
+                 }
+                 function Execute(elementAdder:IElementAdder.<ShoppingList>) {
+                     // xTODO: Add favorite items to the shopping list!
+                 }
+             }
+             ]]></code>
+            </example>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuCommandAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuCommandAttribute" /> class.
+            </summary>
+            <param name="contractType">Contract type of addable elements.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuCommandAttribute.ContractType">
+            <summary>
+            Gets the contract type of addable elements.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta">
+            <summary>
+            Provides meta information which is useful when creating new implementations of
+            the <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1" /> interface.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetMenuCommandTypes``1(System.Type)">
+            <summary>
+            Gets an array of the <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1" /> types
+            that are associated with the specified <paramref name="contractType" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+            <param name="contractType">Contract type of addable elements.</param>
+            <returns>
+            An array containing zero or more <see cref="T:System.Type" />.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            If <paramref name="contractType" /> is <c>null</c>.
+            </exception>
+            <seealso cref="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetMenuCommands``1(System.Type)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetMenuCommands``1(System.Type)">
+            <summary>
+            Gets an array of <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1" /> instances
+            that are associated with the specified <paramref name="contractType" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+            <param name="contractType">Contract type of addable elements.</param>
+            <returns>
+            An array containing zero or more <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1" /> instances.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            If <paramref name="contractType" /> is <c>null</c>.
+            </exception>
+            <seealso cref="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetMenuCommandTypes``1(System.Type)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetConcreteElementTypes(System.Type,System.Func{System.Type,System.Boolean}[])">
+            <summary>
+            Gets a filtered array of the concrete element types that implement the
+            specified <paramref name="contractType" />.
+            </summary>
+            <remarks>
+                <para>
+                A type is excluded from the resulting array when one or more of the
+                specified <paramref name="filters" /> returns a value of <c>false</c>.
+                </para>
+            </remarks>
+            <param name="contractType">Contract type of addable elements.</param>
+            <param name="filters">An array of zero or more filters.</param>
+            <returns>
+            An array of zero or more concrete element types.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            If <paramref name="contractType" /> is <c>null</c>.
+            </exception>
+            <seealso cref="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetConcreteElementTypes(System.Type)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetConcreteElementTypes(System.Type)">
+            <summary>
+            Gets an array of all the concrete element types that implement the specified
+            <paramref name="contractType" />.
+            </summary>
+            <param name="contractType">Contract type of addable elements.</param>
+            <returns>
+            An array of zero or more concrete element types.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            If <paramref name="contractType" /> is <c>null</c>.
+            </exception>
+            <seealso cref="M:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMeta.GetConcreteElementTypes(System.Type,System.Func{System.Type,System.Boolean}[])" />
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder`1">
+            <summary>
+            Interface for an object which adds elements to a context object of the type
+            <typeparamref name="TContext" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+        </member>
+        <member name="P:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder`1.Object">
+            <summary>
+            Gets the context object.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder`1.CanAddElement(System.Type)">
+            <summary>
+            Determines whether a new element of the specified <paramref name="type" /> can
+            be added to the associated context object.
+            </summary>
+            <param name="type">Type of element to add.</param>
+            <returns>
+            A value of <c>true</c> if an element of the specified type can be added;
+            otherwise, a value of <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder`1.AddElement(System.Type)">
+            <summary>
+            Adds an element of the specified <paramref name="type" /> to the associated
+            context object.
+            </summary>
+            <param name="type">Type of element to add.</param>
+            <returns>
+            The new element.
+            </returns>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu">
+            <summary>
+            Interface for a menu interface.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu.IsEmpty">
+            <summary>
+            Gets a value indicating whether the menu contains any items.
+            </summary>
+            <value>
+            <c>true</c> if the menu contains one or more items; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu.DropDown(UnityEngine.Rect)">
+            <summary>
+            Displays the drop-down menu inside an editor GUI.
+            </summary>
+            <remarks>
+                <para>
+                This method should only be used during <b>OnGUI</b> and <b>OnSceneGUI</b>
+                events; for instance, inside an editor window, a custom inspector or scene view.
+                </para>
+            </remarks>
+            <param name="position">Position of menu button in the GUI.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1">
+            <summary>
+            Interface for building an <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.SetContractType(System.Type)">
+            <summary>
+            Sets contract type of the elements that can be included in the <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu" />.
+            Only non-abstract class types that are assignable from the <paramref name="contractType" />
+            will be included in the built menu.
+            </summary>
+            <param name="contractType">Contract type of addable elements.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.SetElementAdder(Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder{`0})">
+            <summary>
+            Set the <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder`1" /> implementation which is used
+            when adding new elements to the context object.
+            </summary>
+            <remarks>
+                <para>
+                Specify a value of <c>null</c> for <paramref name="elementAdder" /> to
+                prevent the selection of any types.
+                </para>
+            </remarks>
+            <param name="elementAdder">Element adder.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.SetTypeDisplayNameFormatter(System.Func{System.Type,System.String})">
+            <summary>
+            Set the function that formats the display of type names in the user interface.
+            </summary>
+            <remarks>
+                <para>
+                Specify a value of <c>null</c> for <paramref name="formatter" /> to
+                assume the default formatting function.
+                </para>
+            </remarks>
+            <param name="formatter">Function that formats display name of type; or <c>null</c>.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.AddTypeFilter(System.Func{System.Type,System.Boolean})">
+            <summary>
+            Adds a filter function which determines whether types can be included or
+            whether they need to be excluded.
+            </summary>
+            <remarks>
+                <para>
+                If a filter function returns a value of <c>false</c> then that type
+                will not be included in the menu interface.
+                </para>
+            </remarks>
+            <param name="typeFilter">Filter function.</param>
+            <exception cref="T:System.ArgumentNullException">
+            If <paramref name="typeFilter" /> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.AddCustomCommand(Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand{`0})">
+            <summary>
+            Adds a custom command to the menu.
+            </summary>
+            <param name="command">The custom command.</param>
+            <exception cref="T:System.ArgumentNullException">
+            If <paramref name="command" /> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.GetMenu">
+            <summary>
+            Builds and returns a new <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu" /> instance.
+            </summary>
+            <returns>
+            A new <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu" /> instance each time the method is invoked.
+            </returns>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1">
+            <summary>
+            Interface for a menu command that can be included in an <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenu" />
+            either by annotating an implementation of the <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1" />
+            interface with <see cref="T:Ludiq.ReorderableList.Element_Adder_Menu.ElementAdderMenuCommandAttribute" /> or directly by
+            calling <see cref="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuBuilder`1.AddCustomCommand(Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand{`0})" />.
+            </summary>
+            <typeparam name="TContext">Type of the context object that elements can be added to.</typeparam>
+        </member>
+        <member name="P:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1.Content">
+            <summary>
+            Gets the content of the menu command.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1.CanExecute(Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder{`0})">
+            <summary>
+            Determines whether the command can be executed.
+            </summary>
+            <param name="elementAdder">
+            The associated element adder provides access to
+            the <typeparamref name="TContext" /> instance.
+            </param>
+            <returns>
+            A value of <c>true</c> if the command can execute; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Element_Adder_Menu.IElementAdderMenuCommand`1.Execute(Ludiq.ReorderableList.Element_Adder_Menu.IElementAdder{`0})">
+            <summary>
+            Executes the command.
+            </summary>
+            <param name="elementAdder">
+            The associated element adder provides access to
+            the <typeparamref name="TContext" /> instance.
+            </param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.GenericListAdaptor`1">
+            <summary>
+            Reorderable list adaptor for generic list.
+            </summary>
+            <remarks>
+                <para>
+                This adaptor can be subclassed to add special logic to item height calculation.
+                You may want to implement a custom adaptor class where specialised functionality
+                is needed.
+                </para>
+                <para>
+                List elements which implement the <see cref="T:System.ICloneable" /> interface are
+                cloned using that interface upon duplication; otherwise the item value or reference is
+                simply copied.
+                </para>
+            </remarks>
+            <typeparam name="T">Type of list element.</typeparam>
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.#ctor(System.Collections.Generic.IList{`0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{`0},System.Single)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.GenericListAdaptor`1" />.
+            </summary>
+            <param name="list">The list which can be reordered.</param>
+            <param name="itemDrawer">Callback to draw list item.</param>
+            <param name="itemHeight">Height of list item in pixels.</param>
+        </member>
+        <member name="F:Ludiq.ReorderableList.GenericListAdaptor`1.FixedItemHeight">
+            <summary>
+            Fixed height of each list item.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.GenericListAdaptor`1.Item(System.Int32)">
+            <summary>
+            Gets element from list.
+            </summary>
+            <param name="index">Zero-based index of element.</param>
+            <returns>
+            The element.
+            </returns>
+        </member>
+        <member name="P:Ludiq.ReorderableList.GenericListAdaptor`1.List">
+            <summary>
+            Gets the underlying list data structure.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.GenericListAdaptor`1.Count">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.CanDrag(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.CanRemove(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.Add">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.Insert(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.Duplicate(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.Remove(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.Move(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.BeginGUI">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.EndGUI">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.DrawItemBackground(UnityEngine.Rect,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.DrawItem(UnityEngine.Rect,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.GenericListAdaptor`1.GetItemHeight(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ludiq.ReorderableList.Internal.GUIHelper">
+            <summary>
+            Utility functions to assist with GUIs.
+            </summary>
+            <exclude />
+        </member>
+        <member name="F:Ludiq.ReorderableList.Internal.GUIHelper.VisibleRect">
+            <summary>
+            Gets visible rectangle within GUI.
+            </summary>
+            <remarks>
+                <para>VisibleRect = TopmostRect + scrollViewOffsets</para>
+            </remarks>
+        </member>
+        <member name="F:Ludiq.ReorderableList.Internal.GUIHelper.FocusTextInControl">
+            <summary>
+            Focus control and text editor where applicable.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.GUIHelper.DrawTexture(UnityEngine.Rect,UnityEngine.Texture2D)">
+            <summary>
+            Draw texture using <see cref="T:UnityEngine.GUIStyle" /> to workaround bug in Unity where
+            <see cref="M:UnityEngine.GUI.DrawTexture(UnityEngine.Rect,UnityEngine.Texture)" /> flickers when embedded inside a property drawer.
+            </summary>
+            <param name="position">Position of which to draw texture in space of GUI.</param>
+            <param name="texture">Texture.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Internal.ReorderableListTexture">
+            <exclude />
+        </member>
+        <member name="T:Ludiq.ReorderableList.Internal.ReorderableListResources">
+            <summary>
+            Resources to assist with reorderable list control.
+            </summary>
+            <exclude />
+        </member>
+        <member name="F:Ludiq.ReorderableList.Internal.ReorderableListResources.s_LightSkin">
+            <summary>
+            Resource assets for light skin.
+            </summary>
+            <remarks>
+                <para>
+                Resource assets are PNG images which have been encoded using a base-64
+                string so that actual asset files are not necessary.
+                </para>
+            </remarks>
+        </member>
+        <member name="F:Ludiq.ReorderableList.Internal.ReorderableListResources.s_DarkSkin">
+            <summary>
+            Resource assets for dark skin.
+            </summary>
+            <remarks>
+                <para>
+                Resource assets are PNG images which have been encoded using a base-64
+                string so that actual asset files are not necessary.
+                </para>
+            </remarks>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.ReorderableListResources.GetTexture(Ludiq.ReorderableList.Internal.ReorderableListTexture)">
+            <summary>
+            Gets light or dark version of the specified texture.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.ReorderableListResources.GenerateSpecialTextures">
+            <summary>
+            Generate special textures.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.ReorderableListResources.CreatePixelTexture(System.String,UnityEngine.Color)">
+            <summary>
+            Create 1x1 pixel texture of specified color.
+            </summary>
+            <param name="name">Name for texture object.</param>
+            <param name="color">Pixel color.</param>
+            <returns>
+            The new <c>Texture2D</c> instance.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.ReorderableListResources.LoadResourceAssets">
+            <summary>
+            Read textures from base-64 encoded strings. Automatically selects assets based
+            upon whether the light or dark (pro) skin is active.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.ReorderableListResources.GetImageSize(System.Byte[],System.Int32@,System.Int32@)">
+            <summary>
+            Read width and height if PNG file in pixels.
+            </summary>
+            <param name="imageData">PNG image data.</param>
+            <param name="width">Width of image in pixels.</param>
+            <param name="height">Height of image in pixels.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.Internal.SerializedPropertyUtility">
+            <summary>
+            Utility functionality for <see cref="T:Ludiq.ReorderableList.SerializedPropertyAdaptor" /> implementations.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.SerializedPropertyUtility.ResetValue(UnityEditor.SerializedProperty)">
+            <summary>
+            Reset the value of a property.
+            </summary>
+            <param name="property">Serialized property for a serialized property.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.Internal.SerializedPropertyUtility.CopyPropertyValue(UnityEditor.SerializedProperty,UnityEditor.SerializedProperty)">
+            <summary>
+            Copies value of <paramref name="sourceProperty" /> into <pararef name="destProperty" />.
+            </summary>
+            <param name="destProperty">Destination property.</param>
+            <param name="sourceProperty">Source property.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.IReorderableListAdaptor">
+            <summary>
+            Adaptor allowing reorderable list control to interface with list data.
+            </summary>
+            <see cref="T:Ludiq.ReorderableList.IReorderableListDropTarget" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.IReorderableListAdaptor.Count">
+            <summary>
+            Gets count of elements in list.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.CanDrag(System.Int32)">
+            <summary>
+            Determines whether an item can be reordered by dragging mouse.
+            </summary>
+            <remarks>
+                <para>
+                This should be a light-weight method since it will be used to determine
+                whether grab handle should be included for each item in a reorderable list.
+                </para>
+                <para>
+                Please note that returning a value of <c>false</c> does not prevent movement
+                on list item since other draggable items can be moved around it.
+                </para>
+            </remarks>
+            <param name="index">Zero-based index for list element.</param>
+            <returns>
+            A value of <c>true</c> if item can be dragged; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.CanRemove(System.Int32)">
+            <summary>
+            Determines whether an item can be removed from list.
+            </summary>
+            <remarks>
+                <para>
+                This should be a light-weight method since it will be used to determine
+                whether remove button should be included for each item in list.
+                </para>
+                <para>
+                This is redundant when <see cref="F:Ludiq.ReorderableList.ReorderableListFlags.HideRemoveButtons" />
+                is specified.
+                </para>
+            </remarks>
+            <param name="index">Zero-based index for list element.</param>
+            <returns>
+            A value of <c>true</c> if item can be removed; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.Add">
+            <summary>
+            Add new element at end of list.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.Insert(System.Int32)">
+            <summary>
+            Insert new element at specified index.
+            </summary>
+            <param name="index">Zero-based index for list element.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.Duplicate(System.Int32)">
+            <summary>
+            Duplicate existing element.
+            </summary>
+            <remarks>
+                <para>
+                Consider using the <see cref="T:System.ICloneable" /> interface to
+                duplicate list elements where appropriate.
+                </para>
+            </remarks>
+            <param name="index">Zero-based index of list element.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.Remove(System.Int32)">
+            <summary>
+            Remove element at specified index.
+            </summary>
+            <param name="index">Zero-based index of list element.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.Move(System.Int32,System.Int32)">
+            <summary>
+            Move element from source index to destination index.
+            </summary>
+            <param name="sourceIndex">Zero-based index of source element.</param>
+            <param name="destIndex">Zero-based index of destination element.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.Clear">
+            <summary>
+            Clear all elements from list.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.BeginGUI">
+            <summary>
+            Occurs before any list items are drawn.
+            </summary>
+            <remarks>
+                <para>This method is only used to handle GUI repaint events.</para>
+            </remarks>
+            <see cref="M:Ludiq.ReorderableList.IReorderableListAdaptor.EndGUI" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.EndGUI">
+            <summary>
+            Occurs after all list items have been drawn.
+            </summary>
+            <remarks>
+                <para>This method is only used to handle GUI repaint events.</para>
+            </remarks>
+            <see cref="M:Ludiq.ReorderableList.IReorderableListAdaptor.BeginGUI" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.DrawItemBackground(UnityEngine.Rect,System.Int32)">
+            <summary>
+            Draws background of a list item.
+            </summary>
+            <remarks>
+                <para>This method is only used to handle GUI repaint events.</para>
+                <para>
+                Background of list item spans a slightly larger area than the main
+                interface that is drawn by <see cref="M:Ludiq.ReorderableList.IReorderableListAdaptor.DrawItem(UnityEngine.Rect,System.Int32)" /> since it is
+                drawn behind the grab handle.
+                </para>
+            </remarks>
+            <param name="position">Total position of list element in GUI.</param>
+            <param name="index">Zero-based index of array element.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.DrawItem(UnityEngine.Rect,System.Int32)">
+            <summary>
+            Draws main interface for a list item.
+            </summary>
+            <remarks>
+                <para>This method is used to handle all GUI events.</para>
+            </remarks>
+            <param name="position">Position in GUI.</param>
+            <param name="index">Zero-based index of array element.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListAdaptor.GetItemHeight(System.Int32)">
+            <summary>
+            Gets height of list item in pixels.
+            </summary>
+            <param name="index">Zero-based index of array element.</param>
+            <returns>
+            Measurement in pixels.
+            </returns>
+        </member>
+        <member name="T:Ludiq.ReorderableList.IReorderableListDropTarget">
+            <summary>
+            Can be implemented along with <see cref="T:Ludiq.ReorderableList.IReorderableListAdaptor" /> when drop
+            insertion or ordering is desired.
+            </summary>
+            <remarks>
+                <para>
+                This type of "drop" functionality can occur when the "drag" phase of the
+                drag and drop operation was initiated elsewhere. For example, a custom
+                <see cref="T:Ludiq.ReorderableList.IReorderableListAdaptor" /> could insert entirely new items by
+                dragging and dropping from the Unity "Project" window.
+                </para>
+            </remarks>
+            <see cref="T:Ludiq.ReorderableList.IReorderableListAdaptor" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListDropTarget.CanDropInsert(System.Int32)">
+            <summary>
+            Determines whether an item is being dragged and that it can be inserted
+            or moved by dropping somewhere into the reorderable list control.
+            </summary>
+            <remarks>
+                <para>This method is always called whilst drawing an editor GUI.</para>
+            </remarks>
+            <param name="insertionIndex">Zero-based index of insertion.</param>
+            <returns>
+            A value of <c>true</c> if item can be dropped; otherwise <c>false</c>.
+            </returns>
+            <see cref="T:UnityEditor.DragAndDrop" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.IReorderableListDropTarget.ProcessDropInsertion(System.Int32)">
+            <summary>
+            Processes the current drop insertion operation when <see cref="M:Ludiq.ReorderableList.IReorderableListDropTarget.CanDropInsert(System.Int32)" />
+            returns a value of <c>true</c> to process, accept or cancel.
+            </summary>
+            <remarks>
+                <para>This method is always called whilst drawing an editor GUI.</para>
+                <para>
+                This method is only called when <see cref="M:Ludiq.ReorderableList.IReorderableListDropTarget.CanDropInsert(System.Int32)" />
+                returns a value of <c>true</c>.
+                </para>
+            </remarks>
+            <param name="insertionIndex">Zero-based index of insertion.</param>
+            <see cref="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentListControlID" />
+            <see cref="T:UnityEditor.DragAndDrop" />
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListControl">
+            <summary>
+            Base class for custom reorderable list control.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListControl.DrawEmpty">
+            <summary>
+            Invoked to draw content for empty list.
+            </summary>
+            <remarks>
+                <para>Callback should make use of <c>GUILayout</c> to present controls.</para>
+            </remarks>
+            <example>
+                <para>The following listing displays a label for empty list control:</para>
+                <code language="csharp"><![CDATA[
+            using Ludiq.Dependencies.ReorderableList;
+            using System.Collections.Generic;
+            using UnityEditor;
+            using UnityEngine;
+            
+            public class ExampleWindow : EditorWindow {
+                private List<string> _list;
+            
+                private void OnEnable() {
+                    _list = new List<string>();
+                }
+                private void OnGUI() {
+                    ReorderableListGUI.ListField(_list, ReorderableListGUI.TextFieldItemDrawer, DrawEmptyMessage);
+                }
+            
+                private string DrawEmptyMessage() {
+                    GUILayout.Label("List is empty!", EditorStyles.miniLabel);
+                }
+            }
+            ]]></code>
+                <code language="unityscript"><![CDATA[
+            import Rotorz.ReorderableList;
+            import System.Collections.Generic;
+            
+            class ExampleWindow extends EditorWindow {
+                private var _list:List.<String>;
+            
+                function OnEnable() {
+                    _list = new List.<String>();
+                }
+                function OnGUI() {
+                    ReorderableListGUI.ListField(_list, ReorderableListGUI.TextFieldItemDrawer, DrawEmptyMessage);
+                }
+            
+                function DrawEmptyMessage() {
+                    GUILayout.Label('List is empty!', EditorStyles.miniLabel);
+                }
+            }
+            ]]></code>
+            </example>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute">
+            <summary>
+            Invoked to draw content for empty list with absolute positioning.
+            </summary>
+            <param name="position">Position of empty content.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListControl.ItemDrawer`1">
+            <summary>
+            Invoked to draw list item.
+            </summary>
+            <remarks>
+                <para>
+                GUI controls must be positioned absolutely within the given rectangle since
+                list items must be sized consistently.
+                </para>
+            </remarks>
+            <example>
+                <para>The following listing presents a text field for each list item:</para>
+                <code language="csharp"><![CDATA[
+            using Ludiq.Dependencies.ReorderableList;
+            using System.Collections.Generic;
+            using UnityEditor;
+            using UnityEngine;
+            
+            public class ExampleWindow : EditorWindow {
+                public List<string> wishlist = new List<string>();
+            
+                private void OnGUI() {
+                    ReorderableListGUI.ListField(wishlist, DrawListItem);
+                }
+            
+                private string DrawListItem(Rect position, string value) {
+                    // Text fields do not like `null` values!
+                    if (value == null)
+                        value = "";
+                    return EditorGUI.TextField(position, value);
+                }
+            }
+            ]]></code>
+                <code language="unityscript"><![CDATA[
+            import Rotorz.ReorderableList;
+            import System.Collections.Generic;
+            
+            class ExampleWindow extends EditorWindow {
+                var wishlist:List.<String>;
+            
+                function OnGUI() {
+                    ReorderableListGUI.ListField(wishlist, DrawListItem);
+                }
+            
+                function DrawListItem(position:Rect, value:String):String {
+                    // Text fields do not like `null` values!
+                    if (value == null)
+                        value = '';
+                    return EditorGUI.TextField(position, value);
+                }
+            }
+            ]]></code>
+            </example>
+            <typeparam name="T">Type of item list.</typeparam>
+            <param name="position">Position of list item.</param>
+            <param name="item">The list item.</param>
+            <returns>
+            The modified value.
+            </returns>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_AnchorMouseOffset">
+            <summary>
+            Position of mouse upon anchoring item for drag.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_AnchorIndex">
+            <summary>
+            Zero-based index of anchored list item.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_TargetIndex">
+            <summary>
+            Zero-based index of target list item for reordering.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_AutoFocusControlID">
+            <summary>
+            Unique ID of list control which should be automatically focused. A value
+            of zero indicates that no control is to be focused.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_AutoFocusIndex">
+            <summary>
+            Zero-based index of item which should be focused.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_CurrentListStack">
+            <summary>
+            Represents the current stack of nested reorderable list control positions.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_CurrentItemStack">
+            <summary>
+            Represents the current stack of nested reorderable list items.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.CurrentListControlID">
+            <summary>
+            Gets the control ID of the list that is currently being drawn.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.CurrentListPosition">
+            <summary>
+            Gets the position of the list control that is currently being drawn.
+            </summary>
+            <remarks>
+                <para>
+                The value of this property should be ignored for <see cref="F:UnityEngine.EventType.Layout" />
+                type events when using reorderable list controls with automatic layout.
+                </para>
+            </remarks>
+            <see cref="P:Ludiq.ReorderableList.ReorderableListControl.CurrentItemTotalPosition" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.CurrentItemIndex">
+            <summary>
+            Gets the zero-based index of the list item that is currently being drawn;
+            or a value of -1 if no item is currently being drawn.
+            </summary>
+            <remarks>
+                <para>Use <see cref="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentItemIndex" /> instead.</para>
+            </remarks>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.CurrentItemTotalPosition">
+            <summary>
+            Gets the total position of the list item that is currently being drawn.
+            </summary>
+            <remarks>
+                <para>
+                The value of this property should be ignored for <see cref="F:UnityEngine.EventType.Layout" />
+                type events when using reorderable list controls with automatic layout.
+                </para>
+            </remarks>
+            <see cref="P:Ludiq.ReorderableList.ReorderableListControl.CurrentItemIndex" />
+            <see cref="P:Ludiq.ReorderableList.ReorderableListControl.CurrentListPosition" />
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.AnchorBackgroundColor">
+            <summary>
+            Background color of anchor list item.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.TargetBackgroundColor">
+            <summary>
+            Background color of target slot when dragging list item.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_RightAlignedLabelStyle">
+            <summary>
+            Style for right-aligned label for element number prefix.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawControlFromState(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Generate and draw control from state object.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Delegate for drawing empty list.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawControlFromState(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Generate and draw control from state object.
+            </summary>
+            <param name="position">Position of control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Delegate for drawing empty list.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.Flags">
+            <summary>
+            Gets or sets flags which affect behavior of control.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HasFooterControls">
+            <summary>
+            Gets a value indicating whether any footer controls are shown.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HasSizeField">
+            <summary>
+            Gets a value indicating whether the size field is shown.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HasAddButton">
+            <summary>
+            Gets a value indicating whether add button is shown.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HasAddMenuButton">
+            <summary>
+            Gets a value indicating whether add menu button is shown.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HasRemoveButtons">
+            <summary>
+            Gets a value indicating whether remove buttons are shown.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.VerticalSpacing">
+            <summary>
+            Gets or sets the vertical spacing below the reorderable list control.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.ContainerStyle">
+            <summary>
+            Gets or sets style used to draw background of list control.
+            </summary>
+            <seealso cref="P:Ludiq.ReorderableList.ReorderableListStyles.Container" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.FooterButtonStyle">
+            <summary>
+            Gets or sets style used to draw footer buttons.
+            </summary>
+            <seealso cref="P:Ludiq.ReorderableList.ReorderableListStyles.FooterButton" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.ItemButtonStyle">
+            <summary>
+            Gets or sets style used to draw list item buttons (like the remove button).
+            </summary>
+            <seealso cref="P:Ludiq.ReorderableList.ReorderableListStyles.ItemButton" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HorizontalLineColor">
+            <summary>
+            Gets or sets the color of the horizontal lines that appear between list items.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HorizontalLineAtStart">
+            <summary>
+            Gets or sets a boolean value indicating whether a horizontal line should be
+            shown above the first list item at the start of the list control.
+            </summary>
+            <remarks>
+                <para>
+                Horizontal line is not drawn for an empty list regardless of the value
+                of this property.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListControl.HorizontalLineAtEnd">
+            <summary>
+            Gets or sets a boolean value indicating whether a horizontal line should be
+            shown below the last list item at the end of the list control.
+            </summary>
+            <remarks>
+                <para>
+                Horizontal line is not drawn for an empty list regardless of the value
+                of this property.
+                </para>
+            </remarks>
+        </member>
+        <member name="E:Ludiq.ReorderableList.ReorderableListControl.AddMenuClicked">
+            <summary>
+            Occurs when add menu button is clicked.
+            </summary>
+            <remarks>
+                <para>Add menu button is only shown when there is at least one subscriber to this event.</para>
+            </remarks>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.OnAddMenuClicked(Ludiq.ReorderableList.AddMenuClickedEventArgs)">
+            <summary>
+            Raises event when add menu button is clicked.
+            </summary>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="E:Ludiq.ReorderableList.ReorderableListControl.ItemInserted">
+            <summary>
+            Occurs after list item is inserted or duplicated.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.OnItemInserted(Ludiq.ReorderableList.ItemInsertedEventArgs)">
+            <summary>
+            Raises event after list item is inserted or duplicated.
+            </summary>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="E:Ludiq.ReorderableList.ReorderableListControl.ItemRemoving">
+            <summary>
+            Occurs before list item is removed and allowing for remove operation to be cancelled.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.OnItemRemoving(Ludiq.ReorderableList.ItemRemovingEventArgs)">
+            <summary>
+            Raises event before list item is removed and provides oppertunity to cancel.
+            </summary>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="E:Ludiq.ReorderableList.ReorderableListControl.ItemMoving">
+            <summary>
+            Occurs immediately before list item is moved allowing for move operation to be cancelled.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.OnItemMoving(Ludiq.ReorderableList.ItemMovingEventArgs)">
+            <summary>
+            Raises event immediately before list item is moved and provides oppertunity to cancel.
+            </summary>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="E:Ludiq.ReorderableList.ReorderableListControl.ItemMoved">
+            <summary>
+            Occurs after list item has been moved.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.OnItemMoved(Ludiq.ReorderableList.ItemMovedEventArgs)">
+            <summary>
+            Raises event after list item has been moved.
+            </summary>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ReorderableListControl" />.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.#ctor(Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ReorderableListControl" />.
+            </summary>
+            <param name="flags">Optional flags which affect behavior of control.</param>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._controlID">
+            <summary>
+            Unique Id of control.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._visibleRect">
+            <summary>
+            Visible rectangle of control.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._indexLabelWidth">
+            <summary>
+            Width of index label in pixels (zero indicates no label).
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._tracking">
+            <summary>
+            Indicates whether item is currently being dragged within control.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._allowReordering">
+            <summary>
+            Indicates if reordering is allowed.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._allowDropInsertion">
+            <summary>
+            A boolean value indicating whether drop insertion is allowed.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._insertionIndex">
+            <summary>
+            Zero-based index for drop insertion when applicable; othewise, a value of -1.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._insertionPosition">
+            <summary>
+            Position of drop insertion on Y-axis in GUI space.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl._newSizeInput">
+            <summary>
+            New size input value.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.PrepareState(System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Prepare initial state for list control.
+            </summary>
+            <param name="controlID">Unique ID of list control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.AutoFocusItem(System.Int32,System.Int32)">
+            <summary>
+            Indicate that first control of list item should be automatically focused
+            if possible.
+            </summary>
+            <param name="controlID">Unique ID of list control.</param>
+            <param name="itemIndex">Zero-based index of list item.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DoRemoveButton(UnityEngine.Rect,System.Boolean)">
+            <summary>
+            Draw remove button.
+            </summary>
+            <param name="position">Position of button.</param>
+            <param name="visible">Indicates if control is visible within GUI.</param>
+            <returns>
+            A value of <c>true</c> if clicked; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.BeginTrackingReorderDrag(System.Int32,System.Int32)">
+            <summary>
+            Begin tracking drag and drop within list.
+            </summary>
+            <param name="controlID">Unique ID of list control.</param>
+            <param name="itemIndex">Zero-based index of item which is going to be dragged.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.StopTrackingReorderDrag">
+            <summary>
+            Stop tracking drag and drop.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.IsTrackingControl(System.Int32)">
+            <summary>
+            Gets a value indicating whether item in current list is currently being tracked.
+            </summary>
+            <param name="controlID">Unique ID of list control.</param>
+            <returns>
+            A value of <c>true</c> if item is being tracked; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.AcceptReorderDrag(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Accept reordering.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawListContainerAndItems(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list container and items.
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawDropIndicator(UnityEngine.Rect)">
+            <summary>
+            Draws drop insertion indicator.
+            </summary>
+            <remarks>
+                <para>This method is only ever called during repaint events.</para>
+            </remarks>
+            <param name="position">Position if the drop indicator.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.CheckForAutoFocusControl">
+            <summary>
+            Checks to see if list control needs to be automatically focused.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawFooterControls(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw additional controls below list control and highlight drop target.
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.s_ContainerHeightCache">
+            <summary>
+            Cache of container heights mapped by control ID.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawLayoutListField(Ludiq.ReorderableList.IReorderableListAdaptor,System.Single)">
+            <summary>
+            Do layout version of list field.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="padding">Padding in pixels.</param>
+            <returns>
+            Position of list container area in GUI (excludes footer area).
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawLayoutEmptyList(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <summary>
+            Draw content for empty list (layout version).
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Callback to draw empty content.</param>
+            <returns>
+            Position of list container area in GUI (excludes footer area).
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawEmptyListControl(UnityEngine.Rect,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <summary>
+            Draw content for empty list (layout version).
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="drawEmpty">Callback to draw empty content.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.FixStyles">
+            <summary>
+            Correct if for some reason one or more styles are missing!
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.Draw(System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <summary>
+            Draw layout version of list control.
+            </summary>
+            <param name="controlID">Unique ID of list control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Delegate for drawing empty list.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.Draw(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListControl.Draw(System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.Draw(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListControl.Draw(System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.Draw(UnityEngine.Rect,System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <summary>
+            Draw list control with absolute positioning.
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="controlID">Unique ID of list control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Delegate for drawing empty list.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.Draw(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <summary>
+            Draw list control with absolute positioning.
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Delegate for drawing empty list.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.Draw(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListControl.Draw(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawSizeField(UnityEngine.Rect,UnityEngine.GUIContent,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list size field with absolute positioning and a custom prefix label.
+            </summary>
+            <remarks>
+                <para>
+                Specify a value of <c>GUIContent.none</c> for argument <paramref name="label" />
+                to omit prefix label from the drawn control.
+                </para>
+            </remarks>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="label">Prefix label for the control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawSizeField(UnityEngine.Rect,System.String,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list size field with absolute positioning and a custom prefix label.
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="label">Prefix label for the control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawSizeField(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list size field with absolute positioning with the default prefix label.
+            </summary>
+            <param name="position">Position of list control in GUI.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawSizeField(UnityEngine.GUIContent,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list size field with automatic layout and a custom prefix label.
+            </summary>
+            <remarks>
+                <para>
+                Specify a value of <c>GUIContent.none</c> for argument <paramref name="label" />
+                to omit prefix label from the drawn control.
+                </para>
+            </remarks>
+            <param name="label">Prefix label for the control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawSizeField(System.String,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list size field with automatic layout and a custom prefix label.
+            </summary>
+            <param name="label">Prefix label for the control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DrawSizeField(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Draw list size field with automatic layout and the default prefix label.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandMoveToTop">
+            <summary>
+            Content for "Move to Top" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandMoveToBottom">
+            <summary>
+            Content for "Move to Bottom" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandInsertAbove">
+            <summary>
+            Content for "Insert Above" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandInsertBelow">
+            <summary>
+            Content for "Insert Below" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandDuplicate">
+            <summary>
+            Content for "Duplicate" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandRemove">
+            <summary>
+            Content for "Remove" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.CommandClearAll">
+            <summary>
+            Content for "Clear All" command.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListControl.DefaultContextHandler">
+            <summary>
+            Default functionality to handle context command.
+            </summary>
+            <example>
+                <para>Can be used when adding custom items to the context menu:</para>
+                <code language="csharp"><![CDATA[
+            protected override void AddItemsToMenu(GenericMenu menu, int itemIndex, IReorderableListAdaptor adaptor) {
+                var specialCommand = new GUIContent("Special Command");
+                menu.AddItem(specialCommand, false, defaultContextHandler, specialCommand);
+            }
+            ]]></code>
+                <code language="unityscript"><![CDATA[
+            function AddItemsToMenu(menu:GenericMenu, itemIndex:int, list:IReorderableListAdaptor) {
+                var specialCommand = new GUIContent('Special Command');
+                menu.AddItem(specialCommand, false, defaultContextHandler, specialCommand);
+            }
+            ]]></code>
+            </example>
+            <seealso cref="M:Ludiq.ReorderableList.ReorderableListControl.AddItemsToMenu(UnityEditor.GenericMenu,System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.AddItemsToMenu(UnityEditor.GenericMenu,System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Invoked to generate context menu for list item.
+            </summary>
+            <param name="menu">Menu which can be populated.</param>
+            <param name="itemIndex">Zero-based index of item which was right-clicked.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.HandleCommand(System.String,System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Invoked to handle context command.
+            </summary>
+            <remarks>
+                <para>
+                It is important to set the value of <c>GUI.changed</c> to <c>true</c> if any
+                changes are made by command handler.
+                </para>
+                <para>Default command handling functionality can be inherited:</para>
+                <code language="csharp"><![CDATA[
+            protected override bool HandleCommand(string commandName, int itemIndex, IReorderableListAdaptor adaptor) {
+                if (base.HandleCommand(itemIndex, adaptor))
+                    return true;
+                
+                // Place custom command handling code here...
+                switch (commandName) {
+                    case "Your Command":
+                        return true;
+                }
+            
+                return false;
+            }
+            ]]></code>
+                <code language="unityscript"><![CDATA[
+            function HandleCommand(commandName:String, itemIndex:int, adaptor:IReorderableListAdaptor):boolean {
+                if (base.HandleCommand(itemIndex, adaptor))
+                    return true;
+                
+                // Place custom command handling code here...
+                switch (commandName) {
+                    case 'Your Command':
+                        return true;
+                }
+            
+                return false;
+            }
+            ]]></code>
+            </remarks>
+            <param name="commandName">Name of command. This is the text shown in the context menu.</param>
+            <param name="itemIndex">Zero-based index of item which was right-clicked.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <returns>
+            A value of <c>true</c> if command was known; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DoCommand(System.String,System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Call to manually perform command.
+            </summary>
+            <remarks>
+                <para>Warning message is logged to console if attempted to execute unknown command.</para>
+            </remarks>
+            <param name="commandName">Name of command. This is the text shown in the context menu.</param>
+            <param name="itemIndex">Zero-based index of item which was right-clicked.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <returns>
+            A value of <c>true</c> if command was known; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DoCommand(UnityEngine.GUIContent,System.Int32,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Call to manually perform command.
+            </summary>
+            <remarks>
+                <para>Warning message is logged to console if attempted to execute unknown command.</para>
+            </remarks>
+            <param name="command">Content representing command.</param>
+            <param name="itemIndex">Zero-based index of item which was right-clicked.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <returns>
+            A value of <c>true</c> if command was known; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.CalculateListHeight(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Calculate height of list control in pixels.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <returns>
+            Required list height in pixels.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.CalculateListHeight(System.Int32,System.Single)">
+            <summary>
+            Calculate height of list control in pixels.
+            </summary>
+            <param name="itemCount">Count of items in list.</param>
+            <param name="itemHeight">Fixed height of list item.</param>
+            <returns>
+            Required list height in pixels.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.MoveItem(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32,System.Int32)">
+            <summary>
+            Move item from source index to destination index.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="sourceIndex">Zero-based index of source item.</param>
+            <param name="destIndex">Zero-based index of destination index.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.AddItem(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Add item at end of list and raises the event <see cref="E:Ludiq.ReorderableList.ReorderableListControl.ItemInserted" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.InsertItem(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32)">
+            <summary>
+            Insert item at specified index and raises the event <see cref="E:Ludiq.ReorderableList.ReorderableListControl.ItemInserted" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="itemIndex">Zero-based index of item.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.DuplicateItem(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32)">
+            <summary>
+            Duplicate specified item and raises the event <see cref="E:Ludiq.ReorderableList.ReorderableListControl.ItemInserted" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="itemIndex">Zero-based index of item.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.RemoveItem(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32)">
+            <summary>
+            Remove specified item.
+            </summary>
+            <remarks>
+                <para>
+                The event <see cref="E:Ludiq.ReorderableList.ReorderableListControl.ItemRemoving" /> is raised prior to removing item
+                and allows removal to be cancelled.
+                </para>
+            </remarks>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="itemIndex">Zero-based index of item.</param>
+            <returns>
+            Returns a value of <c>false</c> if operation was cancelled.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.ClearAll(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <summary>
+            Remove all items from list.
+            </summary>
+            <remarks>
+                <para>
+                The event <see cref="E:Ludiq.ReorderableList.ReorderableListControl.ItemRemoving" /> is raised for each item prior to
+                clearing array and allows entire operation to be cancelled.
+                </para>
+            </remarks>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <returns>
+            Returns a value of <c>false</c> if operation was cancelled.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListControl.ResizeList(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32)">
+            <summary>
+            Set count of items in list by adding or removing items.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="newCount">New count of items.</param>
+            <returns>
+            Returns a value of <c>false</c> if operation was cancelled.
+            </returns>
+        </member>
+        <member name="T:Ludiq.ReorderableList.AddMenuClickedEventArgs">
+            <summary>
+            Arguments which are passed to <see cref="T:Ludiq.ReorderableList.AddMenuClickedEventHandler" />.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.AddMenuClickedEventArgs.#ctor(Ludiq.ReorderableList.IReorderableListAdaptor,UnityEngine.Rect)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ItemMovedEventArgs" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="buttonPosition">Position of the add menu button.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.AddMenuClickedEventArgs.Adaptor">
+            <summary>
+            Gets adaptor to reorderable list container.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.AddMenuClickedEventArgs.ButtonPosition">
+            <summary>
+            Gets position of the add menu button.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.AddMenuClickedEventHandler">
+            <summary>
+            An event handler which is invoked when the "Add Menu" button is clicked.
+            </summary>
+            <param name="sender">Object which raised event.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemInsertedEventArgs">
+            <summary>
+            Arguments which are passed to <see cref="T:Ludiq.ReorderableList.ItemInsertedEventHandler" />.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ItemInsertedEventArgs.#ctor(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ItemInsertedEventArgs" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="itemIndex">Zero-based index of item.</param>
+            <param name="wasDuplicated">Indicates if inserted item was duplicated from another item.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemInsertedEventArgs.Adaptor">
+            <summary>
+            Gets adaptor to reorderable list container which contains element.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemInsertedEventArgs.ItemIndex">
+            <summary>
+            Gets zero-based index of item which was inserted.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemInsertedEventArgs.WasDuplicated">
+            <summary>
+            Indicates if inserted item was duplicated from another item.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemInsertedEventHandler">
+            <summary>
+            An event handler which is invoked after new list item is inserted.
+            </summary>
+            <param name="sender">Object which raised event.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemRemovingEventArgs">
+            <summary>
+            Arguments which are passed to <see cref="T:Ludiq.ReorderableList.ItemRemovingEventHandler" />.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ItemRemovingEventArgs.#ctor(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ItemRemovingEventArgs" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="itemIndex">Zero-based index of item.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemRemovingEventArgs.Adaptor">
+            <summary>
+            Gets adaptor to reorderable list container which contains element.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemRemovingEventArgs.ItemIndex">
+            <summary>
+            Gets zero-based index of item which is being removed.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemRemovingEventHandler">
+            <summary>
+            An event handler which is invoked before a list item is removed.
+            </summary>
+            <remarks>
+                <para>
+                Item removal can be cancelled by setting <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" />
+                to <c>true</c>.
+                </para>
+            </remarks>
+            <param name="sender">Object which raised event.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemMovingEventArgs">
+            <summary>
+            Arguments which are passed to <see cref="T:Ludiq.ReorderableList.ItemMovingEventHandler" />.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ItemMovingEventArgs.#ctor(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ItemMovingEventArgs" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="itemIndex">Zero-based index of item.</param>
+            <param name="destinationItemIndex">Xero-based index of item destination.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovingEventArgs.Adaptor">
+            <summary>
+            Gets adaptor to reorderable list container which contains element.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovingEventArgs.ItemIndex">
+            <summary>
+            Gets current zero-based index of item which is going to be moved.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovingEventArgs.DestinationItemIndex">
+            <summary>
+            Gets the new candidate zero-based index for the item.
+            </summary>
+            <seealso cref="P:Ludiq.ReorderableList.ItemMovingEventArgs.NewItemIndex" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovingEventArgs.NewItemIndex">
+            <summary>
+            Gets zero-based index of item <strong>after</strong> it has been moved.
+            </summary>
+            <seealso cref="P:Ludiq.ReorderableList.ItemMovingEventArgs.DestinationItemIndex" />
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemMovingEventHandler">
+            <summary>
+            An event handler which is invoked before a list item is moved.
+            </summary>
+            <remarks>
+                <para>
+                Moving of item can be cancelled by setting <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" />
+                to <c>true</c>.
+                </para>
+            </remarks>
+            <param name="sender">Object which raised event.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemMovedEventArgs">
+            <summary>
+            Arguments which are passed to <see cref="T:Ludiq.ReorderableList.ItemMovedEventHandler" />.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ItemMovedEventArgs.#ctor(Ludiq.ReorderableList.IReorderableListAdaptor,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.ItemMovedEventArgs" />.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="oldItemIndex">Old zero-based index of item.</param>
+            <param name="newItemIndex">New zero-based index of item.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovedEventArgs.Adaptor">
+            <summary>
+            Gets adaptor to reorderable list container which contains element.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovedEventArgs.OldItemIndex">
+            <summary>
+            Gets old zero-based index of the item which was moved.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ItemMovedEventArgs.NewItemIndex">
+            <summary>
+            Gets new zero-based index of the item which was moved.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ItemMovedEventHandler">
+            <summary>
+            An event handler which is invoked after a list item is moved.
+            </summary>
+            <param name="sender">Object which raised event.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListFlags">
+            <summary>
+            Additional flags which can be passed into reorderable list field.
+            </summary>
+            <example>
+                <para>Multiple flags can be specified if desired:</para>
+                <code language="csharp"><![CDATA[
+            var flags = ReorderableListFlags.HideAddButton | ReorderableListFlags.HideRemoveButtons;
+            ReorderableListGUI.ListField(list, flags);
+            ]]></code>
+            </example>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.DisableReordering">
+            <summary>
+            Hide grab handles and disable reordering of list items.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.HideAddButton">
+            <summary>
+            Hide add button at base of control.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.HideRemoveButtons">
+            <summary>
+            Hide remove buttons from list items.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.DisableContextMenu">
+            <summary>
+            Do not display context menu upon right-clicking grab handle.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.DisableDuplicateCommand">
+            <summary>
+            Hide "Duplicate" option from context menu.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.DisableAutoFocus">
+            <summary>
+            Do not automatically focus first control of newly added items.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.ShowIndices">
+            <summary>
+            Show zero-based index of array elements.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.DisableClipping">
+            <exclude />
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.DisableAutoScroll">
+            <summary>
+            Do not attempt to automatically scroll when list is inside a scroll view and
+            the mouse pointer is dragged outside of the visible portion of the list.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListFlags.ShowSizeField">
+            <summary>
+            Show "Size" field at base of list control.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListGUI">
+            <summary>
+            Utility class for drawing reorderable lists.
+            </summary>
+        </member>
+        <member name="F:Ludiq.ReorderableList.ReorderableListGUI.DefaultItemHeight">
+            <summary>
+            Default list item height is 18 pixels.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListGUI.IndexOfChangedItem">
+            <summary>
+            Gets or sets the zero-based index of the last item that was changed. A value of -1
+            indicates that no item was changed by list.
+            </summary>
+            <remarks>
+                <para>This property should not be set when items are added or removed.</para>
+            </remarks>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentListControlID">
+            <summary>
+            Gets the control ID of the list that is currently being drawn.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentListPosition">
+            <summary>
+            Gets the position of the list control that is currently being drawn.
+            </summary>
+            <remarks>
+                <para>
+                The value of this property should be ignored for <see cref="F:UnityEngine.EventType.Layout" />
+                type events when using reorderable list controls with automatic layout.
+                </para>
+            </remarks>
+            <see cref="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentItemTotalPosition" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentItemIndex">
+            <summary>
+            Gets the zero-based index of the list item that is currently being drawn;
+            or a value of -1 if no item is currently being drawn.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentItemTotalPosition">
+            <summary>
+            Gets the total position of the list item that is currently being drawn.
+            </summary>
+            <remarks>
+                <para>
+                The value of this property should be ignored for <see cref="F:UnityEngine.EventType.Layout" />
+                type events when using reorderable list controls with automatic layout.
+                </para>
+            </remarks>
+            <see cref="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentItemIndex" />
+            <see cref="P:Ludiq.ReorderableList.ReorderableListGUI.CurrentListPosition" />
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListGUI.DefaultListControl">
+            <summary>
+            Gets the default list control implementation.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DefaultItemDrawer``1(UnityEngine.Rect,``0)">
+            <summary>
+            Default list item drawer implementation.
+            </summary>
+            <remarks>
+                <para>Always presents the label "Item drawer not implemented.".</para>
+            </remarks>
+            <param name="position">Position to draw list item control(s).</param>
+            <param name="item">Value of list item.</param>
+            <returns>
+            Unmodified value of list item.
+            </returns>
+            <typeparam name="T">Type of list item.</typeparam>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.TextFieldItemDrawer(UnityEngine.Rect,System.String)">
+            <summary>
+            Draws text field allowing list items to be edited.
+            </summary>
+            <remarks>
+                <para>
+                Null values are automatically changed to empty strings since null
+                values cannot be edited using a text field.
+                </para>
+                <para>
+                Value of <c>GUI.changed</c> is set to <c>true</c> if value of item
+                is modified.
+                </para>
+            </remarks>
+            <param name="position">Position to draw list item control(s).</param>
+            <param name="item">Value of list item.</param>
+            <returns>
+            Modified value of list item.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.Title(UnityEngine.GUIContent)">
+            <summary>
+            Draw title control for list field.
+            </summary>
+            <remarks>
+                <para>When needed, should be shown immediately before list field.</para>
+            </remarks>
+            <example>
+                <code language="csharp"><![CDATA[
+            ReorderableListGUI.Title(titleContent);
+            ReorderableListGUI.ListField(list, DynamicListGU.TextFieldItemDrawer);
+            ]]></code>
+                <code language="unityscript"><![CDATA[
+            ReorderableListGUI.Title(titleContent);
+            ReorderableListGUI.ListField(list, DynamicListGU.TextFieldItemDrawer);
+            ]]></code>
+            </example>
+            <param name="title">Content for title control.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.Title(System.String)">
+            <summary>
+            Draw title control for list field.
+            </summary>
+            <remarks>
+                <para>When needed, should be shown immediately before list field.</para>
+            </remarks>
+            <example>
+                <code language="csharp"><![CDATA[
+            ReorderableListGUI.Title("Your Title");
+            ReorderableListGUI.ListField(list, DynamicListGU.TextFieldItemDrawer);
+            ]]></code>
+                <code language="unityscript"><![CDATA[
+            ReorderableListGUI.Title('Your Title');
+            ReorderableListGUI.ListField(list, DynamicListGU.TextFieldItemDrawer);
+            ]]></code>
+            </example>
+            <param name="title">Text for title control.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.Title(UnityEngine.Rect,UnityEngine.GUIContent)">
+            <summary>
+            Draw title control for list field with absolute positioning.
+            </summary>
+            <param name="position">Position of control.</param>
+            <param name="title">Content for title control.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.Title(UnityEngine.Rect,System.String)">
+            <summary>
+            Draw title control for list field with absolute positioning.
+            </summary>
+            <param name="position">Position of control.</param>
+            <param name="text">Text for title control.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Draw list field control.
+            </summary>
+            <param name="list">The list which can be reordered.</param>
+            <param name="drawItem">Callback to draw list item.</param>
+            <param name="drawEmpty">Callback to draw custom content for empty list (optional).</param>
+            <param name="itemHeight">Height of a single list item.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+            <typeparam name="T">Type of list item.</typeparam>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Draw list field control with absolute positioning.
+            </summary>
+            <param name="position">Position of control.</param>
+            <param name="list">The list which can be reordered.</param>
+            <param name="drawItem">Callback to draw list item.</param>
+            <param name="drawEmpty">Callback to draw custom content for empty list (optional).</param>
+            <param name="itemHeight">Height of a single list item.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+            <typeparam name="T">Type of list item.</typeparam>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},System.Single)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},System.Single)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0})">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField``1(System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0})">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute``1(UnityEngine.Rect,System.Collections.Generic.IList{``0},Ludiq.ReorderableList.ReorderableListControl.ItemDrawer{``0},Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Calculate height of list field for absolute positioning.
+            </summary>
+            <param name="itemCount">Count of items in list.</param>
+            <param name="itemHeight">Fixed height of list item.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+            <returns>
+            Required list height in pixels.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32,System.Single)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(System.Int32,System.Single,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Draw list field control for serializable property array.
+            </summary>
+            <param name="arrayProperty">Serializable property.</param>
+            <param name="fixedItemHeight">
+            Use fixed height for items rather than
+            <see cref="M:UnityEditor.EditorGUI.GetPropertyHeight(UnityEditor.SerializedProperty)" />.
+            </param>
+            <param name="drawEmpty">Callback to draw custom content for empty list (optional).</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Draw list field control for serializable property array.
+            </summary>
+            <param name="position">Position of control.</param>
+            <param name="arrayProperty">Serializable property.</param>
+            <param name="fixedItemHeight">
+            Use fixed height for items rather than
+            <see cref="M:UnityEditor.EditorGUI.GetPropertyHeight(UnityEditor.SerializedProperty)" />.
+            </param>
+            <param name="drawEmpty">Callback to draw custom content for empty list (optional).</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Calculate height of list field for absolute positioning.
+            </summary>
+            <param name="arrayProperty">Serializable property.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+            <returns>
+            Required list height in pixels.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(UnityEditor.SerializedProperty)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(UnityEditor.SerializedProperty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(UnityEditor.SerializedProperty,System.Single)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,UnityEditor.SerializedProperty,System.Single,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Draw list field control for adapted collection.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Callback to draw custom content for empty list (optional).</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Draw list field control for adapted collection.
+            </summary>
+            <param name="position">Position of control.</param>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="drawEmpty">Callback to draw custom content for empty list (optional).</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListFlags)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListField(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListField(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmpty,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.ListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <inheritdoc
+                cref="M:Ludiq.ReorderableList.ReorderableListGUI.DoListFieldAbsolute(UnityEngine.Rect,Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListControl.DrawEmptyAbsolute,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListFlags)">
+            <summary>
+            Calculate height of list field for adapted collection.
+            </summary>
+            <param name="adaptor">Reorderable list adaptor.</param>
+            <param name="flags">Optional flags to pass into list field.</param>
+            <returns>
+            Required list height in pixels.
+            </returns>
+        </member>
+        <member name="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(Ludiq.ReorderableList.IReorderableListAdaptor)">
+            <inheritdoc cref="M:Ludiq.ReorderableList.ReorderableListGUI.CalculateListFieldHeight(Ludiq.ReorderableList.IReorderableListAdaptor,Ludiq.ReorderableList.ReorderableListFlags)" />
+        </member>
+        <member name="T:Ludiq.ReorderableList.ReorderableListStyles">
+            <summary>
+            Styles for the <see cref="T:Ludiq.ReorderableList.ReorderableListControl" />.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.Title">
+            <summary>
+            Gets style for title header.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.Container">
+            <summary>
+            Gets style for the background of list control.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.Container2">
+            <summary>
+            Gets an alternative style for the background of list control.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.FooterButton">
+            <summary>
+            Gets style for footer button.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.FooterButton2">
+            <summary>
+            Gets an alternative style for footer button.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.ItemButton">
+            <summary>
+            Gets style for remove item button.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.SelectedItem">
+            <summary>
+            Gets style for the background of a selected item.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.HorizontalLineColor">
+            <summary>
+            Gets color for the horizontal lines that appear between list items.
+            </summary>
+        </member>
+        <member name="P:Ludiq.ReorderableList.ReorderableListStyles.SelectionBackgroundColor">
+            <summary>
+            Gets color of background for a selected list item.
+            </summary>
+        </member>
+        <member name="T:Ludiq.ReorderableList.SerializedPropertyAdaptor">
+            <summary>
+            Reorderable list adaptor for serialized array property.
+            </summary>
+            <remarks>
+                <para>
+                This adaptor can be subclassed to add special logic to item height calculation.
+                You may want to implement a custom adaptor class where specialised functionality
+                is needed.
+                </para>
+                <para>
+                List elements are <b>not</b> cloned using the <see cref="T:System.ICloneable" />
+                interface when using a <see cref="T:UnityEditor.SerializedProperty" /> to
+                manipulate lists.
+                </para>
+            </remarks>
+        </member>
+        <member name="F:Ludiq.ReorderableList.SerializedPropertyAdaptor.FixedItemHeight">
+            <summary>
+            Fixed height of each list item.
+            </summary>
+            <remarks>
+                <para>
+                Non-zero value overrides property drawer height calculation
+                which is more efficient.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:Ludiq.ReorderableList.SerializedPropertyAdaptor.Item(System.Int32)">
+            <summary>
+            Gets element from list.
+            </summary>
+            <param name="index">Zero-based index of element.</param>
+            <returns>
+            Serialized property wrapper for array element.
+            </returns>
+        </member>
+        <member name="P:Ludiq.ReorderableList.SerializedPropertyAdaptor.arrayProperty">
+            <summary>
+            Gets the underlying serialized array property.
+            </summary>
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.#ctor(UnityEditor.SerializedProperty,System.Single)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.SerializedPropertyAdaptor" />.
+            </summary>
+            <param name="arrayProperty">Serialized property for entire array.</param>
+            <param name="fixedItemHeight">Non-zero height overrides property drawer height calculation.</param>
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.#ctor(UnityEditor.SerializedProperty)">
+            <summary>
+            Initializes a new instance of <see cref="T:Ludiq.ReorderableList.SerializedPropertyAdaptor" />.
+            </summary>
+            <param name="arrayProperty">Serialized property for entire array.</param>
+        </member>
+        <member name="P:Ludiq.ReorderableList.SerializedPropertyAdaptor.Count">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.CanDrag(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.CanRemove(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.Add">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.Insert(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.Duplicate(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.Remove(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.Move(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.BeginGUI">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.EndGUI">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.DrawItemBackground(UnityEngine.Rect,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.DrawItem(UnityEngine.Rect,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ludiq.ReorderableList.SerializedPropertyAdaptor.GetItemHeight(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.humanNaming">
+            <summary>
+            Whether programming names should be converted into a more human-readable format.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.maxSearchResults">
+            <summary>
+            The maximum amount of search results to display.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.groupInheritedMembers">
+            <summary>
+            Whether inherited below should be grouped at the bottom of the options list.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.LanguageIconsSkin">
+            <summary>
+            The skin to use for language related (C# / VB) icons.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.limitFuzzyFinderHeight">
+            <summary>
+            Whether the height of the fuzzy finder should be limited to the
+            main editor window height. This is meant to fix Y offset issues on OSX,
+            but will cut the fuzzy finder if this window is not maximized to the screen size.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.developerMode">
+            <summary>
+            Enables additional options and logging for debugging purposes.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.trackMetadataState">
+            <summary>
+            Whether the log should track metadata state.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.debugInspectorGUI">
+            <summary>
+            Whether additional helpers should be shown in the inspector for debugging and profiling.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.aotSafeMode">
+            <summary>
+            Whether some types, including generics, should be filtered out
+            when targetting AOT platforms.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.assemblyOptions">
+            <summary>
+            The assemblies available for reflection.
+            </summary>
+        </member>
+        <member name="P:Ludiq.LudiqCoreConfiguration.typeOptions">
+            <summary>
+            The list of types available in the inspector.
+            </summary>
+        </member>
+    </members>
+</doc>

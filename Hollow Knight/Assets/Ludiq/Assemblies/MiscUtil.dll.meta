@@ -1,0 +1,120 @@
+fileFormatVersion: 2
+guid: e022ee596ebc87c43a487764edd635fe
+PluginImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap: {}
+  executionOrder: {}
+  isPreloaded: 0
+  isOverridable: 0
+  platformData:
+  - first:
+      Android: Android
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
+      settings:
+        DefaultValueInitialized: true
+  - first:
+      Nintendo 3DS: N3DS
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Nintendo Switch: Switch
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      PS4: PS4
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      PSM: PSM
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      PSP2: PSP2
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Linux
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Linux64
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: LinuxUniversal
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: OSXUniversal
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Win
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Standalone: Win64
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Tizen: Tizen
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      WebGL: WebGL
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      WiiU: WiiU
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Windows Store Apps: WindowsStoreApps
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+  - first:
+      XboxOne: XboxOne
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      iPhone: iOS
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      tvOS: tvOS
+    second:
+      enabled: 1
+      settings: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

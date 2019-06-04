@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.Core.Editor</name>
+    </assembly>
+    <members>
+        <member name="P:Bolt.BoltCoreConfiguration.dimInactiveNodes">
+            <summary>
+            Whether inactive graph nodes should be dimmed.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltCoreConfiguration.dimIncompatibleNodes">
+            <summary>
+            Whether incompatible graph nodes should be dimmed.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltCoreConfiguration.showVariablesHelp">
+            <summary>
+            Whether the header help panel should be shown in the  variables window.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltCoreConfiguration.createSceneVariables">
+            <summary>
+            Whether the scene variables object should be created automatically.
+            </summary>
+        </member>
+    </members>
+</doc>

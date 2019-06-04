@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: PlayerControl
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-839.3585,"y":161.7279},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-1013.0,"y":4.0},"guid":"f905f0d9-29ce-4615-94f0-812a972ae294","$version":"A","$type":"Bolt.Update","$id":"9"},{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{},"position":{"x":-1002.0,"y":125.0},"guid":"97f157dc-f484-4182-8e5a-4e7fa9420568","$version":"A","$type":"Bolt.SuperUnit"},{"nest":{"source":"Macro","macro":1,"embed":null},"defaultValues":{},"position":{"x":-578.0,"y":5.0},"guid":"60b28fdf-547c-4e88-b23d-dff4996d66a8","$version":"A","$type":"Bolt.SuperUnit","$id":"14"},{"nest":{"source":"Macro","macro":2,"embed":null},"defaultValues":{},"position":{"x":-812.0,"y":5.0},"guid":"959500b9-6917-4dd6-86d0-cbde360e3a39","$version":"A","$type":"Bolt.SuperUnit","$id":"17"},{"nest":{"source":"Macro","macro":3,"embed":null},"defaultValues":{},"position":{"x":-793.0,"y":127.0},"guid":"ea3edf06-6087-4329-8cac-409c4408af5b","$version":"A","$type":"Bolt.SuperUnit"},{"nest":{"source":"Macro","macro":4,"embed":null},"defaultValues":{},"position":{"x":-796.0,"y":231.0},"guid":"ca7ffd50-2c2c-4312-9053-faeff4eae2fb","$version":"A","$type":"Bolt.SuperUnit"},{"defaultValues":{},"position":{"x":-1366.0,"y":171.0},"guid":"65ab5a68-3eef-4c26-818e-38d19f268227","$version":"A","$type":"Bolt.Self","$id":"26"},{"nest":{"source":"Macro","macro":5,"embed":null},"defaultValues":{},"position":{"x":-563.0,"y":131.0},"guid":"1c14e960-95a3-4e16-b87c-4e3d3a16d24c","$version":"A","$type":"Bolt.SuperUnit"},{"nest":{"source":"Macro","macro":6,"embed":null},"defaultValues":{},"position":{"x":-570.0,"y":230.0},"guid":"b4eeb313-055f-429c-8b61-c251bd39f78e","$version":"A","$type":"Bolt.SuperUnit"},{"coroutine":false,"defaultValues":{},"position":{"x":-1363.0,"y":11.0},"guid":"df1eead1-7449-484d-9eb9-086246bf82ae","$version":"A","$type":"Bolt.Start","$id":"34"},{"kind":"Application","defaultValues":{"name":{"$content":"Player","$type":"System.String"}},"position":{"x":-1211.0,"y":61.0},"guid":"58aea3db-2694-47fa-ac27-2c90e1f20533","$version":"A","$type":"Bolt.SetVariable","$id":"36"},{"nest":{"source":"Macro","macro":7,"embed":null},"defaultValues":{},"position":{"x":-1006.0,"y":224.0},"guid":"f48b7aaf-9917-495f-b977-37ce75c2f187","$version":"A","$type":"Bolt.SuperUnit"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"17"},"destinationKey":"InFlow","guid":"2a79e5c1-5811-4ed5-b7b8-6942978bb03f","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"17"},"sourceKey":"OutFlow","destinationUnit":{"$ref":"14"},"destinationKey":"InFlow","guid":"4568954d-3ad9-4471-85e7-358471608af6","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"34"},"sourceKey":"trigger","destinationUnit":{"$ref":"36"},"destinationKey":"assign","guid":"e7560960-effc-40db-a230-b553d542a881","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"self","destinationUnit":{"$ref":"36"},"destinationKey":"input","guid":"e991060f-aa9c-4a26-a58d-e8ef39a8bc4a","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: cadc23a11fe29464c8bacc4b27802aca, type: 2}
+    - {fileID: 11400000, guid: 796b84fdaa52848ddb1fa6f1ef333dca, type: 2}
+    - {fileID: 11400000, guid: 6451c6bad7dd643299200e2b1c930c8f, type: 2}
+    - {fileID: 11400000, guid: cea659b7ccf024665a89e121254072c9, type: 2}
+    - {fileID: 11400000, guid: d4a06efcdff8842db90be24f95c27fd1, type: 2}
+    - {fileID: 11400000, guid: 90fb83f501dff483fa4353ee60ed65d4, type: 2}
+    - {fileID: 11400000, guid: 5bca9cb6cbc254d3985df2fbf0923ad0, type: 2}
+    - {fileID: 11400000, guid: 0aa2babf5da584765aa2a8c8b93d77bb, type: 2}

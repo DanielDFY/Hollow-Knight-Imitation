@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.Flow.Editor</name>
+    </assembly>
+    <members>
+        <member name="P:Bolt.BoltFlowConfiguration.updateUnitsAutomatically">
+            <summary>
+            (Experimental) Whether the unit database should be incrementally updated
+            whenever a codebase change is detected.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.predictPotentialNullReferences">
+            <summary>
+            Whether predictive debugging should warn about null value inputs.
+            Note that in some cases, this setting may report false positives.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.predictPotentialMissingComponents">
+            <summary>
+            Whether predictive debugging should warn about missing components.
+            Note that in some cases, this setting may report false positives.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.showConnectionValues">
+            <summary>
+            Whether values should be shown on flow graph connections.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.predictConnectionValues">
+            <summary>
+            Whether predictable values should be shown on flow graph connections.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.hidePortLabels">
+            <summary>
+            Whether labels should be hidden on ports when the value can be deduced from the context.
+            Disabling will make units more explicit but less compact.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.animateControlConnections">
+            <summary>
+            Whether active control connections should show a droplet animation.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.animateValueConnections">
+            <summary>
+            Whether active value connections should show a droplet animation.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltFlowConfiguration.skipContextMenu">
+            <summary>
+            When active, right-clicking a flow graph will skip the context menu 
+            and instantly open the fuzzy finder. To open the context menu, hold shift.
+            </summary>
+        </member>
+    </members>
+</doc>

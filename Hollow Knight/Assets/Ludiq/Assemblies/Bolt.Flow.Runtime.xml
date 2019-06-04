@@ -1,0 +1,3293 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bolt.Flow.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:Bolt.Dependencies.NCalc.EvaluateOptions">
+            <summary>
+            Provides enumerated values to use to set evaluation options.
+            </summary>
+        </member>
+        <member name="F:Bolt.Dependencies.NCalc.EvaluateOptions.None">
+            <summary>
+            Specifies that no options are set.
+            </summary>
+        </member>
+        <member name="F:Bolt.Dependencies.NCalc.EvaluateOptions.IgnoreCase">
+            <summary>
+            Specifies case-insensitive matching.
+            </summary>
+        </member>
+        <member name="F:Bolt.Dependencies.NCalc.EvaluateOptions.NoCache">
+            <summary>
+            No-cache mode. Ingores any pre-compiled expression in the cache.
+            </summary>
+        </member>
+        <member name="F:Bolt.Dependencies.NCalc.EvaluateOptions.IterateParameters">
+            <summary>
+            Treats parameters as arrays and result a set of results.
+            </summary>
+        </member>
+        <member name="F:Bolt.Dependencies.NCalc.EvaluateOptions.RoundAwayFromZero">
+            <summary>
+            When using Round(), if a number is halfway between two others, it is rounded toward the nearest number that is away
+            from zero.
+            </summary>
+        </member>
+        <member name="F:Bolt.Dependencies.NCalc.Expression.OriginalExpression">
+            <summary>
+            Textual representation of the expression to evaluate.
+            </summary>
+        </member>
+        <member name="M:Bolt.Dependencies.NCalc.Expression.HasErrors">
+            <summary>
+            Pre-compiles the expression in order to check syntax errors.
+            If errors are detected, the Error property contains the message.
+            </summary>
+            <returns>True if the expression syntax is correct, otherwise false</returns>
+        </member>
+        <member name="M:Bolt.Dependencies.NCalc.Expression.CleanCache">
+            <summary>
+            Removes unused entries from cached compiled expression.
+            </summary>
+        </member>
+        <member name="T:Bolt.CreateStruct">
+            <summary>
+            Creates a struct with its default initializer.
+            </summary>
+        </member>
+        <member name="P:Bolt.CreateStruct.enter">
+            <summary>
+            The entry point to create the struct. You can
+            still get the return value without connecting this port.
+            </summary>
+        </member>
+        <member name="P:Bolt.CreateStruct.exit">
+            <summary>
+            The action to call once the struct has been created.
+            </summary>
+        </member>
+        <member name="P:Bolt.CreateStruct.output">
+            <summary>
+            The created struct.
+            </summary>
+        </member>
+        <member name="T:Bolt.SelectOnFlow">
+            <summary>
+            Selects a value from a set by matching it with an input flow.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectOnFlow.exit">
+            <summary>
+            Triggered when any selector is entered.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectOnFlow.selection">
+            <summary>
+            The selected value.
+            </summary>
+        </member>
+        <member name="T:Bolt.ToggleFlow">
+            <summary>
+            Toggles the control flow with on and off triggers.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.startOn">
+            <summary>
+            Whether the toggle should start in the on state.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.enter">
+            <summary>
+            Entry point to the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.turnOn">
+            <summary>
+            Trigger to turn on the flow through the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.turnOff">
+            <summary>
+            Trigger to turn off the flow through the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.toggle">
+            <summary>
+            Trigger to toggle the flow through the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.exitOn">
+            <summary>
+            Triggered on entry if the flow is on.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.exitOff">
+            <summary>
+            Triggered on entry if the flow is off.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.turnedOn">
+            <summary>
+            Triggered when the flow gets turned on.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.turnedOff">
+            <summary>
+            Triggered when the flow gets turned off.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleFlow.isOn">
+            <summary>
+            Whether the flow is currently on.
+            </summary>
+        </member>
+        <member name="T:Bolt.ToggleValue">
+            <summary>
+            Toggles between two values with on and off triggers.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.startOn">
+            <summary>
+            Whether the toggle should start in the on state.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.turnOn">
+            <summary>
+            Trigger to turn on the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.turnOff">
+            <summary>
+            Trigger to turn off the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.toggle">
+            <summary>
+            Trigger to toggle the state of the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.onValue">
+            <summary>
+            The value to return if the toggle is on.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.offValue">
+            <summary>
+            The value to return if the toggle is off.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.turnedOn">
+            <summary>
+            Triggered when the flow gets turned on.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.turnedOff">
+            <summary>
+            Triggered when the flow gets turned off.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.isOn">
+            <summary>
+            Whether the flow is currently on.
+            </summary>
+        </member>
+        <member name="P:Bolt.ToggleValue.value">
+            <summary>
+            The value of the toggle selected depending on the state.
+            </summary>
+        </member>
+        <member name="P:Bolt.GenericGuiEventUnit.data">
+            <summary>
+            The event data.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCancel">
+            <summary>
+            Called when the cancel button is pressed.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnBeginDrag">
+            <summary>
+            Called on the drag object when dragging is about to begin.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDrag">
+            <summary>
+            When draging is occuring this will be called every time the cursor is moved.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDrop">
+            <summary>
+            Called on a target that can accept a drop.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnEndDrag">
+            <summary>
+            Called on the drag object when a drag finishes.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMove">
+            <summary>
+            Called when a move event occurs.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnMove.data">
+            <summary>
+            The axis event data.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnScroll">
+            <summary>
+            Called when a mouse wheel scrolls.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnSubmit">
+            <summary>
+            Called when the submit button is pressed.
+            </summary>
+        </member>
+        <member name="P:Bolt.PointerEventUnit.data">
+            <summary>
+            The pointer event data.
+            </summary>
+        </member>
+        <member name="T:Bolt.Cooldown">
+            <summary>
+            Runs a cooldown timer to throttle flow and outputs remaining measurements.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.enter">
+            <summary>
+            The moment at which to try using the cooldown.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.reset">
+            <summary>
+            Trigger to force reset the cooldown.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.duration">
+            <summary>
+            The total duration of the cooldown.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.unscaledTime">
+            <summary>
+            Whether to ignore the time scale.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.exitReady">
+            <summary>
+            Called upon entry when the cooldown is ready.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.exitNotReady">
+            <summary>
+            Called upon entry when the cooldown is not yet ready.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.tick">
+            <summary>
+            Called each frame while the cooldown timer is active.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.becameReady">
+            <summary>
+            Called when the cooldown timer reaches zero.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.remainingSeconds">
+            <summary>
+            The number of seconds remaining until the cooldown is ready.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cooldown.remainingRatio">
+            <summary>
+            The proportion of the duration remaining until the cooldown is ready (0-1).
+            </summary>
+        </member>
+        <member name="T:Bolt.Once">
+            <summary>
+            Executes an action only once, and a different action afterwards.
+            </summary>
+        </member>
+        <member name="P:Bolt.Once.enter">
+            <summary>
+            The entry point for the action.
+            </summary>
+        </member>
+        <member name="P:Bolt.Once.reset">
+            <summary>
+            Trigger to reset the once check.
+            </summary>
+        </member>
+        <member name="P:Bolt.Once.once">
+            <summary>
+            The action to execute the first time the unit is entered.
+            </summary>
+        </member>
+        <member name="P:Bolt.Once.after">
+            <summary>
+            The action to execute subsequently.
+            </summary>
+        </member>
+        <member name="T:Bolt.Throw">
+            <summary>
+            Throws an exception.
+            </summary>
+        </member>
+        <member name="P:Bolt.Throw.custom">
+            <summary>
+            Whether a custom exception object should be specified manually.
+            </summary>
+        </member>
+        <member name="P:Bolt.Throw.enter">
+            <summary>
+            The entry point to throw the exception.
+            </summary>
+        </member>
+        <member name="P:Bolt.Throw.message">
+            <summary>
+            The message of the exception.
+            </summary>
+        </member>
+        <member name="P:Bolt.Throw.exception">
+            <summary>
+            The exception to throw.
+            </summary>
+        </member>
+        <member name="T:Bolt.Timer">
+            <summary>
+            Runs a timer and outputs elapsed and remaining measurements.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.start">
+            <summary>
+            The moment at which to start the timer.
+            If the timer is already started, this will reset it.
+            If the timer is paused, this will resume it.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.pause">
+            <summary>
+            Trigger to pause the timer.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.resume">
+            <summary>
+            Trigger to resume the timer.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.toggle">
+            <summary>
+            Trigger to toggle the timer.
+            If it is idle, it will start.
+            If it is active, it will pause.
+            If it is paused, it will resume.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.duration">
+            <summary>
+            The total duration of the timer.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.unscaledTime">
+            <summary>
+            Whether to ignore the time scale.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.started">
+            <summary>
+            Called when the timer is started.co
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.tick">
+            <summary>
+            Called each frame while the timer is active.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.completed">
+            <summary>
+            Called when the timer completes.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.elapsedSeconds">
+            <summary>
+            The number of seconds elapsed since the timer started.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.elapsedRatio">
+            <summary>
+            The proportion of the duration that has elapsed (0-1).
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.remainingSeconds">
+            <summary>
+            The number of seconds remaining until the timer is elapsed.
+            </summary>
+        </member>
+        <member name="P:Bolt.Timer.remainingRatio">
+            <summary>
+            The proportion of the duration remaining until the timer is elapsed (0-1).
+            </summary>
+        </member>
+        <member name="T:Bolt.TryCatch">
+            <summary>
+            Handles an exception if it occurs.
+            </summary>
+        </member>
+        <member name="P:Bolt.TryCatch.enter">
+            <summary>
+            The entry point for the try-catch block.
+            </summary>
+        </member>
+        <member name="P:Bolt.TryCatch.try">
+            <summary>
+            The action to attempt.
+            </summary>
+        </member>
+        <member name="P:Bolt.TryCatch.catch">
+            <summary>
+            The action to execute if an exception is thrown.
+            </summary>
+        </member>
+        <member name="P:Bolt.TryCatch.finally">
+            <summary>
+            The action to execute afterwards, regardless of whether there was an exception.
+            </summary>
+        </member>
+        <member name="P:Bolt.TryCatch.exception">
+            <summary>
+            The exception that was thrown in the try block.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnAnimatorIK">
+            <summary>
+            Called by the Animator Component immediately before it updates its internal IK system. 
+            This callback can be used to set the positions of the IK goals and their respective weights.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnAnimatorIK.layerIndex">
+            <summary>
+            The index of the layer on which the IK solver is called.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnAnimatorMove">
+            <summary>
+            Called at each frame after the state machines and the animations have been evaluated, but before On Animator IK.
+            This callback can be used for processing animation movements for modifying root motion.
+            </summary>
+        </member>
+        <member name="P:Bolt.EventUnit`1.coroutine">
+            <summary>
+            Run this event in a coroutine, enabling asynchronous flow like wait units.
+            </summary>
+        </member>
+        <member name="T:Bolt.DictionaryContainsKey">
+            <summary>
+            Checks whether a dictionary contains the specified key.
+            </summary>
+        </member>
+        <member name="P:Bolt.DictionaryContainsKey.dictionary">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.DictionaryContainsKey.key">
+            <summary>
+            The key.
+            </summary>
+        </member>
+        <member name="P:Bolt.DictionaryContainsKey.contains">
+            <summary>
+            Whether the list contains the item.
+            </summary>
+        </member>
+        <member name="T:Bolt.ListContainsItem">
+            <summary>
+            Checks whether a list contains the specified item.
+            </summary>
+        </member>
+        <member name="P:Bolt.ListContainsItem.list">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.ListContainsItem.item">
+            <summary>
+            The item.
+            </summary>
+        </member>
+        <member name="P:Bolt.ListContainsItem.contains">
+            <summary>
+            Whether the list contains the item.
+            </summary>
+        </member>
+        <member name="T:Bolt.Sequence">
+            <summary>
+            Executes the output ports in order.
+            </summary>
+        </member>
+        <member name="P:Bolt.Sequence.enter">
+            <summary>
+            The entry point for the sequence.
+            </summary>
+        </member>
+        <member name="T:Bolt.WaitForEndOfFrameUnit">
+            <summary>
+            Delays flow by waiting until the end of the frame.
+            </summary>
+        </member>
+        <member name="T:Bolt.WaitForFlow">
+            <summary>
+            Delays flow by waiting until multiple input flows have been executed.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitForFlow.resetOnExit">
+            <summary>
+            Whether the activation status should be reset on exit.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitForFlow.reset">
+            <summary>
+            Trigger to reset the activation status.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitForFlow.exit">
+            <summary>
+            Triggered after all inputs have been entered at least once.
+            </summary>
+        </member>
+        <member name="T:Bolt.WaitForNextFrameUnit">
+            <summary>
+            Delays flow by waiting until the next frame.
+            </summary>
+        </member>
+        <member name="T:Bolt.WaitForSecondsUnit">
+            <summary>
+            Delays flow by waiting a specified number of seconds.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitForSecondsUnit.seconds">
+            <summary>
+            The number of seconds to await.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitForSecondsUnit.unscaledTime">
+            <summary>
+            Whether to ignore the time scale.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitUnit.enter">
+            <summary>
+            The moment at which to start the delay.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitUnit.exit">
+            <summary>
+            The action to execute after the delay has elapsed.
+            </summary>
+        </member>
+        <member name="T:Bolt.WaitUntilUnit">
+            <summary>
+            Delays flow by waiting until a condition becomes true.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitUntilUnit.condition">
+            <summary>
+            The condition to await.
+            </summary>
+        </member>
+        <member name="T:Bolt.WaitWhileUnit">
+            <summary>
+            Delays flow by waiting while a condition is true.
+            </summary>
+        </member>
+        <member name="P:Bolt.WaitWhileUnit.condition">
+            <summary>
+            The condition to check.
+            </summary>
+        </member>
+        <member name="T:Bolt.BoltAnimationEvent">
+            <summary>
+            Called when an animation event points to TriggerAnimationEvent.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltAnimationEvent.stringParameter">
+            <summary>
+            The string parameter passed to the event.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltAnimationEvent.floatParameter">
+            <summary>
+            The float parameter passed to the event.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltAnimationEvent.intParameter">
+            <summary>
+            The integer parameter passed to the function.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltAnimationEvent.objectReferenceParameter">
+            <summary>
+            The Unity object parameter passed to the function.
+            </summary>
+        </member>
+        <member name="T:Bolt.BoltNamedAnimationEvent">
+            <summary>
+            Called when an animation event points to TriggerAnimationEvent.
+            This version allows you to use the string parameter as the event name.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltNamedAnimationEvent.name">
+            <summary>
+            The name of the event. The event will only trigger if this value
+            is equal to the string parameter passed in the animation event.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltNamedAnimationEvent.floatParameter">
+            <summary>
+            The float parameter passed to the event.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltNamedAnimationEvent.intParameter">
+            <summary>
+            The integer parameter passed to the function.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltNamedAnimationEvent.objectReferenceParameter">
+            <summary>
+            The Unity object parameter passed to the function.
+            </summary>
+        </member>
+        <member name="T:Bolt.BoltUnityEvent">
+            <summary>
+            Called when a UnityEvent points to TriggerUnityEvent.
+            </summary>
+        </member>
+        <member name="P:Bolt.BoltUnityEvent.name">
+            <summary>
+            The name of the event. The event will only trigger if this value
+            is equal to the string parameter passed in the UnityEvent.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDeselect">
+            <summary>
+            Called when the pointer deselects the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnGUI">
+            <summary>
+            Use to draw immediate mode GUI components.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnPointerClick">
+            <summary>
+            Called when the pointer clicks the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnPointerDown">
+            <summary>
+            Called when the pointer presses the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnPointerEnter">
+            <summary>
+            Called when the pointer enters the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnPointerExit">
+            <summary>
+            Called when the pointer exits the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnPointerUp">
+            <summary>
+            Called when the pointer releases the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnSelect">
+            <summary>
+            Called when the pointer selects the GUI element.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnToggleValueChanged">
+            <summary>
+            Called when the current value of the toggle has changed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnToggleValueChanged.value">
+            <summary>
+            The new boolean value of the toggle.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEventUnit.collider">
+            <summary>
+            The collider we hit.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEventUnit.contacts">
+            <summary>
+            The contact points generated by the physics engine.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEventUnit.impulse">
+            <summary>
+            The total impulse applied to this contact pair to resolve the collision.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEventUnit.relativeVelocity">
+            <summary>
+            The relative linear velocity of the two colliding objects.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEventUnit.data">
+            <summary>
+            The complete collision data object.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEvent2DUnit.collider">
+            <summary>
+            The collider we hit.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEvent2DUnit.contacts">
+            <summary>
+            The contact points generated by the physics engine.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEvent2DUnit.relativeVelocity">
+            <summary>
+            The relative linear velocity of the two colliding objects.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEvent2DUnit.enabled">
+            <summary>
+            Whether the collision was enabled or not.
+            </summary>
+        </member>
+        <member name="P:Bolt.CollisionEvent2DUnit.data">
+            <summary>
+            The complete collision data object.
+            </summary>
+        </member>
+        <member name="T:Bolt.FixedUpdate">
+            <summary>
+            Called every fixed framerate frame.
+            </summary>
+        </member>
+        <member name="T:Bolt.LateUpdate">
+            <summary>
+            Called every frame after all update functions have been called.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnApplicationFocus">
+            <summary>
+            Called when the application gains focus.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnApplicationLostFocus">
+            <summary>
+            Called when the application loses focus.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnApplicationPause">
+            <summary>
+            Called when the application pauses.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnApplicationQuit">
+            <summary>
+            Called when the application quits.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnApplicationResume">
+            <summary>
+            Called when the application resumes.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnBecameInvisible">
+            <summary>
+            Called when the renderer is no longer visible by any camera.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnBecameVisible">
+            <summary>
+            Called when the renderer became visible by any camera.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnButtonClick">
+            <summary>
+            Called when a user clicks the button and releases it.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnButtonInput">
+            <summary>
+            A configurable event to handle global button input.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnButtonInput.buttonName">
+            <summary>
+            The name of the button that received input.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnButtonInput.action">
+            <summary>
+            The type of input.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCollisionEnter">
+            <summary>
+            Called when this collider / rigidbody has begun touching another rigidbody / collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCollisionEnter2D">
+            <summary>
+            Called when an incoming collider makes contact with this object's collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCollisionExit">
+            <summary>
+            Called when this collider / rigidbody has stopped touching another rigidbody / collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCollisionExit2D">
+            <summary>
+            Called when a collider on another object stops touching this object's collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCollisionStay">
+            <summary>
+            Called once per frame for every collider / rigidbody that is touching rigidbody / collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnCollisionStay2D">
+            <summary>
+            Called each frame where a collider on another object is touching this object's collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnControllerColliderHit">
+            <summary>
+            Called when the controller hits a collider while performing a move.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.collider">
+            <summary>
+            The collider that was hit by the controller.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.controller">
+            <summary>
+            The controller that hit the collider.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.moveDirection">
+            <summary>
+            The direction the CharacterController was moving in when the collision occured.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.moveLength">
+            <summary>
+            How far the character has travelled until it hit the collider.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.normal">
+            <summary>
+            The normal of the surface we collided with in world space.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.point">
+            <summary>
+            The impact point in world space.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnControllerColliderHit.data">
+            <summary>
+            The impact point in world space.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDestinationReached">
+            <summary>
+            Called when the nav mesh agent comes within a certain threshold of its destination.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnDestinationReached.threshold">
+            <summary>
+            The threshold for the remaining distance.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnDestinationReached.requireSuccess">
+            <summary>
+            Whether the event should only trigger when the path is not partial or invalid.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDestroy">
+            <summary>
+            Called before the machine is destroyed.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDisable">
+            <summary>
+            Called when the machine becomes disabled or inactive.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDrawGizmos">
+            <summary>
+            Use to draw gizmos that are always drawn in the editor.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDrawGizmosSelected">
+            <summary>
+            Use to draw gizmos that are drawn in the editor when the object is selected.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnDropdownValueChanged">
+            <summary>
+            Called when the current value of the dropdown has changed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnDropdownValueChanged.index">
+            <summary>
+            The index of the newly selected option.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnDropdownValueChanged.text">
+            <summary>
+            The text of the newly selected option.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnEnable">
+            <summary>
+            Called when the machine becomes enabled and active.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnInputFieldEndEdit">
+            <summary>
+            Called when the user finishes editing the text content either by submitting or by clicking somewhere that removes the
+            focus from the input field.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnInputFieldEndEdit.value">
+            <summary>
+            The new text content of the input field.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnInputFieldValueChanged">
+            <summary>
+            Called when the text content of the input field has changed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnInputFieldValueChanged.value">
+            <summary>
+            The new text content of the input field.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnJointBreak">
+            <summary>
+            Called when a joint attached to the same game object broke.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak.breakForce">
+            <summary>
+            The force that was applied for this joint to break.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnJointBreak2D">
+            <summary>
+            Called when a joint attached to the same game object broke.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak2D.breakForce">
+            <summary>
+            The force that needs to be applied for the joint that broke to break.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak2D.breakTorque">
+            <summary>
+            The torque that needs to be applied for the joint that broke to break.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak2D.connectedBody">
+            <summary>
+            The 2D rigidbody to which the other end of the joint is attached (ie, the object without the joint component).
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak2D.reactionForce">
+            <summary>
+            The reaction force of the joint that broke.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak2D.reactionTorque">
+            <summary>
+            The reaction torque of the joint that broke.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnJointBreak2D.joint">
+            <summary>
+            The joint that broke.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnKeyboardInput">
+            <summary>
+            A configurable event to handle global keyboard input.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnKeyboardInput.key">
+            <summary>
+            The key that received input.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnKeyboardInput.action">
+            <summary>
+            The type of input.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseDown">
+            <summary>
+            Called when the user has pressed the mouse button while over the GUI element or collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseDrag">
+            <summary>
+            Called when the user has clicked on the GUI element or collider and is still holding down the mouse.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseEnter">
+            <summary>
+            Called when the mouse enters the GUI element or collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseExit">
+            <summary>
+            Called when the mouse is not any longer over the GUI element or collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseInput">
+            <summary>
+            A configurable event to handle global mouse input.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnMouseInput.button">
+            <summary>
+            The mouse button that received input.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnMouseInput.action">
+            <summary>
+            The type of input.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseOver">
+            <summary>
+            Called every frame while the mouse is over the GUI element or collider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseUp">
+            <summary>
+            Called when the user has released the mouse button.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnMouseUpAsButton">
+            <summary>
+            Called when the mouse is released over the same GUI element or collider as it was pressed.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnParticleCollision">
+            <summary>
+            Called when a particle hits a collider.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnParticleCollision.other">
+            <summary>
+            A game object with an attached collider struck by the particle system.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnParticleCollision.collisionEvents">
+            <summary>
+            The particle collision events.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnScrollbarValueChanged">
+            <summary>
+            Called when the current value of the scrollbar has changed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnScrollbarValueChanged.value">
+            <summary>
+            The new position value of the scrollbar.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnScrollRectValueChanged">
+            <summary>
+            Called when the current value of the scrollbar has changed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnScrollRectValueChanged.value">
+            <summary>
+            The new scroll position of the scroll rect.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnSliderValueChanged">
+            <summary>
+            Called when the current value of the slider has changed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnSliderValueChanged.value">
+            <summary>
+            The new numeric value of the slider.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTransformChildrenChanged">
+            <summary>
+            Called when the list of children of the transform of the game object has changed.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTransformParentChanged">
+            <summary>
+            Called when the parent property of the transform of the game object has changed.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTriggerEnter">
+            <summary>
+            Called when a collider enters the trigger.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTriggerEnter2D">
+            <summary>
+            Called when a collider enters the trigger.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTriggerExit">
+            <summary>
+            Called when a collider exits the trigger.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTriggerExit2D">
+            <summary>
+            Called when a collider exits the trigger.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTriggerStay">
+            <summary>
+            Called once per frame for every collider that is touching the trigger.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTriggerStay2D">
+            <summary>
+            Called once per frame for every collider that is touching the trigger.
+            </summary>
+        </member>
+        <member name="T:Bolt.Start">
+            <summary>
+            Called the first time a machine is enabled before any update method.
+            </summary>
+        </member>
+        <member name="T:Bolt.TriggerCustomEvent">
+            <summary>
+            Triggers a custom event.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerCustomEvent.enter">
+            <summary>
+            The entry point to trigger the event.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerCustomEvent.name">
+            <summary>
+            The name of the event.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerCustomEvent.target">
+            <summary>
+            The target of the event.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerCustomEvent.exit">
+            <summary>
+            The action to do after the event has been triggered.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerEventUnit.collider">
+            <summary>
+            The other collider involved in the collision.
+            </summary>
+        </member>
+        <member name="P:Bolt.TriggerEvent2DUnit.collider">
+            <summary>
+            The other collider involved in the collision.
+            </summary>
+        </member>
+        <member name="T:Bolt.Update">
+            <summary>
+            Called every frame.
+            </summary>
+        </member>
+        <member name="T:Bolt.CustomEvent">
+            <summary>
+            A special named event with any amount of parameters called manually with the 'Trigger Custom Event' unit.
+            </summary>
+        </member>
+        <member name="P:Bolt.CustomEvent.name">
+            <summary>
+            The name of the event.
+            </summary>
+        </member>
+        <member name="T:Bolt.OnTimerElapsed">
+            <summary>
+            Called when a specified number of seconds has elapsed.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnTimerElapsed.seconds">
+            <summary>
+            The number of seconds to await.
+            </summary>
+        </member>
+        <member name="P:Bolt.OnTimerElapsed.unscaledTime">
+            <summary>
+            Whether to ignore the time scale.
+            </summary>
+        </member>
+        <member name="P:Bolt.GameObjectEventUnit`1.target">
+            <summary>
+            The game object that listens for the event.
+            </summary>
+        </member>
+        <member name="T:Bolt.ApproximatelyEqual">
+            <summary>
+            Compares two numbers to determine if they are approximately equal (disregarding floating point precision errors).
+            </summary>
+        </member>
+        <member name="P:Bolt.ApproximatelyEqual.a">
+            <summary>
+            The first number.
+            </summary>
+        </member>
+        <member name="P:Bolt.ApproximatelyEqual.b">
+            <summary>
+            The second number.
+            </summary>
+        </member>
+        <member name="P:Bolt.ApproximatelyEqual.equal">
+            <summary>
+            Whether A is approximately equal to B.
+            </summary>
+        </member>
+        <member name="T:Bolt.Comparison">
+            <summary>
+            Compares two inputs.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.a">
+            <summary>
+            The first input.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.b">
+            <summary>
+            The second input.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.numeric">
+            <summary>
+            Whether the compared inputs are numbers.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.aLessThanB">
+            <summary>
+            Whether A is less than B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.aLessThanOrEqualToB">
+            <summary>
+            Whether A is less than or equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.aEqualToB">
+            <summary>
+            Whether A is equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.aNotEqualToB">
+            <summary>
+            Whether A is not equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.aGreaterThanOrEqualToB">
+            <summary>
+            Whether A is greater than or equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Comparison.aGreatherThanB">
+            <summary>
+            Whether A is greater than B.
+            </summary>
+        </member>
+        <member name="T:Bolt.Equal">
+            <summary>
+            Compares two inputs to determine whether they are equal.
+            </summary>
+        </member>
+        <member name="P:Bolt.Equal.comparison">
+            <summary>
+            Whether A is equal to B.
+            </summary>
+        </member>
+        <member name="T:Bolt.Greater">
+            <summary>
+            Compares two inputs to determine whether the first is greater than the second.
+            </summary>
+        </member>
+        <member name="P:Bolt.Greater.comparison">
+            <summary>
+            Whether A is greater than B.
+            </summary>
+        </member>
+        <member name="T:Bolt.GreaterOrEqual">
+            <summary>
+            Compares two inputs to determine whether the first is greater than or equal to the second.
+            </summary>
+        </member>
+        <member name="P:Bolt.GreaterOrEqual.comparison">
+            <summary>
+            Whether A is greater than or equal to B.
+            </summary>
+        </member>
+        <member name="T:Bolt.Less">
+            <summary>
+            Compares two inputs to determine whether the first is less than the second.
+            </summary>
+        </member>
+        <member name="P:Bolt.Less.comparison">
+            <summary>
+            Whether A is less than B.
+            </summary>
+        </member>
+        <member name="T:Bolt.LessOrEqual">
+            <summary>
+            Compares two inputs to determine whether the first is less than or equal to the second.
+            </summary>
+        </member>
+        <member name="P:Bolt.LessOrEqual.comparison">
+            <summary>
+            Whether A is greater than or equal to B.
+            </summary>
+        </member>
+        <member name="T:Bolt.NotApproximatelyEqual">
+            <summary>
+            Compares two numbers to determine if they are not approximately equal (disregarding floating point precision errors).
+            </summary>
+        </member>
+        <member name="P:Bolt.NotApproximatelyEqual.a">
+            <summary>
+            The first number.
+            </summary>
+        </member>
+        <member name="P:Bolt.NotApproximatelyEqual.b">
+            <summary>
+            The second number.
+            </summary>
+        </member>
+        <member name="P:Bolt.NotApproximatelyEqual.notEqual">
+            <summary>
+            Whether A is not approximately equal to B.
+            </summary>
+        </member>
+        <member name="T:Bolt.NotEqual">
+            <summary>
+            Compares two inputs to determine whether they are not equal.
+            </summary>
+        </member>
+        <member name="P:Bolt.NotEqual.comparison">
+            <summary>
+            Whether A is different than B.
+            </summary>
+        </member>
+        <member name="P:Bolt.BinaryComparisonUnit.a">
+            <summary>
+            The first input.
+            </summary>
+        </member>
+        <member name="P:Bolt.BinaryComparisonUnit.b">
+            <summary>
+            The second input.
+            </summary>
+        </member>
+        <member name="P:Bolt.BinaryComparisonUnit.numeric">
+            <summary>
+            Whether the compared inputs are numbers.
+            </summary>
+        </member>
+        <member name="T:Bolt.GenericAdd">
+            <summary>
+            Returns the sum of two objects.
+            </summary>
+        </member>
+        <member name="T:Bolt.GenericDivide">
+            <summary>
+            Returns the quotient of two objects.
+            </summary>
+        </member>
+        <member name="T:Bolt.GenericModulo">
+            <summary>
+            Returns the remainder of the division of two objects.
+            </summary>
+        </member>
+        <member name="T:Bolt.GenericMultiply">
+            <summary>
+            Returns the product of two objects.
+            </summary>
+        </member>
+        <member name="T:Bolt.GenericSubtract">
+            <summary>
+            Returns the difference between two objects.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarNormalize">
+            <summary>
+            Returns the unit length version of a scalar.
+            </summary>
+        </member>
+        <member name="T:Bolt.IsVariableDefined">
+            <summary>
+            Checks whether a variable is defined.
+            </summary>
+        </member>
+        <member name="P:Bolt.IsVariableDefined.isVariableDefined">
+            <summary>
+            Whether the variable is defined.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetGraphVariable">
+            <summary>
+            Gets the value of a graph variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetVariable">
+            <summary>
+            Gets the value of a variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetVariable.value">
+            <summary>
+            The value of the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetVariable.fallback">
+            <summary>
+            The value to return if the variable is not defined.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetVariable.specifyFallback">
+            <summary>
+            Whether a fallback value should be provided if the 
+            variable is not defined.
+            </summary>
+        </member>
+        <member name="T:Bolt.IsGraphVariableDefined">
+            <summary>
+            Checks if a graph variable is defined.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetGraphVariable">
+            <summary>
+            Sets the value of a graph variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetVariable">
+            <summary>
+            Assigns the value of a variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariable.assign">
+            <summary>
+            The entry point to assign the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariable.input">
+            <summary>
+            The value to assign to the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariable.assigned">
+            <summary>
+            The action to execute once the variable has been assigned.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariable.output">
+            <summary>
+            The value assigned to the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.UnifiedVariableUnit.kind">
+            <summary>
+            The kind of variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.UnifiedVariableUnit.name">
+            <summary>
+            The name of the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.UnifiedVariableUnit.object">
+            <summary>
+            The source of the variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.Cache">
+            <summary>
+            Caches the input so that all nodes connected to the output
+            retrieve the value only once.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cache.enter">
+            <summary>
+            The moment at which to cache the value.
+            The output value will only get updated when this gets triggered.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cache.input">
+            <summary>
+            The value to cache when the node is entered.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cache.output">
+            <summary>
+            The cached value, as it was the last time this node was entered.
+            </summary>
+        </member>
+        <member name="P:Bolt.Cache.exit">
+            <summary>
+            The action to execute once the value has been cached.
+            </summary>
+        </member>
+        <member name="T:Bolt.Expose">
+            <summary>
+            Exposes all members of the type.
+            </summary>
+        </member>
+        <member name="P:Bolt.Expose.target">
+            <summary>
+            The instance of the exposed type.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetMember">
+            <summary>
+            Gets the value of a field or property via reflection.
+            </summary>
+        </member>
+        <member name="T:Bolt.InvokeMember">
+            <summary>
+            Invokes a method or a constructor via reflection.
+            </summary>
+        </member>
+        <member name="P:Bolt.InvokeMember.chainable">
+            <summary>
+            Whether the target should be output to allow for chaining.
+            </summary>
+        </member>
+        <member name="P:Bolt.InvokeMember.targetOutput">
+            <summary>
+            The target object used when setting the value.
+            </summary>
+        </member>
+        <member name="P:Bolt.MemberUnit.target">
+            <summary>
+            The target object.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetMember">
+            <summary>
+            Sets the value of a field or property via reflection.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetMember.chainable">
+            <summary>
+            Whether the target should be output to allow for chaining.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetMember.targetOutput">
+            <summary>
+            The target object used when setting the value.
+            </summary>
+        </member>
+        <member name="T:Bolt.CountItems">
+            <summary>
+            Counts all items in a collection or enumeration.
+            </summary>
+        </member>
+        <member name="P:Bolt.CountItems.collection">
+            <summary>
+            The collection.
+            </summary>
+        </member>
+        <member name="P:Bolt.CountItems.count">
+            <summary>
+            The number of items contained in the collection.
+            </summary>
+        </member>
+        <member name="T:Bolt.AddDictionaryItem">
+            <summary>
+            Adds an item to a dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddDictionaryItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddDictionaryItem.dictionaryInput">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddDictionaryItem.dictionaryOutput">
+            <summary>
+            The dictionary with the added element.
+            Note that the input dictionary is modified directly then returned.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddDictionaryItem.key">
+            <summary>
+            The key of the item to add.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddDictionaryItem.value">
+            <summary>
+            The value of the item to add.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddDictionaryItem.exit">
+            <summary>
+            The action to execute once the item has been added.
+            </summary>
+        </member>
+        <member name="T:Bolt.ClearDictionary">
+            <summary>
+            Clears all items from a dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearDictionary.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearDictionary.dictionaryInput">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearDictionary.dictionaryOutput">
+            <summary>
+            The cleared dictionary.
+            Note that the input dictionary is modified directly and then returned.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearDictionary.exit">
+            <summary>
+            The action to execute once the dictionary has been cleared.
+            </summary>
+        </member>
+        <member name="T:Bolt.CreateDictionary">
+            <summary>
+            Creates an empty dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.CreateDictionary.dictionary">
+            <summary>
+            The new empty dictionary.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetDictionaryItem">
+            <summary>
+            Gets a dictionary item with the specified key.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetDictionaryItem.dictionary">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetDictionaryItem.key">
+            <summary>
+            The key of the item.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetDictionaryItem.value">
+            <summary>
+            The value of the item.
+            </summary>
+        </member>
+        <member name="T:Bolt.MergeDictionaries">
+            <summary>
+            Merges two or more dictionaries together.
+            </summary>
+            <remarks>
+            If the same key is found more than once, only the value
+            of the first dictionary with this key will be used.
+            </remarks>
+        </member>
+        <member name="P:Bolt.MergeDictionaries.dictionary">
+            <summary>
+            The merged dictionary.
+            </summary>
+        </member>
+        <member name="T:Bolt.RemoveDictionaryItem">
+            <summary>
+            Removes a dictionary item with a specified key.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveDictionaryItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveDictionaryItem.dictionaryInput">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveDictionaryItem.dictionaryOutput">
+            <summary>
+            The dictionary without the removed item.
+            Note that the input dictionary is modified directly and then returned.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveDictionaryItem.key">
+            <summary>
+            The key of the item to remove.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveDictionaryItem.exit">
+            <summary>
+            The action to execute once the item has been removed.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetDictionaryItem">
+            <summary>
+            Sets the value of a dictionary item with the specified key.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetDictionaryItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetDictionaryItem.dictionary">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetDictionaryItem.key">
+            <summary>
+            The key of the item to set.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetDictionaryItem.value">
+            <summary>
+            The value to assign to the item.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetDictionaryItem.exit">
+            <summary>
+            The action to execute once the item has been assigned.
+            </summary>
+        </member>
+        <member name="T:Bolt.FirstItem">
+            <summary>
+            Returns the first item in a collection or enumeration.
+            </summary>
+        </member>
+        <member name="P:Bolt.FirstItem.collection">
+            <summary>
+            The collection.
+            </summary>
+        </member>
+        <member name="P:Bolt.FirstItem.firstItem">
+            <summary>
+            The first item of the collection.
+            </summary>
+        </member>
+        <member name="T:Bolt.LastItem">
+            <summary>
+            Returns the first item in a collection or enumeration.
+            </summary>
+        </member>
+        <member name="P:Bolt.LastItem.collection">
+            <summary>
+            The collection.
+            </summary>
+        </member>
+        <member name="P:Bolt.LastItem.lastItem">
+            <summary>
+            The last item of the collection.
+            </summary>
+        </member>
+        <member name="T:Bolt.AddListItem">
+            <summary>
+            Adds an item to a list.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddListItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddListItem.listInput">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddListItem.listOutput">
+            <summary>
+            The list with the added element.
+            Note that the input list is modified directly and then returned,
+            except if it is an array, in which case a new array with
+            the added element is returned instead.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddListItem.item">
+            <summary>
+            The item to add.
+            </summary>
+        </member>
+        <member name="P:Bolt.AddListItem.exit">
+            <summary>
+            The action to execute once the item has been added.
+            </summary>
+        </member>
+        <member name="T:Bolt.ClearList">
+            <summary>
+            Clears all items from a list.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearList.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearList.listInput">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearList.listOutput">
+            <summary>
+            The cleared list.
+            Note that the input list is modified directly and then returned,
+            except if it is an array, in which case a new empty array
+            is returned instead.
+            </summary>
+        </member>
+        <member name="P:Bolt.ClearList.exit">
+            <summary>
+            The action to execute once the list has been cleared.
+            </summary>
+        </member>
+        <member name="T:Bolt.CreateList">
+            <summary>
+            Creates a list from a number of item inputs.
+            </summary>
+        </member>
+        <member name="P:Bolt.CreateList.list">
+            <summary>
+            The created list.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetListItem">
+            <summary>
+            Gets the item at the specified index of a list.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetListItem.list">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetListItem.index">
+            <summary>
+            The zero-based index.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetListItem.item">
+            <summary>
+            The item.
+            </summary>
+        </member>
+        <member name="T:Bolt.InsertListItem">
+            <summary>
+            Inserts an item in a list at a specified index.
+            </summary>
+        </member>
+        <member name="P:Bolt.InsertListItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.InsertListItem.listInput">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.InsertListItem.listOutput">
+            <summary>
+            The list with the added element.
+            Note that the input list is modified directly and then returned,
+            except if it is an array, in which case a new array with
+            the added element is returned instead.
+            </summary>
+        </member>
+        <member name="P:Bolt.InsertListItem.index">
+            <summary>
+            The zero-based index at which to insert the item.
+            </summary>
+        </member>
+        <member name="P:Bolt.InsertListItem.item">
+            <summary>
+            The item to insert.
+            </summary>
+        </member>
+        <member name="P:Bolt.InsertListItem.exit">
+            <summary>
+            The action to execute once the item has been inserted.
+            </summary>
+        </member>
+        <member name="T:Bolt.MergeLists">
+            <summary>
+            Merges two or more lists together.
+            </summary>
+        </member>
+        <member name="P:Bolt.MergeLists.list">
+            <summary>
+            The merged list.
+            </summary>
+        </member>
+        <member name="T:Bolt.RemoveListItem">
+            <summary>
+            Removes the specified item from a list.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItem.listInput">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItem.listOutput">
+            <summary>
+            The list without the removed item.
+            Note that the input list is modified directly and then returned,
+            except if it is an array, in which case a new array without the item
+            is returned instead.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItem.item">
+            <summary>
+            The item to remove.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItem.exit">
+            <summary>
+            The action to execute once the item has been removed.
+            </summary>
+        </member>
+        <member name="T:Bolt.RemoveListItemAt">
+            <summary>
+            Removes the item at the specified index of a list.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItemAt.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItemAt.listInput">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItemAt.listOutput">
+            <summary>
+            The list without the removed item.
+            Note that the input list is modified directly and then returned,
+            except if it is an array, in which case a new array without the item
+            is returned instead.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItemAt.index">
+            <summary>
+            The zero-based index.
+            </summary>
+        </member>
+        <member name="P:Bolt.RemoveListItemAt.exit">
+            <summary>
+            The action to execute once the item has been removed.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetListItem">
+            <summary>
+            Sets the item at the specified index of a list.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetListItem.enter">
+            <summary>
+            The entry point for the node.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetListItem.list">
+            <summary>
+            The list.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetListItem.index">
+            <summary>
+            The zero-based index.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetListItem.item">
+            <summary>
+            The item.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetListItem.exit">
+            <summary>
+            The action to execute once the item has been assigned.
+            </summary>
+        </member>
+        <member name="T:Bolt.Branch">
+            <summary>
+            Branches flow by checking if a condition is true or false.
+            </summary>
+        </member>
+        <member name="P:Bolt.Branch.enter">
+            <summary>
+            The entry point for the branch.
+            </summary>
+        </member>
+        <member name="P:Bolt.Branch.condition">
+            <summary>
+            The condition to check.
+            </summary>
+        </member>
+        <member name="P:Bolt.Branch.ifTrue">
+            <summary>
+            The action to execute if the condition is true.
+            </summary>
+        </member>
+        <member name="P:Bolt.Branch.ifFalse">
+            <summary>
+            The action to execute if the condition is false.
+            </summary>
+        </member>
+        <member name="T:Bolt.SelectOnEnum">
+            <summary>
+            Selects a value from a set by switching over an enum.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectOnEnum.selector">
+            <summary>
+            The value on which to select.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectOnEnum.selection">
+            <summary>
+            The selected value.
+            </summary>
+        </member>
+        <member name="T:Bolt.SelectOnInteger">
+            <summary>
+            Selects a value from a set by switching over an integer.
+            </summary>
+        </member>
+        <member name="T:Bolt.SelectOnString">
+            <summary>
+            Selects a value from a set by switching over a string.
+            </summary>
+        </member>
+        <member name="T:Bolt.SelectUnit">
+            <summary>
+            Selects a value from a set by checking if a condition is true or false.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit.condition">
+            <summary>
+            The condition to check.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit.ifTrue">
+            <summary>
+            The value to return if the condition is true.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit.ifFalse">
+            <summary>
+            The value to return if the condition is false.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit.selection">
+            <summary>
+            The returned value.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit`1.selector">
+            <summary>
+            The value on which to select.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit`1.default">
+            <summary>
+            The output value to return if the selector doesn't match any other option.
+            </summary>
+        </member>
+        <member name="P:Bolt.SelectUnit`1.selection">
+            <summary>
+            The selected value.
+            </summary>
+        </member>
+        <member name="T:Bolt.SwitchOnEnum">
+            <summary>
+            Branches flow by switching over an enum.
+            </summary>
+        </member>
+        <member name="P:Bolt.SwitchOnEnum.enter">
+            <summary>
+            The entry point for the switch.
+            </summary>
+        </member>
+        <member name="P:Bolt.SwitchOnEnum.enum">
+            <summary>
+            The enum value on which to switch.
+            </summary>
+        </member>
+        <member name="T:Bolt.SwitchOnInteger">
+            <summary>
+            Branches flow by switching over an integer.
+            </summary>
+        </member>
+        <member name="T:Bolt.SwitchOnString">
+            <summary>
+            Branches flow by switching over a string.
+            </summary>
+        </member>
+        <member name="P:Bolt.SwitchUnit`1.enter">
+            <summary>
+            The entry point for the switch.
+            </summary>
+        </member>
+        <member name="P:Bolt.SwitchUnit`1.selector">
+            <summary>
+            The value on which to switch.
+            </summary>
+        </member>
+        <member name="P:Bolt.SwitchUnit`1.default">
+            <summary>
+            The branch to take if the input value does not match any other option.
+            </summary>
+        </member>
+        <member name="T:Bolt.Formula">
+            <summary>
+            Evaluates a mathematical or logical formula with multiple arguments.
+            </summary>
+        </member>
+        <member name="P:Bolt.Formula.formula">
+            <summary>
+            A mathematical or logical expression tree.
+            </summary>
+        </member>
+        <member name="P:Bolt.Formula.cacheArguments">
+            <summary>
+            Whether input arguments should only be fetched once and then reused.
+            </summary>
+        </member>
+        <member name="P:Bolt.Formula.result">
+            <summary>
+            The result of the calculation or evaluation.
+            </summary>
+        </member>
+        <member name="T:Bolt.Literal">
+            <summary>
+            Returns a constant value defined from the editor.
+            </summary>
+        </member>
+        <member name="T:Bolt.And">
+            <summary>
+            Returns true if both inputs are true.
+            </summary>
+        </member>
+        <member name="P:Bolt.And.a">
+            <summary>
+            The first boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.And.b">
+            <summary>
+            The second boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.And.result">
+            <summary>
+            True if A and B are both true; false otherwise.
+            </summary>
+        </member>
+        <member name="T:Bolt.EqualityComparison">
+            <summary>
+            Compares two inputs to determine if they are equal or not equal.
+            </summary>
+        </member>
+        <member name="P:Bolt.EqualityComparison.a">
+            <summary>
+            The first input.
+            </summary>
+        </member>
+        <member name="P:Bolt.EqualityComparison.b">
+            <summary>
+            The second input.
+            </summary>
+        </member>
+        <member name="P:Bolt.EqualityComparison.equal">
+            <summary>
+            Whether A is equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.EqualityComparison.notEqual">
+            <summary>
+            Whether A is different than B.
+            </summary>
+        </member>
+        <member name="T:Bolt.ExclusiveOr">
+            <summary>
+            Returns true if one input is true and the other is false.
+            </summary>
+        </member>
+        <member name="P:Bolt.ExclusiveOr.a">
+            <summary>
+            The first boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.ExclusiveOr.b">
+            <summary>
+            The second boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.ExclusiveOr.result">
+            <summary>
+            True if either A or B is true but not the other; false otherwise.
+            </summary>
+        </member>
+        <member name="T:Bolt.Negate">
+            <summary>
+            Inverts the value of a boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.Negate.input">
+            <summary>
+            The input boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.Negate.output">
+            <summary>
+            True if the input is false, false if the input is true.
+            </summary>
+        </member>
+        <member name="T:Bolt.NumericComparison">
+            <summary>
+            Compares two numeric inputs.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.a">
+            <summary>
+            The first input.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.b">
+            <summary>
+            The second input.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.aLessThanB">
+            <summary>
+            Whether A is less than B.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.aLessThanOrEqualToB">
+            <summary>
+            Whether A is less than or equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.aEqualToB">
+            <summary>
+            Whether A is equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.aGreaterThanOrEqualToB">
+            <summary>
+            Whether A is greater than or equal to B.
+            </summary>
+        </member>
+        <member name="P:Bolt.NumericComparison.aGreatherThanB">
+            <summary>
+            Whether A is greater than B.
+            </summary>
+        </member>
+        <member name="T:Bolt.Or">
+            <summary>
+            Returns true if either input is true.
+            </summary>
+        </member>
+        <member name="P:Bolt.Or.a">
+            <summary>
+            The first boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.Or.b">
+            <summary>
+            The second boolean.
+            </summary>
+        </member>
+        <member name="P:Bolt.Or.result">
+            <summary>
+            True if either A or B is true; false otherwise.
+            </summary>
+        </member>
+        <member name="T:Bolt.Break">
+            <summary>
+            Stops the execution of the current loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.Break.enter">
+            <summary>
+            The entry point for the break.
+            </summary>
+        </member>
+        <member name="T:Bolt.For">
+            <summary>
+            Loops between a first and last index at a specified step.
+            </summary>
+        </member>
+        <member name="P:Bolt.For.firstIndex">
+            <summary>
+            The index at which to start the loop (inclusive).
+            </summary>
+        </member>
+        <member name="P:Bolt.For.lastIndex">
+            <summary>
+            The index at which to end the loop (exclusive).
+            </summary>
+        </member>
+        <member name="P:Bolt.For.step">
+            <summary>
+            The value by which the index will be incremented (or decremented, if negative) after each loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.For.currentIndex">
+            <summary>
+            The current index of the loop.
+            </summary>
+        </member>
+        <member name="T:Bolt.ForEach">
+            <summary>
+            Loops over each element of a collection.
+            </summary>
+        </member>
+        <member name="P:Bolt.ForEach.collection">
+            <summary>
+            The collection over which to loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.ForEach.currentIndex">
+            <summary>
+            The current index of the loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.ForEach.currentKey">
+            <summary>
+            The key of the current item of the loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.ForEach.currentItem">
+            <summary>
+            The current item of the loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.LoopUnit.enter">
+            <summary>
+            The entry point for the loop.
+            </summary>
+        </member>
+        <member name="P:Bolt.LoopUnit.exit">
+            <summary>
+            The action to execute after the loop has been completed or broken.
+            </summary>
+        </member>
+        <member name="P:Bolt.LoopUnit.body">
+            <summary>
+            The action to execute at each loop.
+            </summary>
+        </member>
+        <member name="T:Bolt.While">
+            <summary>
+            Loops as long as a given condition is true.
+            </summary>
+        </member>
+        <member name="P:Bolt.While.condition">
+            <summary>
+            The condition to check at each iteration to determine whether the loop should continue.
+            </summary>
+        </member>
+        <member name="T:Bolt.GraphInput">
+            <summary>
+            Fetches input values from the parent super unit for this graph.
+            </summary>
+        </member>
+        <member name="T:Bolt.GraphOutput">
+            <summary>
+            Passes output values from this graph to the parent super unit.
+            </summary>
+        </member>
+        <member name="P:Bolt.Absolute`1.input">
+            <summary>
+            The value to make positive.
+            </summary>
+        </member>
+        <member name="P:Bolt.Absolute`1.output">
+            <summary>
+            The positive value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Add`1.a">
+            <summary>
+            The first value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Add`1.b">
+            <summary>
+            The second value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Add`1.sum">
+            <summary>
+            The sum of A and B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Angle`1.a">
+            <summary>
+            The first vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.Angle`1.b">
+            <summary>
+            The second vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.Angle`1.angle">
+            <summary>
+            The angle between A and B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Average`1.average">
+            <summary>
+            The average.
+            </summary>
+        </member>
+        <member name="P:Bolt.CrossProduct`1.a">
+            <summary>
+            The first vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.CrossProduct`1.b">
+            <summary>
+            The second vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.CrossProduct`1.crossProduct">
+            <summary>
+            The cross product of A and B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Distance`1.a">
+            <summary>
+            The first vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.Distance`1.b">
+            <summary>
+            The second vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.Distance`1.distance">
+            <summary>
+            The distance between A and B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Divide`1.dividend">
+            <summary>
+            The dividend (or numerator).
+            </summary>
+        </member>
+        <member name="P:Bolt.Divide`1.divisor">
+            <summary>
+            The divisor (or denominator).
+            </summary>
+        </member>
+        <member name="P:Bolt.Divide`1.quotient">
+            <summary>
+            The quotient of the dividend and divisor (numerator / denominator).
+            </summary>
+        </member>
+        <member name="P:Bolt.DotProduct`1.a">
+            <summary>
+            The first vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.DotProduct`1.b">
+            <summary>
+            The second vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.DotProduct`1.dotProduct">
+            <summary>
+            The dot product of A and B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Lerp`1.a">
+            <summary>
+            The first value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Lerp`1.b">
+            <summary>
+            The second value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Lerp`1.t">
+            <summary>
+            The interpolation value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Lerp`1.interpolation">
+            <summary>
+            The linear interpolation between A and B at T.
+            </summary>
+        </member>
+        <member name="P:Bolt.Maximum`1.maximum">
+            <summary>
+            The maximum.
+            </summary>
+        </member>
+        <member name="P:Bolt.Minimum`1.minimum">
+            <summary>
+            The minimum.
+            </summary>
+        </member>
+        <member name="P:Bolt.Modulo`1.dividend">
+            <summary>
+            The dividend (or numerator).
+            </summary>
+        </member>
+        <member name="P:Bolt.Modulo`1.divisor">
+            <summary>
+            The divisor (or denominator).
+            </summary>
+        </member>
+        <member name="P:Bolt.Modulo`1.remainder">
+            <summary>
+            The remainder of the division of dividend and divison (numerator / denominator).
+            </summary>
+        </member>
+        <member name="P:Bolt.MoveTowards`1.current">
+            <summary>
+            The current value.
+            </summary>
+        </member>
+        <member name="P:Bolt.MoveTowards`1.target">
+            <summary>
+            The target value.
+            </summary>
+        </member>
+        <member name="P:Bolt.MoveTowards`1.maxDelta">
+            <summary>
+            The maximum scalar increment between values.
+            </summary>
+        </member>
+        <member name="P:Bolt.MoveTowards`1.result">
+            <summary>
+            The incremented value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Multiply`1.a">
+            <summary>
+            The first value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Multiply`1.b">
+            <summary>
+            The second value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Multiply`1.product">
+            <summary>
+            The product of A and B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Normalize`1.input">
+            <summary>
+            The vector to normalize.
+            </summary>
+        </member>
+        <member name="P:Bolt.Normalize`1.output">
+            <summary>
+            The normalized vector.
+            </summary>
+        </member>
+        <member name="P:Bolt.PerSecond`1.input">
+            <summary>
+            The input value.
+            </summary>
+        </member>
+        <member name="P:Bolt.PerSecond`1.output">
+            <summary>
+            The framerate-normalized value (multiplied by delta time).
+            </summary>
+        </member>
+        <member name="P:Bolt.Project`1.a">
+            <summary>
+            The vector to project.
+            </summary>
+        </member>
+        <member name="P:Bolt.Project`1.b">
+            <summary>
+            The vector on which to project.
+            </summary>
+        </member>
+        <member name="P:Bolt.Project`1.projection">
+            <summary>
+            The projection of A on B.
+            </summary>
+        </member>
+        <member name="P:Bolt.Round`2.rounding">
+            <summary>
+            The rounding mode.
+            </summary>
+        </member>
+        <member name="P:Bolt.Round`2.input">
+            <summary>
+            The value to round.
+            </summary>
+        </member>
+        <member name="P:Bolt.Round`2.output">
+            <summary>
+            The rounded value.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarAbsolute">
+            <summary>
+            Returns the positive version of a scalar.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarAdd">
+            <summary>
+            Returns the sum of two scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarAverage">
+            <summary>
+            Returns the average of two or more scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarDivide">
+            <summary>
+            Returns the quotient of two scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarExponentiate">
+            <summary>
+            Returns the power of a base and exponent.
+            </summary>
+        </member>
+        <member name="P:Bolt.ScalarExponentiate.base">
+            <summary>
+            The base.
+            </summary>
+        </member>
+        <member name="P:Bolt.ScalarExponentiate.exponent">
+            <summary>
+            The exponent.
+            </summary>
+        </member>
+        <member name="P:Bolt.ScalarExponentiate.power">
+            <summary>
+            The power of base elevated to exponent.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarLerp">
+            <summary>
+            Returns the linear interpolation between two scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarMaximum">
+            <summary>
+            Returns the maximum between two or more scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarMinimum">
+            <summary>
+            Returns the minimum between two or more scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarModulo">
+            <summary>
+            Returns the remainder of the division of two scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarMoveTowards">
+            <summary>
+            Moves a scalar towards a target.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarMultiply">
+            <summary>
+            Returns the product of two scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarPerSecond">
+            <summary>
+            Returns the framerate-normalized value of a scalar.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarRoot">
+            <summary>
+            Returns the root at the nth degree of a radicand.
+            </summary>
+        </member>
+        <member name="P:Bolt.ScalarRoot.radicand">
+            <summary>
+            The radicand.
+            </summary>
+        </member>
+        <member name="P:Bolt.ScalarRoot.degree">
+            <summary>
+            The degree.
+            </summary>
+        </member>
+        <member name="P:Bolt.ScalarRoot.root">
+            <summary>
+            The nth degree root of the radicand.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarRound">
+            <summary>
+            Rounds a decimal number to return an integer.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarSubtract">
+            <summary>
+            Returns the difference between two scalars.
+            </summary>
+        </member>
+        <member name="T:Bolt.ScalarSum">
+            <summary>
+            Returns the sum of two or more scalars.
+            </summary>
+        </member>
+        <member name="P:Bolt.Subtract`1.minuend">
+            <summary>
+            The first value (minuend).
+            </summary>
+        </member>
+        <member name="P:Bolt.Subtract`1.subtrahend">
+            <summary>
+            The second value (subtrahend).
+            </summary>
+        </member>
+        <member name="P:Bolt.Subtract`1.difference">
+            <summary>
+            The difference, that is the minuend minus the subtrahend.
+            </summary>
+        </member>
+        <member name="P:Bolt.Sum`1.sum">
+            <summary>
+            The sum.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Absolute">
+            <summary>
+            Returns a version of a 2D vector where each component is positive.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Add">
+            <summary>
+            Returns the sum of two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Angle">
+            <summary>
+            Returns the angle between two 2D vectors in degrees.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Average">
+            <summary>
+            Returns the average of two or more 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Distance">
+            <summary>
+            Returns the distance between two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Divide">
+            <summary>
+            Returns the component-wise quotient of two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2DotProduct">
+            <summary>
+            Returns the dot product of two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Lerp">
+            <summary>
+            Returns the linear interpolation between two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Maximum">
+            <summary>
+            Returns the component-wise maximum between two or more 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Minimum">
+            <summary>
+            Returns the component-wise minimum between two or more 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Modulo">
+            <summary>
+            Returns the remainder of the component-wise division of two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2MoveTowards">
+            <summary>
+            Moves a 2D vector towards a target.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Multiply">
+            <summary>
+            Returns the component-wise product of two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Normalize">
+            <summary>
+            Returns the unit length version of a 2D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2PerSecond">
+            <summary>
+            Returns the framerate-normalized value of a 2D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Project">
+            <summary>
+            Returns the projection of a 2D vector on another.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Round">
+            <summary>
+            Rounds each component of a 2D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Subtract">
+            <summary>
+            Returns the difference between two 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector2Sum">
+            <summary>
+            Returns the sum of two or more 2D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Absolute">
+            <summary>
+            Returns a version of a 3D vector where each component is positive.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Add">
+            <summary>
+            Returns the sum of two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Angle">
+            <summary>
+            Returns the angle between two 3D vectors in degrees.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Average">
+            <summary>
+            Returns the average of two or more 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3CrossProduct">
+            <summary>
+            Returns the cross product of two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Distance">
+            <summary>
+            Returns the distance between two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Divide">
+            <summary>
+            Returns the component-wise quotient of two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3DotProduct">
+            <summary>
+            Returns the dot product of two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Lerp">
+            <summary>
+            Returns the linear interpolation between two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Maximum">
+            <summary>
+            Returns the component-wise maximum between two or more 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Minimum">
+            <summary>
+            Returns the component-wise minimum between two or more 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Modulo">
+            <summary>
+            Returns the remainder of the component-wise division of two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3MoveTowards">
+            <summary>
+            Moves a 3D vector towards a target.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Multiply">
+            <summary>
+            Returns the component-wise product of two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Normalize">
+            <summary>
+            Returns the unit length version of a 3D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3PerSecond">
+            <summary>
+            Returns the framerate-normalized value of a 3D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Project">
+            <summary>
+            Returns the projection of a 3D vector on another.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Round">
+            <summary>
+            Rounds each component of a 3D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Subtract">
+            <summary>
+            Returns the difference between two 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector3Sum">
+            <summary>
+            Returns the sum of two or more 3D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Absolute">
+            <summary>
+            Returns a version of a 4D vector where each component is positive.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Add">
+            <summary>
+            Returns the sum of two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Average">
+            <summary>
+            Returns the average of two or more 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Distance">
+            <summary>
+            Returns the distance between two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Divide">
+            <summary>
+            Returns the component-wise quotient of two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4DotProduct">
+            <summary>
+            Returns the dot product of two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Lerp">
+            <summary>
+            Returns the linear interpolation between two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Maximum">
+            <summary>
+            Returns the component-wise maximum between two or more 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Minimum">
+            <summary>
+            Returns the component-wise minimum between two or more 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Modulo">
+            <summary>
+            Returns the remainder of the component-wise division of two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4MoveTowards">
+            <summary>
+            Moves a 4D vector towards a target.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Multiply">
+            <summary>
+            Returns the component-wise product of two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Normalize">
+            <summary>
+            Returns the unit length version of a 4D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4PerSecond">
+            <summary>
+            Returns the framerate-normalized value of a 4D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Round">
+            <summary>
+            Rounds each component of a 4D vector.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Subtract">
+            <summary>
+            Returns the difference between two 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Vector4Sum">
+            <summary>
+            Returns the sum of two or more 4D vectors.
+            </summary>
+        </member>
+        <member name="T:Bolt.Null">
+            <summary>
+            Returns a null value.
+            </summary>
+        </member>
+        <member name="P:Bolt.Null.null">
+            <summary>
+            A null value.
+            </summary>
+        </member>
+        <member name="T:Bolt.NullCheck">
+            <summary>
+            Branches flow depending on whether the input is null.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCheck.input">
+            <summary>
+            The input.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCheck.enter">
+            <summary>
+            The entry point for the null check.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCheck.ifNotNull">
+            <summary>
+            The action to execute if the input is not null.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCheck.ifNull">
+            <summary>
+            The action to execute if the input is null.
+            </summary>
+        </member>
+        <member name="T:Bolt.NullCoalesce">
+            <summary>
+            Provides a fallback value if the input value is null.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCoalesce.input">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCoalesce.fallback">
+            <summary>
+            The fallback to use if the value is null.
+            </summary>
+        </member>
+        <member name="P:Bolt.NullCoalesce.result">
+            <summary>
+            The returned value.
+            </summary>
+        </member>
+        <member name="T:Bolt.Self">
+            <summary>
+            Returns the current game object.
+            </summary>
+        </member>
+        <member name="P:Bolt.Self.self">
+            <summary>
+            The current game object.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetApplicationVariable">
+            <summary>
+            Gets the value of an application variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetObjectVariable">
+            <summary>
+            Gets the value of an object variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetObjectVariable.source">
+            <summary>
+            The source of the variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetSavedVariable">
+            <summary>
+            Gets the value of a saved variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.GetSceneVariable">
+            <summary>
+            Gets the value of a scene variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.GetVariableUnit.value">
+            <summary>
+            The value of the variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.IsApplicationVariableDefined">
+            <summary>
+            Checks if an application variable is defined.
+            </summary>
+        </member>
+        <member name="T:Bolt.IsObjectVariableDefined">
+            <summary>
+            Checks if an object variable is defined.
+            </summary>
+        </member>
+        <member name="P:Bolt.IsObjectVariableDefined.source">
+            <summary>
+            The source of the variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.IsSavedVariableDefined">
+            <summary>
+            Checks if a saved variable is defined.
+            </summary>
+        </member>
+        <member name="T:Bolt.IsSceneVariableDefined">
+            <summary>
+            Checks if a scene variable is defined.
+            </summary>
+        </member>
+        <member name="P:Bolt.IsVariableDefinedUnit.isDefined">
+            <summary>
+            Whether the variable is defined.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetApplicationVariable">
+            <summary>
+            Sets the value of an application variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetObjectVariable">
+            <summary>
+            Sets the value of an object variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetObjectVariable.source">
+            <summary>
+            The source of the variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetSavedVariable">
+            <summary>
+            Sets the value of a saved variable.
+            </summary>
+        </member>
+        <member name="T:Bolt.SetSceneVariable">
+            <summary>
+            Sets the value of a scene variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariableUnit.assign">
+            <summary>
+            The entry point to assign the variable reference.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariableUnit.input">
+            <summary>
+            The value to assign to the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariableUnit.assigned">
+            <summary>
+            The action to execute once the variable has been assigned.
+            </summary>
+        </member>
+        <member name="P:Bolt.SetVariableUnit.output">
+            <summary>
+            The value assigned to the variable.
+            </summary>
+        </member>
+        <member name="P:Bolt.VariableUnit.name">
+            <summary>
+            The name of the variable.
+            </summary>
+        </member>
+        <member name="M:Bolt.Unit.Requirement(Bolt.ValueInput,Bolt.ControlInput)">
+            <summary>
+            Triggering the destination may fetch the source value.
+            </summary>
+        </member>
+        <member name="M:Bolt.Unit.Requirement(Bolt.ValueInput,Bolt.ValueOutput)">
+            <summary>
+            Getting the value of the destination may fetch the value of the source.
+            </summary>
+        </member>
+        <member name="M:Bolt.Unit.Assignment(Bolt.ControlInput,Bolt.ValueOutput)">
+            <summary>
+            Triggering the source may assign the destination value on the flow.
+            </summary>
+        </member>
+        <member name="M:Bolt.Unit.Succession(Bolt.ControlInput,Bolt.ControlOutput)">
+            <summary>
+            Triggering the source may trigger the destination.
+            </summary>
+        </member>
+    </members>
+</doc>
