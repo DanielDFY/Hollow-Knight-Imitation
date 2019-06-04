@@ -6,58 +6,58 @@ This project is based on Unity 2018.3.6f1 and Bolt plug-in.
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Menu.png">
 
-<center><b>Menu</b></center>
+<p align="center"><b>Menu</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Spawn.png">
 
-<center><b>Spawn</b></center>
+<p align="center"><b>Spawn</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Enemy Chasing.png">
 
-<center><b>Enemy Chasing</b></center>
+<p align="center"><b>Enemy Chasing</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Climb_1.png">
 
-<center><b>Climb 1</b></center>
+<p align="center"><b>Climb 1</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Trigger trap.png">
 
-<center><b>Trigger trap</b></center>
+<p align="center"><b>Trigger (door opens at the same time)</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Pause.png">
 
-<center><b>Pause</b></center>
+<p align="center"><b>Pause</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Attack.png">
 
-<center><b>Attack</b></center>
+<p align="center"><b>Attack</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Climb_2.png">
 
-<center><b>Climb 2</b></center>
+<p align="center"><b>Climb 2</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Enemy attacking.png">
 
-<center><b>Enemy attacking</b></center>
+<p align="center"><b>Enemy Attacking</b></p>
 
 
 
 <img alt="in-one-weekend cover image" src="ScreenShots/Moving platform.png">
 
-<center><b>Moving platform</b></center>
+<p align="center"><b>Moving Platform</b></p>
