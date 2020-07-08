@@ -44,9 +44,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -108,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 1410729049005502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.18, y: 0.03999996, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.68, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4195380477820900}
   m_RootOrder: 0
@@ -127,6 +128,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -138,6 +140,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -147,9 +150,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -611182097
-  m_SortingLayer: 8
-  m_SortingOrder: -1
+  m_SortingLayerID: 616613477
+  m_SortingLayer: 7
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300966, guid: 580949e98b6084dadab158abbfae8993, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -206,6 +209,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -217,6 +221,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -226,9 +231,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -611182097
-  m_SortingLayer: 8
-  m_SortingOrder: -1
+  m_SortingLayerID: 616613477
+  m_SortingLayer: 7
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300966, guid: 580949e98b6084dadab158abbfae8993, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -253,9 +258,7 @@ GameObject:
   - component: {fileID: 95145525636607754}
   - component: {fileID: 61660093914365184}
   - component: {fileID: 1351369547}
-  - component: {fileID: 1351369546}
-  - component: {fileID: 1351369548}
-  - component: {fileID: 1824840546}
+  - component: {fileID: 1701969898617409398}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -295,6 +298,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -306,6 +310,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -315,9 +320,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -611182097
-  m_SortingLayer: 8
-  m_SortingOrder: -1
+  m_SortingLayerID: 616613477
+  m_SortingLayer: 7
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2d3852d882d18b54cbc02e0fe9b27941, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -395,7 +400,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1351369546
+--- !u!114 &1701969898617409398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -404,44 +409,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914131801400352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 769e9f60be5268c4389c41308ffe43f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 0cc544b0170ca49f7bc825c023c3ca3e, type: 2}
---- !u!114 &1351369548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914131801400352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"inputEnable","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"},{"name":"isGrounded","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"},{"name":"isJump","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"isClimb","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"isSprintable","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"},{"name":"speed","value":{"$content":5.0,"$type":"System.Single"},"$version":"A"},{"name":"jumpYSpeed","value":{"$content":7.0,"$type":"System.Single"},"$version":"A"},{"name":"jumpCounter","value":{"$content":2,"$type":"System.Int32"},"$version":"A"},{"name":"health","value":{"$content":5,"$type":"System.Int32"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!114 &1824840546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914131801400352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1999370065, guid: dcd2196c4e9166f499793f2007fcda35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 385c4ebf89030402e9306d30c0867cdb, type: 2}
+  health: 5
+  moveSpeed: 5
+  jumpSpeed: 7
+  jumpChance: 2
+  climbJumpForce: {x: 8, y: 10}
+  fallSpeed: 5
+  sprintSpeed: 10
+  sprintTime: 0.15
+  sprintInterval: 0.4
+  invulnerableColor: {r: 1, g: 1, b: 1, a: 0.69803923}
+  hurtVelocity: {x: 3, y: 3}
+  hurtTime: 0.5
+  hurtRecoverTime: 1
+  deathForce: {x: 4, y: 4}
+  deathDelay: 1.5
+  attackUpRecoil: {x: 0, y: -1}
+  attackForwardRecoil: {x: -1, y: 0}
+  attackDownRecoil: {x: 0, y: 4}
+  hurtRecoil: {x: -2, y: 2}
+  attackUpEffect: {fileID: 1646975930611572}
+  attackForwardEffect: {fileID: 1410729049005502}
+  attackDownEffect: {fileID: 1941861638662376}
 --- !u!1 &1941861638662376
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +479,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -498,6 +491,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -507,9 +501,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -611182097
-  m_SortingLayer: 8
-  m_SortingOrder: -1
+  m_SortingLayerID: 616613477
+  m_SortingLayer: 7
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300966, guid: 580949e98b6084dadab158abbfae8993, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

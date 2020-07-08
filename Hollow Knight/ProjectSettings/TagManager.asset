@@ -4,16 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - AirWall
   - Platform
-  - Wall
+  - Enemy
   - Trap
   - Decoration
   - Background
+  - AirWall
+  - Wall
   - Trigger
-  - HUD
-  - Enemy
-  - Attack effect
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -29,12 +28,12 @@ TagManager:
   - Platform
   - Wall
   - Trap
-  - Trigger
+  - Switch
   - Decoration
   - Background
   - AirWall
   - HUD
-  - 
+  - Trigger
   - 
   - 
   - 
@@ -51,30 +50,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1134747539
+  - name: Backgournd
+    uniqueID: 160031007
     locked: 0
   - name: Decoration
-    uniqueID: 664755317
+    uniqueID: 3008843227
     locked: 0
   - name: Trap
-    uniqueID: 1782461683
+    uniqueID: 1284562437
     locked: 0
   - name: Floor
-    uniqueID: 3228548289
+    uniqueID: 2964051827
     locked: 0
   - name: Wall
-    uniqueID: 3590766133
+    uniqueID: 2153143505
     locked: 0
   - name: Platform
-    uniqueID: 3233192289
-    locked: 0
-  - name: Enemy
-    uniqueID: 4179859489
+    uniqueID: 2142656153
     locked: 0
   - name: Player
-    uniqueID: 3683785199
+    uniqueID: 616613477
+    locked: 0
+  - name: Enemy
+    uniqueID: 3761964161
     locked: 0
   - name: HUD
-    uniqueID: 2584736243
+    uniqueID: 2293902781
     locked: 0

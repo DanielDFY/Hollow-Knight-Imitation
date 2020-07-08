@@ -1,35 +1,87 @@
 fileFormatVersion: 2
 guid: 480f815f1929b45878d11f4df0644a33
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_0
-    21300002: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_1
-    21300004: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_2
-    21300006: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_3
-    21300008: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_4
-    21300010: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_5
-    21300012: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_6
-    21300014: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_7
-    21300016: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_8
-    21300018: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_9
-    21300020: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_10
-    21300022: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_11
-    21300024: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_12
-    21300026: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_13
-    21300028: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_14
-    21300030: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_15
-    21300032: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_16
-    21300034: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_17
-    21300036: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_18
-    21300038: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_19
-    21300040: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_20
-    21300042: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_21
-    21300044: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_22
-    21300046: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_23
-    21300048: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_24
-    21300050: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_25
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_0
+  - first:
+      213: 21300002
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_1
+  - first:
+      213: 21300004
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_2
+  - first:
+      213: 21300006
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_3
+  - first:
+      213: 21300008
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_4
+  - first:
+      213: 21300010
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_5
+  - first:
+      213: 21300012
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_6
+  - first:
+      213: 21300014
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_7
+  - first:
+      213: 21300016
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_8
+  - first:
+      213: 21300018
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_9
+  - first:
+      213: 21300020
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_10
+  - first:
+      213: 21300022
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_11
+  - first:
+      213: 21300024
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_12
+  - first:
+      213: 21300026
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_13
+  - first:
+      213: 21300028
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_14
+  - first:
+      213: 21300030
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_15
+  - first:
+      213: 21300032
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_16
+  - first:
+      213: 21300034
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_17
+  - first:
+      213: 21300036
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_18
+  - first:
+      213: 21300038
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_19
+  - first:
+      213: 21300040
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_20
+  - first:
+      213: 21300042
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_21
+  - first:
+      213: 21300044
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_22
+  - first:
+      213: 21300046
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_23
+  - first:
+      213: 21300048
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_24
+  - first:
+      213: 21300050
+    second: SpriteAtlasTexture-White_Palace (Group 0)-2048x2048-fmt12_2_25
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -83,8 +135,9 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -95,7 +148,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -106,6 +160,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,6 +180,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9cf7c9eff0ae04e1384402216bd020e9
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -145,6 +201,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9c605e617d6394fd8b08c4f3f3998405
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -165,6 +222,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e34595f1311f841e1ba9eb4eab932ae4
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -185,6 +243,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 24c7c8b429c4a4e2bb9d72f50d80b3a8
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -205,6 +264,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1df1dcdcdfb344cc9ba6d8636ca77af7
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -225,6 +285,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3a310f2e09284469e81bcdf6c71ea165
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -245,6 +306,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 85a6cc1cae80940179b9a255659f6a9a
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -265,6 +327,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1dcc5fc2ca3a048ae893d67ba4819ade
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -285,6 +348,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8b8d818d372bd4f449d119b6583c82a3
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -305,6 +369,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a645c18d4296c4ce9af6548e619b5c2a
+      internalID: 21300018
       vertices: []
       indices: 
       edges: []
@@ -325,6 +390,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 353849aaee7314d8d9d7d8a9eaf9952b
+      internalID: 21300020
       vertices: []
       indices: 
       edges: []
@@ -345,6 +411,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f17389089a69641a0a7ac866efcef90a
+      internalID: 21300022
       vertices: []
       indices: 
       edges: []
@@ -365,6 +432,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3c2949457a0004e94845d4c2b1ba2645
+      internalID: 21300024
       vertices: []
       indices: 
       edges: []
@@ -385,6 +453,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 22e609c8df6974a1b859fe67e585f74f
+      internalID: 21300026
       vertices: []
       indices: 
       edges: []
@@ -405,6 +474,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d75eb8ab0603646bf9824cce14ed8b12
+      internalID: 21300028
       vertices: []
       indices: 
       edges: []
@@ -425,6 +495,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 408a3b02dfa324074a3ec3edc38c67a0
+      internalID: 21300030
       vertices: []
       indices: 
       edges: []
@@ -445,6 +516,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8378a952009e149c78baf57a6f760f7e
+      internalID: 21300032
       vertices: []
       indices: 
       edges: []
@@ -465,6 +537,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 31a2dd482630d4d96a5c82b32e8a8aaf
+      internalID: 21300034
       vertices: []
       indices: 
       edges: []
@@ -485,6 +558,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7810f14cb998e4dbeafca3a34e1683e8
+      internalID: 21300036
       vertices: []
       indices: 
       edges: []
@@ -505,6 +579,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 802c5fb544cf845848699da4e01ebc06
+      internalID: 21300038
       vertices: []
       indices: 
       edges: []
@@ -525,6 +600,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ff97bcb0166804fcf8595def6cebb19b
+      internalID: 21300040
       vertices: []
       indices: 
       edges: []
@@ -545,6 +621,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2da2eac65a2a74400a7cef86e96a6f86
+      internalID: 21300042
       vertices: []
       indices: 
       edges: []
@@ -565,6 +642,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2dbc41a1eba404f11862b3810425942b
+      internalID: 21300044
       vertices: []
       indices: 
       edges: []
@@ -585,6 +663,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 997a1306d23a7444cb405beb820b6a44
+      internalID: 21300046
       vertices: []
       indices: 
       edges: []
@@ -605,6 +684,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5c12111523d3d4efb9052b400b6004b6
+      internalID: 21300048
       vertices: []
       indices: 
       edges: []
@@ -625,6 +705,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3c74c0aa471b24e0a95130531c0cc329
+      internalID: 21300050
       vertices: []
       indices: 
       edges: []
@@ -633,10 +714,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: d748b20db2a764267b8410c396f421e9
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,0 +1,824 @@
+fileFormatVersion: 2
+guid: c63b44a5c854f4d61b71aaba54dc3ec6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: trigger & door_0
+  - first:
+      213: 21300002
+    second: trigger 4
+  - first:
+      213: 21300004
+    second: trigger & door_2
+  - first:
+      213: 21300006
+    second: triggered
+  - first:
+      213: 21300008
+    second: trigger & door_4
+  - first:
+      213: 21300010
+    second: trigger 2
+  - first:
+      213: 21300012
+    second: trigger & door_6
+  - first:
+      213: 21300014
+    second: trigger & door_7
+  - first:
+      213: 21300016
+    second: trigger & door_8
+  - first:
+      213: 21300018
+    second: trigger & door_9
+  - first:
+      213: 21300020
+    second: trigger & door_10
+  - first:
+      213: 21300022
+    second: trigger & door_11
+  - first:
+      213: 21300024
+    second: trigger & door_12
+  - first:
+      213: 21300026
+    second: trigger & door_13
+  - first:
+      213: 21300028
+    second: trigger 3
+  - first:
+      213: 21300030
+    second: trigger & door_15
+  - first:
+      213: 21300032
+    second: trigger 1
+  - first:
+      213: 21300034
+    second: trigger & door_17
+  - first:
+      213: 21300036
+    second: trigger & door abc
+  - first:
+      213: 21300038
+    second: trigger & door_19
+  - first:
+      213: 21300040
+    second: trigger & door_20
+  - first:
+      213: 21300042
+    second: trigger & door_21
+  - first:
+      213: 21300044
+    second: trigger & door_22
+  - first:
+      213: 21300046
+    second: trigger & door_23
+  - first:
+      213: 21300048
+    second: trigger & door_24
+  - first:
+      213: 21300050
+    second: trigger & door_25
+  - first:
+      213: 21300052
+    second: trigger & door_26
+  - first:
+      213: 21300054
+    second: trigger & door_27
+  - first:
+      213: 21300056
+    second: trigger & door_28
+  - first:
+      213: 21300058
+    second: trigger & door_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: trigger & door_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 933
+        width: 236
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef72d4f1a77d4f91a495ab877269399
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger 4
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 562
+        width: 120
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f05e318ae824d94adc473bba36d007
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 454
+        width: 552
+        height: 944
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b694b94d88884024b30e271050a08e3
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: triggered
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1143
+        width: 162
+        height: 263
+      alignment: 9
+      pivot: {x: 0.4751132, y: 0.3224835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0cc23fb53874a089a3c6046a05963a
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 661
+        width: 236
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a866199896c948c0a8cc1a3e1afcd5d
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger 2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 461
+        width: 226
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 3, z: 7, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1faa810c12d144a8b4ed4b16aabb3ef
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_6
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 856
+        width: 196
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07d7a0ff228441d991e166d6e40a9a8
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_7
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 864
+        width: 103
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09be25aacf8104edebc384727f1edf7e
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_8
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 582
+        width: 118
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef83a4b53570e4a559e07f90c9cfcf1c
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_9
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 594
+        width: 129
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa1b319dc786446b8c6bb28c766505b
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_10
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 828
+        width: 81
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea96e1ec0c94949279d107d8d8b3b7de
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_11
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 660
+        width: 78
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb5225884b9d485097548f23a2c2f77
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_12
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 617
+        width: 94
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f267005d809ff44bb90ca640559fc7ec
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_13
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 744
+        width: 56
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1a0bfc5f57542d8ad29ddd6ad3798d
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger 3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 499
+        width: 215
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e5b4e87f1c944018e0a719f5f328b6
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_15
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 503
+        width: 115
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f08ad8ccc4a4cbe9f6576f2a5ebe86
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger 1
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 7
+        width: 162
+        height: 232
+      alignment: 9
+      pivot: {x: 0.50242054, y: 0.6689429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e02922a40dab4ea188c2e7ca7ed68ee
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_17
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 512
+        width: 67
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9a4afc74a4f4907b1ae675d13b4089
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door abc
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 356
+        width: 257
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e06aa0e179f4d81a72dcbde83aab1c
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_19
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 401
+        width: 81
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985e352f4531a40188a86cdaba78eee2
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_20
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 435
+        width: 81
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b00fc0383d245d8826bce398ebf47c
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_21
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 392
+        width: 69
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ceb110d27bc64debab69f686f7a2159
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_22
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 358
+        width: 81
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b1b976b94d34f259003fb9cc934bc2
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_23
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 280
+        width: 63
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4b13c14ca7c4c3abe1920e4c4e4265
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 247
+        width: 352
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c652322e9071642a4b726a50d1215738
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_25
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 235
+        width: 350
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c129f0f9be944d61ab56bea473dc97a
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_26
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 0
+        width: 117
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a549f1f8c174043b19ef90c299af5e56
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 707
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccba4a2c7c459427681e94741250176e
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 700
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b76dae9ef5d534d5bb14d927777a52f8
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger & door_29
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db24f40484df4fac81bd6f07b9b4479
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0fce59a11c38f4f6490c33eff4f53a7f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
