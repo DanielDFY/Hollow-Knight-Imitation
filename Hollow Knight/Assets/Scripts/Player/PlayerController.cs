@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
 
     // Start is called before the first frame update
     private void Start() {
-        GlobalController.Instance.player = gameObject;
-
         isInputEnabled = true;
         isSprintReset = true;
 
@@ -275,7 +273,7 @@ public class PlayerController : MonoBehaviour
         newForce.y = deathForce.y;
         _rigidbody.AddForce(newForce, ForceMode2D.Impulse);
 
-        isInputEnabled = false;
+        isInputEnabled = false;        
 
         StartCoroutine(deathCoroutine());
     }
@@ -313,7 +311,8 @@ public class PlayerController : MonoBehaviour
         if (jumpChance == 0)
         {
             _animator.SetTrigger("IsJumpSecond");
-        } else
+        } 
+        else if (jumpChance == 1)
         {
             _animator.SetTrigger("IsJumpFirst");
         }
@@ -327,6 +326,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody.AddForce(realClimbJumpForce, ForceMode2D.Impulse);
 
         _animator.SetTrigger("IsClimbJump");
+        _animator.SetTrigger("IsJumpFirst");
 
         isInputEnabled = false;
         StartCoroutine(climbJumpCoroutine(_climbJumpDelay));
@@ -469,7 +469,7 @@ public class PlayerController : MonoBehaviour
             } 
             else if (layerName == "Enemy")
             {
-
+                obj.GetComponent<EnemyController>().Hurt(1);
             }
         }
 
@@ -494,7 +494,14 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator deathCoroutine()
     {
+        var material = gameObject.GetComponent<BoxCollider2D>().sharedMaterial;
+        material.bounciness = 0.5f;
+        material.friction = 1;
+
         yield return new WaitForSeconds(deathDelay);
+
+        material.bounciness = 0;
+        material.friction = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

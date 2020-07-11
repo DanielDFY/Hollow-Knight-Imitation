@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Trigger
   - Switch
+  - HUD
   layers:
   - Default
   - TransparentFX
@@ -68,11 +69,11 @@ TagManager:
   - name: Platform
     uniqueID: 2142656153
     locked: 0
-  - name: Player
-    uniqueID: 616613477
-    locked: 0
   - name: Enemy
     uniqueID: 3761964161
+    locked: 0
+  - name: Player
+    uniqueID: 616613477
     locked: 0
   - name: HUD
     uniqueID: 2293902781

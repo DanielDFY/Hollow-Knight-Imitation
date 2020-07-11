@@ -271,6 +271,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1096643862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1914131801400352, guid: 3f189b4e844dd4c15bacde99d721494d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1680063319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1159484868
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +568,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389698275
 GameObject:
@@ -776,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4195380477820900, guid: 3f189b4e844dd4c15bacde99d721494d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4195380477820900, guid: 3f189b4e844dd4c15bacde99d721494d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -945,7 +951,7 @@ PrefabInstance:
     - target: {fileID: 4330744619683578235, guid: 743328aacec79034d816adba8fcba1db,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4330744619683578235, guid: 743328aacec79034d816adba8fcba1db,
         type: 3}
@@ -966,6 +972,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Globale Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330744619683578237, guid: 743328aacec79034d816adba8fcba1db,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1096643862}
+    - target: {fileID: 4330744619683578237, guid: 743328aacec79034d816adba8fcba1db,
+        type: 3}
+      propertyPath: nextScene
+      value: Level1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743328aacec79034d816adba8fcba1db, type: 3}
