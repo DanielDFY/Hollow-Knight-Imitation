@@ -3,31 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class PatrolController : EnemyController
 {
-    public int health;
     public float walkSpeed;
+    public float edgeSafeDistance;
     public float behaveIntervalLeast;
     public float behaveIntervalMost;
-    public float edgeSafeDistance;
-    public float detectDistance;
 
-    public Vector2 hurtRecoil;
-    public float recoilTime;
-    public Vector2 deathForce;
-    public float destroyDelay;
+    private int _reachEdge;
+    private bool _isChasing;
+    private bool _isMovable;
 
     private Transform _playerTransform;
     private Transform _transform;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-
-    private State _currentState;
-    private float _playerEnemyDistance;
-    private int _reachEdge;
-    private bool _isChasing;
-    private bool _isMovable;
 
     // Start is called before the first frame update
     void Start()
@@ -82,17 +73,22 @@ public class EnemyController : MonoBehaviour
         if (layerName == "Player")
         {
             PlayerController playerController = collision.collider.GetComponent<PlayerController>();
-            playerController.Hurt(1);
+            playerController.hurt(1);
         }
     }
 
-    public void Hurt(int damage)
+    public override float behaveInterval()
+    {
+        return UnityEngine.Random.Range(behaveIntervalLeast, behaveIntervalMost);
+    }
+
+    public override void hurt(int damage)
     {
         health = Math.Max(health - damage, 0);
 
         if (health == 0)
         {
-            Death();
+            die();
             return;
         }
 
@@ -102,11 +98,6 @@ public class EnemyController : MonoBehaviour
         _rigidbody.velocity = newVelocity;
 
         StartCoroutine(hurtCoroutine());
-    }
-
-    public float playerEnemyDistance()
-    {
-        return _playerEnemyDistance;
     }
 
     public int reachEdge()
@@ -140,7 +131,7 @@ public class EnemyController : MonoBehaviour
         float newWalkSpeed = (direction == _reachEdge) ? 0 : direction * walkSpeed;
 
         // flip sprite
-        if (direction != 0)
+        if (direction != 0 && health > 0)
         {
             Vector3 newScale = _transform.localScale;
             newScale.x = direction;
@@ -156,9 +147,11 @@ public class EnemyController : MonoBehaviour
         _animator.SetFloat("Speed", Math.Abs(newWalkSpeed));
     }
 
-    private void Death()
+    protected override void die()
     {
         _animator.SetTrigger("isDead");
+
+        _isMovable = false;
 
         Vector2 newVelocity;
         newVelocity.x = 0;
@@ -202,115 +195,116 @@ public class EnemyController : MonoBehaviour
 
         Destroy(gameObject);
     }
-}
 
-public abstract class State
-{
-    public abstract bool checkValid(EnemyController enemyController);
-    public abstract void Execute(EnemyController enemyController);
-}
-
-public class Patrol : State
-{
-    private State _currentState = new Idle();
-    private int _currentStateCase = 0;
-    private bool _isFinished = true;
-
-    public override bool checkValid(EnemyController enemyController)
+    public abstract class PatrolState
     {
-        float playerEnemyDistanceAbs = Math.Abs(enemyController.playerEnemyDistance());
-        return playerEnemyDistanceAbs > enemyController.detectDistance;
+        public abstract bool checkValid(PatrolController enemyController);
+        public abstract void Execute(PatrolController enemyController);
     }
 
-    public override void Execute(EnemyController enemyController)
+    public class Patrol : State
     {
-        if (!_currentState.checkValid(enemyController) || _isFinished)
+        private PatrolState _currentState = new Idle();
+        private int _currentStateCase = 0;
+        private bool _isFinished = true;
+
+        public override bool checkValid(EnemyController enemyController)
         {
-            int randomStateCase;
-            do
-            {
-                randomStateCase = UnityEngine.Random.Range(0, 3);
-            } while (randomStateCase == _currentStateCase);
-
-            _currentStateCase = randomStateCase;
-            switch (_currentStateCase)
-            {
-                case 0:
-                    _currentState = new Idle();
-                    break;
-                case 1:
-                    _currentState = new WalkingLeft();
-                    break;
-                case 2:
-                    _currentState = new WalkingRight();
-                    break;
-            }
-
-            float behaveInterval = UnityEngine.Random.Range(enemyController.behaveIntervalLeast, enemyController.behaveIntervalMost);
-            enemyController.StartCoroutine(executeCoroutine(behaveInterval));
+            float playerEnemyDistanceAbs = Math.Abs(enemyController.playerEnemyDistance());
+            return playerEnemyDistanceAbs > enemyController.detectDistance;
         }
 
-        _currentState.Execute(enemyController);
+        public override void Execute(EnemyController enemyController)
+        {
+            PatrolController patrolController = (PatrolController)enemyController;
+            if (!_currentState.checkValid(patrolController) || _isFinished)
+            {
+                int randomStateCase;
+                do
+                {
+                    randomStateCase = UnityEngine.Random.Range(0, 3);
+                } while (randomStateCase == _currentStateCase);
+
+                _currentStateCase = randomStateCase;
+                switch (_currentStateCase)
+                {
+                    case 0:
+                        _currentState = new Idle();
+                        break;
+                    case 1:
+                        _currentState = new WalkingLeft();
+                        break;
+                    case 2:
+                        _currentState = new WalkingRight();
+                        break;
+                }
+
+                patrolController.StartCoroutine(executeCoroutine(patrolController.behaveInterval()));
+            }
+
+            _currentState.Execute(patrolController);
+        }
+
+        private IEnumerator executeCoroutine(float delay)
+        {
+            _isFinished = false;
+            yield return new WaitForSeconds(delay);
+            if (!_isFinished)
+                _isFinished = true;
+        }
     }
 
-    private IEnumerator executeCoroutine(float delay)
+    public class Chase : State
     {
-        _isFinished = false;
-        yield return new WaitForSeconds(delay);
-        if (!_isFinished)
-            _isFinished = true;
-    }
-}
+        public override bool checkValid(EnemyController enemyController)
+        {
+            float playerEnemyDistanceAbs = Math.Abs(enemyController.playerEnemyDistance());
+            return playerEnemyDistanceAbs <= enemyController.detectDistance;
+        }
 
-public class Chase : State
-{
-    public override bool checkValid(EnemyController enemyController)
-    {
-        float playerEnemyDistanceAbs = Math.Abs(enemyController.playerEnemyDistance());
-        return playerEnemyDistanceAbs <= enemyController.detectDistance;
-    }
-
-    public override void Execute(EnemyController enemyController)
-    {
-        float dist = enemyController.playerEnemyDistance();
-        enemyController.walk(Math.Abs(dist) < 0.1f ? 0 : dist);
-    }
-}
-
-public class Idle : State
-{
-    public override bool checkValid(EnemyController enemyController)
-    {
-        return enemyController.reachEdge() == 0;
+        public override void Execute(EnemyController enemyController)
+        {
+            PatrolController patrolController = (PatrolController)enemyController;
+            float dist = patrolController.playerEnemyDistance();
+            patrolController.walk(Math.Abs(dist) < 0.1f ? 0 : dist);
+        }
     }
 
-    public override void Execute(EnemyController enemyController)
+    public class Idle : PatrolState
     {
-        enemyController.walk(0);
+        public override bool checkValid(PatrolController patrolController)
+        {
+            return patrolController.reachEdge() == 0;
+        }
+
+        public override void Execute(PatrolController patrolController)
+        {
+            patrolController.walk(0);
+        }
     }
-}
-public class WalkingLeft : State
-{
-    public override bool checkValid(EnemyController enemyController)
+    public class WalkingLeft : PatrolState
     {
-        return enemyController.reachEdge() != -1;
+        public override bool checkValid(PatrolController patrolController)
+        {
+            return patrolController.reachEdge() != -1;
+        }
+
+        public override void Execute(PatrolController patrolController)
+        {
+            patrolController.walk(-1);
+        }
     }
 
-    public override void Execute(EnemyController enemyController)
+    public class WalkingRight : PatrolState
     {
-        enemyController.walk(-1);
-    }
-}
+        public override bool checkValid(PatrolController patrolController)
+        {
+            return patrolController.reachEdge() != 1;
+        }
 
-public class WalkingRight : State
-{
-    public override bool checkValid(EnemyController enemyController)
-    {
-        return enemyController.reachEdge() != 1;
-    }
-
-    public override void Execute(EnemyController enemyController)
-    {
-        enemyController.walk(1);
+        public override void Execute(PatrolController patrolController)
+        {
+            patrolController.walk(1);
+        }
     }
 }

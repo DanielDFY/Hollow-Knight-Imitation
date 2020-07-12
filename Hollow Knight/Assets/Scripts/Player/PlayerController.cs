@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Hurt(int damage)
+    public void hurt(int damage)
     {
         gameObject.layer = LayerMask.NameToLayer("PlayerInvulnerable");
 
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
         if (health == 0)
         {
-            Death();
+            die();
             return;
         }
 
@@ -256,7 +256,7 @@ public class PlayerController : MonoBehaviour
             attack();
     }
 
-    private void Death()
+    private void die()
     {
         _animator.SetTrigger("IsDead");
 
@@ -469,7 +469,7 @@ public class PlayerController : MonoBehaviour
             } 
             else if (layerName == "Enemy")
             {
-                obj.GetComponent<EnemyController>().Hurt(1);
+                obj.GetComponent<EnemyController>().hurt(1);
             }
         }
 
