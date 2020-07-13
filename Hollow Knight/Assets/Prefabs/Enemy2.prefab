@@ -166,8 +166,8 @@ MonoBehaviour:
   health: 2
   detectDistance: 12
   damageToPlayer: 1
-  hurtRecoil: {x: -2, y: 2}
-  recoilTime: 0.5
+  hurtRecoil: {x: -2, y: 0}
+  hurtRecoilTime: 0.2
   deathForce: {x: -2, y: 2}
   destroyDelay: 3
   shootInterval: 3

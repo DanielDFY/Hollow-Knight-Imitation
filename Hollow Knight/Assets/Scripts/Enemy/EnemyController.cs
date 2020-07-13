@@ -10,7 +10,7 @@ public abstract class EnemyController : MonoBehaviour
     public int damageToPlayer;
 
     public Vector2 hurtRecoil;
-    public float recoilTime;
+    public float hurtRecoilTime;
     public Vector2 deathForce;
     public float destroyDelay;
 

@@ -82,9 +82,16 @@ public class PatrolController : EnemyController
         return UnityEngine.Random.Range(behaveIntervalLeast, behaveIntervalMost);
     }
 
+    public int reachEdge()
+    {
+        return _reachEdge;
+    }
+
     public override void hurt(int damage)
     {
         health = Math.Max(health - damage, 0);
+
+        _isMovable = false;
 
         if (health == 0)
         {
@@ -100,9 +107,10 @@ public class PatrolController : EnemyController
         StartCoroutine(hurtCoroutine());
     }
 
-    public int reachEdge()
+    private IEnumerator hurtCoroutine()
     {
-        return _reachEdge;
+        yield return new WaitForSeconds(hurtRecoilTime);
+        _isMovable = true;
     }
 
     private bool checkGrounded(Vector2 offset)
@@ -151,8 +159,6 @@ public class PatrolController : EnemyController
     {
         _animator.SetTrigger("isDead");
 
-        _isMovable = false;
-
         Vector2 newVelocity;
         newVelocity.x = 0;
         newVelocity.y = 0;
@@ -165,16 +171,7 @@ public class PatrolController : EnemyController
         newForce.y = deathForce.y;
         _rigidbody.AddForce(newForce, ForceMode2D.Impulse);
 
-        _isMovable = false;
-
         StartCoroutine(fadeCoroutine());
-    }
-
-    private IEnumerator hurtCoroutine()
-    {
-        _isMovable = false;
-        yield return new WaitForSeconds(recoilTime);
-        _isMovable = true;
     }
 
     private IEnumerator fadeCoroutine()
@@ -196,6 +193,8 @@ public class PatrolController : EnemyController
         Destroy(gameObject);
     }
 
+    /* ######################################################### */
+
     public abstract class PatrolState
     {
         public abstract bool checkValid(PatrolController enemyController);
@@ -204,9 +203,15 @@ public class PatrolController : EnemyController
 
     public class Patrol : State
     {
-        private PatrolState _currentState = new Idle();
+        private PatrolState _currentState;
         private int _currentStateCase = 0;
-        private bool _isFinished = true;
+        private bool _isFinished;   // ready for next state
+
+        public Patrol()
+        {
+            _currentState = new Idle();
+            _isFinished = true;
+        }
 
         public override bool checkValid(EnemyController enemyController)
         {
@@ -219,6 +224,7 @@ public class PatrolController : EnemyController
             PatrolController patrolController = (PatrolController)enemyController;
             if (!_currentState.checkValid(patrolController) || _isFinished)
             {
+                // randomly change current state
                 int randomStateCase;
                 do
                 {

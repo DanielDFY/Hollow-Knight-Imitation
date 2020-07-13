@@ -9,12 +9,6 @@ public class Projectile : Trap
     public float movingSpeed;
     public float destroyTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string layerName = LayerMask.LayerToName(collision.collider.gameObject.layer);
@@ -37,6 +31,6 @@ public class Projectile : Trap
     private IEnumerator destroyCoroutine(float delay)
     {
         yield return new WaitForSeconds(delay);
-        GameObject.Destroy(this);
+        Destroy(this);
     }
 }

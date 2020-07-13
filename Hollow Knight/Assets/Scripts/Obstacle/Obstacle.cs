@@ -6,6 +6,6 @@ public class Obstacle : MonoBehaviour
 {
     public void destroy()
     {
-        GameObject.Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

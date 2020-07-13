@@ -35,7 +35,7 @@ TagManager:
   - AirWall
   - HUD
   - Trigger
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -74,6 +74,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 616613477
+    locked: 0
+  - name: Projectile
+    uniqueID: 3965615513
     locked: 0
   - name: HUD
     uniqueID: 2293902781
