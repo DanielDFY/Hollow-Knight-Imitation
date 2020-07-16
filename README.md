@@ -1,6 +1,7 @@
 # Hollow Knight
 
 This project is based on Unity 2018.3.6f1 and Bolt plug-in (now has been updated to Unity 2019.4.2f1 and C# scripts).
+
 Star this repo if you like it!
 
 ### Screen shots
